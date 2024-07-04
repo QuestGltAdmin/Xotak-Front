@@ -1,5 +1,6 @@
 // import logo from './logo.svg';
 import "./App.css";
+import "react-phone-input-2/lib/style.css";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -11,7 +12,6 @@ import Forgot_password from "./Pages/Forgot_password";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import Transactions from './Pages/Dashboard/Transactions';
 import Profile from './Pages/Dashboard/Profile';
-import HomePage from './Pages/HomePage';
 
 function App() {
   return (
@@ -27,7 +27,6 @@ function App() {
           <Route path="/Dashboard" element={<Dashboard />} />
           <Route path="/Transactions" element={<Transactions />} />
           <Route path="/Profile" element={<Profile />} />
-          <Route path="/home" element={<HomePage />} />
         </Routes>
       </BrowserRouter>
     </>

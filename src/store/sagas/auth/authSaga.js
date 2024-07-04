@@ -60,15 +60,19 @@ export function* userLoginSaga(action) {
 //===============================UserRegisterSaga============================//
 export function* registerSaga(action) {
   yield put(registerStart());
-  const { toast, formdata, mail, navigate, setDisable } = action.payload;
+  const { payload, navigate, toast, setDisable } = action.payload;
   try {
-    const response = yield axiosMain.post(``, formdata);
-
+    const response = yield axiosMain.post(`/signup`, payload);
+    console.log(response, "signupresponse");
     if (response?.data?.status) {
       toast.success(response.data.message);
-     
+
       yield put(registerSuccess(response.data.data));
+      console.log(response.data.data, "data");
       setDisable(false);
+      navigate("/Otp_verification", {
+        state: { email: response.data.data?.email },
+      });
     } else {
       setDisable(false);
       yield put(registerFail("Something went wrong! Please try again."));
