@@ -168,34 +168,10 @@ datasets: [
 
 
                     <Row>
-                      <Col lg={4}>
+                      <Col lg={6}>
                         <div className="chart-box shadow-box-main">
                           <h3>Doughnut</h3>
                           <Doughnut data={data1} />
-                        </div>
-                      </Col>
-                      <Col lg={4}>
-                        <div className="chart-box shadow-box-main">
-                            <h3>Pie Chart</h3>
-                            <Pie data={data2} />
-                        </div>
-                      </Col>
-                      <Col lg={4}>
-                        <div className="chart-box shadow-box-main">
-                            <h3>Pie Chart</h3>
-                            <Pie data={data} />
-                        </div>
-                      </Col>
-                      <Col lg={6}>
-                        <div className="chart-box shadow-box-main">
-                            <h3>Line Chart</h3>
-                            <Line options={options} data={data3} />
-                        </div>
-                      </Col>
-                      <Col lg={6}>
-                        <div className="chart-box shadow-box-main">
-                            <h3>Line Chart</h3>
-                            
                         </div>
                       </Col>
                       

@@ -80,15 +80,17 @@ export default function Otp_verification() {
                 <Form.Group className="mb-3">
                   <Form.Label>OTP</Form.Label>
 
-                  <OTPInput
-                    className="otp_box"
-                    value={otp}
-                    onChange={setOTP}
-                    autoFocus
-                    numInputs={6}
-                    otpType="number"
-                    renderInput={(props) => <input {...props} />}
-                  />
+                  <div  className="otp_box">
+                    <OTPInput
+                     
+                      value={otp}
+                      onChange={setOTP}
+                      autoFocus
+                      numInputs={6}
+                      otpType="number"
+                      renderInput={(props) => <input {...props} />}
+                    />
+                  </div>
                 </Form.Group>
 
                 <div>
@@ -102,7 +104,10 @@ export default function Otp_verification() {
                     {disable ? "Processing" : "Submit"} 
                   </button>
                 </div>
-                <a href="/">Resend Otp</a>
+                <div className="outer-forgot-pass-link">
+                      <p className="dont-have-acc">Don't got the OTP? <a href="/">Resend Otp</a></p>
+                    </div>
+               
               </div>
             </Col>
           </Row>

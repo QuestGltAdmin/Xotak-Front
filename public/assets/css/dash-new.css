@@ -49,6 +49,8 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     font-family: 'Rubik', sans-serif;
+    min-height: 100vh;
+    margin: 0 !important;
 }
 .signup-sec {
     
@@ -148,7 +150,7 @@ font-size: 14px;
 .outer-bg-signup .common-btn{
     padding: 12px;
 }
-.outer-bg-signup .otp_box{
+.outer-bg-signup .otp_box > div{ 
     display: flex;
     justify-content: space-between;
 }
@@ -157,7 +159,7 @@ font-size: 14px;
     box-shadow: none !important;
     padding: 16px;
     border-radius: 0px;
-    color: #fff !important;
+    color: #000 !important;
     background-color: transparent !important;
     height: auto !important;
     width: 60px !important;
@@ -232,7 +234,7 @@ font-size: 14px;
     padding-top: 80px;
     padding-left: 300px;
     min-height: 100vh;
-    background-color: #e3e3e3;
+    /* background-color: #e3e3e3; */
 }
 .inner-dash-bpx{
     padding: 15px;
@@ -248,7 +250,7 @@ height: 50px;
     left: 0;
     right: 0;
     border-radius: 0;
-    background-color: #303030 !important;
+    background-color: #fff !important;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
     width: 100%;
     margin: 0 auto;
@@ -309,7 +311,7 @@ height: 50px;
 }
 .profile-dropdown{
 margin: 0 15px;
-color: #fff !important;
+color: #303030 !important;
 display: flex;
 align-items: center;
 font-size: 14px;
@@ -644,4 +646,119 @@ margin: 0;
     width: 100%;
     left: 0;
     background-color: #303030;
+}
+
+
+.buy-coin-box{
+    background-color: #fff;
+    min-height: 300px;
+    padding: 20px;
+    box-shadow: 0 0 10px #303030;
+    margin-top: 50px;
+}
+.buy-coin-box .swap-dropdown {
+    margin: 40px 0;
+}
+.buy-coin-box .swap-dropdown > div{
+display: flex;
+align-items: center;
+justify-content: space-between;
+margin-bottom: 10px;
+}
+.buy-coin-box .swap-dropdown > div p {
+    font-size: 14px;
+    font-weight: 600;
+    color: #303030;
+    margin-bottom: 0;
+}
+.connect-wallet-btn.dropdown-toggle {
+    background-color: #fff;
+    color: #303030;
+    border-color: #fff;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    padding: 0;
+    padding-right: 25px;
+    min-width: 145px;
+}
+.connect-wallet-btn.dropdown-toggle::after {
+    content: "";
+    position: absolute;
+    border-bottom: 2px solid #000;
+    border-right: 2px solid #000;
+    border-left: none;
+    height: 9px;
+    width: 9px;
+    border-top: none;
+    transform: rotate(45deg);
+    right: 0;
+    top: 12px;
+}
+.connect-wallet-btn.dropdown-toggle img {
+    height: 35px;
+    width: 35px;
+    object-fit: contain;
+    margin-right: 5px;
+}
+.after-connect-dropdown .dropdown-menu {
+    width: 100%;
+    padding: 0;
+    overflow: hidden;
+}
+.after-connect-dropdown .dropdown-menu .dropdown-item {
+    font-size: 14px;
+    font-weight: 500;
+    padding: 5px 8px;
+}
+.after-connect-dropdown .dropdown-menu .dropdown-item img{
+    height: 24px;
+    width: 24px;
+    object-fit: contain;
+    margin-right: 5px;
+}
+.after-connect-dropdown .dropdown-menu .dropdown-item:hover, .after-connect-dropdown .dropdown-menu .dropdown-item:focus, .after-connect-dropdown .dropdown-menu .dropdown-item:active {
+    background-color: #303030;
+    color: #fff;
+}
+.swap-sec-box{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px; 
+}
+.swap-sec-box > div {
+    background-color: #fff;
+    color: #303030;
+    border-color: #fff;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    padding: 0;
+    padding-right: 25px;
+    min-width: 145px;
+}
+
+.swap-sec-box > div img{
+    height: 35px;
+    width: 35px;
+    object-fit: contain;
+    margin-right: 5px; 
+}
+.swap-row {
+    border-bottom: 1px solid #ddd;
+    margin: 30px 0 30px;
+    position: relative;
+}
+.swap-row img {
+    height: 36px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -18px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 5px 15px;
 }

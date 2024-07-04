@@ -16,13 +16,13 @@ export default function Header() {
                             <Col>
                                 <div className="d-flex justify-content-between align-items-center">
                                     <Navbar.Brand href="/">
-                                        <img src="assets/img/logo.png" />
+                                        <img src="assets/img/logo.svg" />
                                     </Navbar.Brand>
                                     
                                     <Navbar.Collapse id="basic-navbar-nav">
                                     <Nav className="me-auto">
                                         <Nav.Link href="/Dashboard"><i className="fa fa-th-large"></i> Dashboard</Nav.Link>
-                                        <Nav.Link href=""><i className="fa fa-money"></i> Buy Coin</Nav.Link>
+                                        <Nav.Link href="/buy-coin"><i className="fa fa-money"></i> Buy Coin</Nav.Link>
                                         <Nav.Link href="/Transactions"><i className="fa fa-exchange"></i> Transactions</Nav.Link>
                                         <Nav.Link href="/Profile"><i className="fa fa-user"></i> Profile</Nav.Link>
                                         {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
@@ -44,7 +44,7 @@ export default function Header() {
                                    
                                     
                                    
-                                    <Link to='/' className="ms-auto profile-dropdown"><img src="assets/img/logo.png" /> GTH4536675...</Link>
+                                    <Link to='/' className="ms-auto profile-dropdown"><img src="assets/img/coin.png" /> GTH4536675...</Link>
                                     <Link to='/' className="border-btn">Logout <i className="fa fa-sign-out"></i></Link>
                                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                                 </div>

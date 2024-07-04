@@ -12,6 +12,7 @@ import Forgot_password from "./Pages/Forgot_password";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import Transactions from './Pages/Dashboard/Transactions';
 import Profile from './Pages/Dashboard/Profile';
+import { Buycoin } from "./Pages/Dashboard/Buycoin";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="/Dashboard" element={<Dashboard />} />
           <Route path="/Transactions" element={<Transactions />} />
           <Route path="/Profile" element={<Profile />} />
+          <Route path="/buy-coin" element={<Buycoin />} />
         </Routes>
       </BrowserRouter>
     </>
