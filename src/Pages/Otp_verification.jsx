@@ -17,12 +17,12 @@ import axiosMain from "../http/axios/axios_main";
 
 export default function Otp_verification() {
   //==================================Global Variable================================//
-  const { state } = useLocation("/Register");
-  const { email } = state || "";
+  const { state } = useLocation("");
+  const { email , flag } = state || "";
   const navigate = useNavigate();
 
   //==================================End of code================================//
-  console.log(email,"data inside otp");
+  console.log(flag, "flag");
   //=============== Local vaiable ====================//
   const [formError, setFormError] = useState("");
   const [otp, setOTP] = useState("");
@@ -52,9 +52,13 @@ export default function Otp_verification() {
         if (api?.data?.status) {
           setDisable(false);
           toast.success("Otp verify successfully.");
+          
           setTimeout(() => {
-            navigate("/");
-          }, 3000);
+            flag === "forget" ? 
+                navigate("/ResetPassword") :
+                navigate("/");
+        },2000);
+        
         }
       } catch (error) {
         setDisable(false);
@@ -80,9 +84,8 @@ export default function Otp_verification() {
                 <Form.Group className="mb-3">
                   <Form.Label>OTP</Form.Label>
 
-                  <div  className="otp_box">
+                  <div className="otp_box">
                     <OTPInput
-                     
                       value={otp}
                       onChange={setOTP}
                       autoFocus
@@ -92,7 +95,7 @@ export default function Otp_verification() {
                     />
                   </div>
                 </Form.Group>
-
+                <p>{formError}</p>
                 <div>
                   <button
                     className="common-btn w-100 m-0"
@@ -101,13 +104,14 @@ export default function Otp_verification() {
                     }}
                     disabled={disable}
                   >
-                    {disable ? "Processing" : "Submit"} 
+                    {disable ? "Processing" : "Submit"}
                   </button>
                 </div>
                 <div className="outer-forgot-pass-link">
-                      <p className="dont-have-acc">Don't got the OTP? <a href="/">Resend Otp</a></p>
-                    </div>
-               
+                  <p className="dont-have-acc">
+                    Don't got the OTP? <a href="/">Resend Otp</a>
+                  </p>
+                </div>
               </div>
             </Col>
           </Row>

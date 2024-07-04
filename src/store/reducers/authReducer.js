@@ -11,7 +11,7 @@ const authSlice = createSlice({
   initialState: {
     isLoading: false,
     isUserAuthenticated: !!isUserAuthenticated ? true : false,
-    user: !!userData ? JSON.parse(userData) : {},
+    user: !!userData && userData !== "undefind" ? userData : {},
     usertoken: !!usertoken ? JSON.parse(usertoken) : {},
     WalletEVM:
       !!WalletEVM && WalletEVM !== "undefined" ? JSON.parse(WalletEVM) : {},

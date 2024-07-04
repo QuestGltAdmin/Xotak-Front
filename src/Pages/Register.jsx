@@ -97,7 +97,6 @@ export default function Register() {
   //========================= Handel Submit =========================//
   const HandleSubmit = async () => {
     let regex = new RegExp("[a-z0-9]+@[a-z]+.[a-z]{2,3}");
-    console.log(inputValue, "iiii");
     if (!inputValue.name) {
       setFormError("Please enter Name");
     } else if (!regex.test(inputValue.email)) {

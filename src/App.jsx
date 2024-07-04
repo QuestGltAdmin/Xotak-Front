@@ -6,7 +6,7 @@ import { ToastContainer } from "react-toastify";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./Pages/Login"
 import Register from "./Pages/Register";
-import Verify_account from "./Pages/Verify_account";
+import ResetPassword from "./Pages/ResetPassword";
 import Otp_verification from "./Pages/Otp_verification";
 import Forgot_password from "./Pages/Forgot_password";
 import Dashboard from "./Pages/Dashboard/Dashboard";
@@ -22,7 +22,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/Register" element={<Register />} />
-          <Route path="/Verify_account" element={<Verify_account />} />
+          <Route path="/ResetPassword" element={<ResetPassword />} />
           <Route path="/Otp_verification" element={<Otp_verification />} />
           <Route path="/Forgot_password" element={<Forgot_password />} />
           <Route path="/Dashboard" element={<Dashboard />} />

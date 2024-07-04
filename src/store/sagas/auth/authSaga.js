@@ -9,7 +9,7 @@ import {
   userloginSuccess,
   userLoginFail,
 } from "../../reducers/authReducer";
-import { toast } from "react-toastify";
+import toast, { Toaster } from "react-hot-toast";
 import axiosMain from "../../../http/axios/axios_main";
 
 function* setItemToLocalStorage(key, value) {
@@ -19,30 +19,29 @@ function* setItemToLocalStorage(key, value) {
 //===============================UserLoginSaga============================//
 export function* userLoginSaga(action) {
   yield put(userLoginStart());
-  const { toast, payload, navigate, setDisable } = action.payload;
+  const { payload, toast, navigate, setDisable } = action.payload;
   try {
-    const response = yield axiosMain.post(``, payload);
+    const response = yield axiosMain.post(`/login`, payload);
     if (response?.data.status) {
       yield call(setItemToLocalStorage, "isUserAuthenticated", true);
-
       yield call(
         setItemToLocalStorage,
         "usertoken",
-        JSON.stringify(response.data.token)
+        JSON.stringify(response?.data?.data?.token)
       );
 
       yield call(
         setItemToLocalStorage,
         "userData",
-        JSON.stringify(response.data.user)
+        JSON.stringify(response?.data?.data)
       );
 
-      yield put(userloginSuccess(response.data.user));
+      yield put(userloginSuccess(response.data.data));
 
       sessionStorage.setItem("jwt", "enable");
       toast.success(response.data.message);
       setTimeout(() => {
-        navigate("");
+        navigate("/Dashboard");
       }, 3000);
     } else {
       setDisable(false);
@@ -63,12 +62,10 @@ export function* registerSaga(action) {
   const { payload, navigate, toast, setDisable } = action.payload;
   try {
     const response = yield axiosMain.post(`/signup`, payload);
-    console.log(response, "signupresponse");
     if (response?.data?.status) {
       toast.success(response.data.message);
 
       yield put(registerSuccess(response.data.data));
-      console.log(response.data.data, "data");
       setDisable(false);
       navigate("/Otp_verification", {
         state: { email: response.data.data?.email },
