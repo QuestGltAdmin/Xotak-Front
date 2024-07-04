@@ -11,7 +11,7 @@ export default function Header() {
             <header className="main-header login-header-home login-without-scroll">
               <Navbar  className="" expand="lg">
                 <Container>
-                    <Navbar.Brand href="#home">
+                    <Navbar.Brand href="/">
                         <img src="assets/img/logo.svg" />
                     </Navbar.Brand>
                     <div>

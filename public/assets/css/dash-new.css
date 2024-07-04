@@ -40,8 +40,18 @@ a, button {
     font-weight: 400;
     margin: 0 15px;
 }
+body {
+    background-image: url(../img/bg2.jpg);
+    background-color: #ffff;
+    background-blend-mode: multiply;
+    backdrop-filter: contrast(0.2);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Rubik', sans-serif;
+}
 .signup-sec {
-    background-color: #e3e3e3;
+    
     min-height: calc(100vh - 96px);
     display: flex;
     align-items: center;
@@ -133,6 +143,7 @@ font-size: 14px;
 .outer-forgot-pass-link .dont-have-acc a {
     color: #303030;
     font-size: 16px;
+    font-weight: 600;
 }
 .outer-bg-signup .common-btn{
     padding: 12px;
@@ -324,7 +335,7 @@ font-weight: 600;
     justify-content: center;
 }
 .main-header.login-header-home.login-without-scroll {
-    background-color: #e3e3e3;
+    background-color: transparent;
     position: relative;
 }
 .shadow-box-dash {
