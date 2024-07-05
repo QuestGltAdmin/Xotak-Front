@@ -198,12 +198,12 @@ export default function Header() {
                   )}
                   <ConnectWalletModal {...ConnectWalletModalProps} />
 
-                  <Link to="/" className="ms-auto profile-dropdown">
+                  {/* <Link to="/" className="ms-auto profile-dropdown">
                     <img src="assets/img/coin.png" /> GTH4536675...
-                  </Link>
-                  <Link to="/" className="border-btn">
+                  </Link> */}
+                  {/* <Link to="/" className="border-btn">
                     Logout <i className="fa fa-sign-out"></i>
-                  </Link>
+                  </Link> */}
                   <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 </div>
               </Col>

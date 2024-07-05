@@ -1,5 +1,5 @@
 .connect-wallet-btn {
-    background-color: purple;
+    background-color: #303030;
     color: #fff;
     border: none !important;
     box-shadow: none !important;
@@ -7,7 +7,7 @@
     line-height: normal;
 }
 .connect-wallet-modal .modal-content{
-    background-color: #3e043e;
+    background-color: #303030;
 }
 .connect-wallet-modal .modal-header {
     padding: 10px 15px;
@@ -18,7 +18,7 @@
     font-size: 20px;
 }
 .connect-wallet-modal .modal-header  .btn-close {
-    background-color: #905690;
+    background-color: #fff;
     box-shadow: none !important;
     outline: none !important;
     opacity: 1;
@@ -28,7 +28,8 @@
     margin: 0 auto 40px;
 }
 .connect-wallet-modal .connect-tech-div .common-btn {
-    background-color: #905690;
+    background-color: #fff !important;
+    color:  #303030 !important;
     box-shadow: none !important;
     outline: none !important;
     border: none !important;
@@ -51,13 +52,14 @@
     font-weight: 500;
 }
 .connect-wallet-modal .learnmore-link a {
-    color: #905690;
+    color: #fff;
     font-weight: 600;
     margin-left: 5px;
 }
-.connect-wallet-btn.dropdown-toggle{
-    background-color: purple;
-    border-color: purple;
+.connect-wallet-btn.dropdown-toggle {
+    background-color: transparent;
+    border-color: transparent;
+    padding: 5px 20px 5px 10px;
 }
 .connect-wallet-btn.dropdown-toggle img{
     height: 28px;
@@ -78,7 +80,7 @@
 .after-connect-dropdown .dropdown-menu .dropdown-item:hover,
 .after-connect-dropdown .dropdown-menu .dropdown-item:focus,
 .after-connect-dropdown .dropdown-menu .dropdown-item:active{
-    background-color: #905690;
+    background-color: #303030;
     color: #fff;
 }
 
