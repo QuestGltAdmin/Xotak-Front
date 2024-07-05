@@ -13,6 +13,7 @@ import Dashboard from "./Pages/Dashboard/Dashboard";
 import Transactions from './Pages/Dashboard/Transactions';
 import Profile from './Pages/Dashboard/Profile';
 import { Buycoin } from "./Pages/Dashboard/Buycoin";
+import { BuycoinTwo } from "./Pages/Dashboard/BuycoinTwo";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <Route path="/Transactions" element={<Transactions />} />
           <Route path="/Profile" element={<Profile />} />
           <Route path="/buy-coin" element={<Buycoin />} />
+          <Route path="/buy-coin2" element={<BuycoinTwo />} />
         </Routes>
       </BrowserRouter>
     </>

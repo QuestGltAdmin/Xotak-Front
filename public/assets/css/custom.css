@@ -60,6 +60,20 @@
     background-color: transparent;
     border-color: transparent;
     padding: 5px 20px 5px 10px;
+    color: #303030;
+}
+.connect-wallet-btn.dropdown-toggle::after {
+    content: "";
+    position: absolute;
+    border-bottom: 2px solid #000;
+    border-right: 2px solid #000;
+    border-left: none;
+    height: 9px;
+    width: 9px;
+    border-top: none;
+    transform: rotate(45deg);
+    right: 0;
+    top: 12px;
 }
 .connect-wallet-btn.dropdown-toggle img{
     height: 28px;
@@ -67,6 +81,7 @@
     object-fit: contain;
     margin-right: 15px;
 }
+
 .after-connect-dropdown .dropdown-menu {
     width: 100%;
     padding: 0;
@@ -100,5 +115,27 @@
     }
     .connect-wallet-modal .learnmore-link {
         font-size: 12px;
+    
+    }
+    .connect-wallet-btn.dropdown-toggle img {
+        height: 20px;
+        width: 20px;
+        margin-right: 6px;
+    }
+    .connect-wallet-btn.dropdown-toggle {
+        background-color: transparent;
+        border-color: transparent;
+        padding: 5px 20px 5px 10px;
+        color: #303030;
+        font-size: 12px;
+    }
+    .connect-wallet-btn.dropdown-toggle::after {
+        height: 7px;
+        width: 7px;
+        top: 8px;
+    }
+    .after-connect-dropdown .dropdown-menu .dropdown-item {
+        font-size: 12px;
+        padding: 5px 20px;
     }
 }

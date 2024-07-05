@@ -4,6 +4,7 @@
     width: 100%;
     right: 0;
     top: 0;
+    z-index: 100;
 }
 .login-header-home .navbar-brand img {
     height: 70px;
@@ -273,7 +274,7 @@ height: 50px;
     left: 0;
     top: 75px;
     background-color: #303030;
-    height: calc(100vh - 75px) !important;
+    height: 100% !important;
     width: 290px;
     display: block;
     padding-top: 40px;
@@ -474,6 +475,13 @@ margin: 0;
     .shadow-box-dash p {
         min-height: 50px;
     }
+    .dashboard-layout .login-header-home .navbar-collapse .navbar-nav {
+        width: 230px;
+    }
+    .dashboard-layout {
+        padding-top: 76px;
+        padding-left: 230px;
+    }
 }
 
 @media (max-width: 992px) {
@@ -669,6 +677,9 @@ margin: 0;
     box-shadow: 0 0 10px #303030;
     margin-top: 50px;
 }
+.buy-coin-box h3{
+    font-size: 24px;
+}
 .buy-coin-box .swap-dropdown {
     margin: 40px 0;
 }
@@ -684,7 +695,7 @@ margin-bottom: 10px;
     color: #303030;
     margin-bottom: 0;
 }
-.connect-wallet-btn.dropdown-toggle {
+.coin-select-btn.dropdown-toggle {
     background-color: #fff;
     color: #303030;
     border-color: #fff;
@@ -696,7 +707,7 @@ margin-bottom: 10px;
     padding-right: 25px;
     min-width: 145px;
 }
-.connect-wallet-btn.dropdown-toggle::after {
+.coin-select-btn.dropdown-toggle::after {
     content: "";
     position: absolute;
     border-bottom: 2px solid #000;
@@ -709,29 +720,33 @@ margin-bottom: 10px;
     right: 0;
     top: 12px;
 }
-.connect-wallet-btn.dropdown-toggle img {
+.coin-select-btn.dropdown-toggle img {
     height: 35px;
     width: 35px;
     object-fit: contain;
     margin-right: 5px;
 }
-.after-connect-dropdown .dropdown-menu {
+.coin-dropdown .dropdown-menu {
     width: 100%;
     padding: 0;
     overflow: hidden;
+    border-radius: 0;
+    border: 1px solid #ddd;
 }
-.after-connect-dropdown .dropdown-menu .dropdown-item {
+.coin-dropdown .dropdown-menu .dropdown-item {
     font-size: 14px;
     font-weight: 500;
     padding: 5px 8px;
 }
-.after-connect-dropdown .dropdown-menu .dropdown-item img{
+.coin-dropdown .dropdown-menu .dropdown-item img{
     height: 24px;
     width: 24px;
     object-fit: contain;
     margin-right: 5px;
 }
-.after-connect-dropdown .dropdown-menu .dropdown-item:hover, .after-connect-dropdown .dropdown-menu .dropdown-item:focus, .after-connect-dropdown .dropdown-menu .dropdown-item:active {
+.coin-dropdown .dropdown-menu .dropdown-item:hover, 
+.coin-dropdown .dropdown-menu .dropdown-item:focus, 
+.coin-dropdown .dropdown-menu .dropdown-item:active {
     background-color: #303030;
     color: #fff;
 }
@@ -740,6 +755,12 @@ margin-bottom: 10px;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 10px; 
+}
+.swap-sec-box p{
+    font-size: 14px;
+    font-weight: 600;
+    color: #303030;
+    margin-bottom: 0;
 }
 .swap-sec-box > div {
     background-color: #fff;
@@ -774,4 +795,161 @@ margin-bottom: 10px;
     margin: 0 auto;
     background-color: #fff;
     padding: 5px 15px;
+}
+
+@media (max-width:1300px){
+    .buy-coin-box h3 {
+        font-size: 22px;
+    }
+}
+@media (max-width:768px){
+    .buy-coin-box h3 {
+        font-size: 18px;
+    }
+    .coin-select-btn.dropdown-toggle img, .swap-sec-box > div img {
+        height: 26px;
+        width: 26px;
+    }
+    .coin-select-btn.dropdown-toggle, .swap-sec-box > div {
+        font-size: 13px;
+        padding-right: 20px;
+        min-width: 100px;
+    }
+    .coin-select-btn.dropdown-toggle::after {
+        height: 7px;
+        width: 7px;
+        top: 8px;
+    }
+    .buy-coin-box .swap-dropdown > div p, .swap-sec-box p {
+        font-size: 12px;
+    }
+    .swap-row img {
+        height: 30px;
+        top: -15px;
+        padding: 5px 8px;
+    }
+}
+
+
+/* buycoin page 2 css */
+
+.buy-coin-sec2 {
+    padding: 30px 0;
+}
+.buy-coin-sec2 .token-box1 {
+    background-color: #fff;
+    border-radius: 0;
+    padding: 20px;
+    min-height: 410px;
+}
+.buy-coin-sec2 .token-head h3 {
+   color: #303030;
+    font-size: 24px;
+    font-weight: 600;
+}
+.buy-coin-sec2 .token-head p {
+    color: #303030;
+    padding: 10px 0;
+    font-size: 14px;
+    line-height: 24px;
+    margin-bottom: 0;
+}
+.token-box1 .token-content-box {
+    background: #303030;
+    border-radius: 0;
+}
+.token-box1 .token-content-box .token-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin: 25px 0;
+}
+.token-box1 .token-content-box .token-flex span {
+    color: #fff;
+    font-size: 14px;
+}
+.token-box1 .token-content-box .token-flex p {
+    color: #fff;
+    margin-bottom: 0;
+    font-size: 14px;
+}
+.token-box1 a{
+    display: block;
+}
+.buy-coin-sec2 .token-box2 {
+    background-color: #fff;
+    border-radius: 0;
+    padding: 20px;
+    min-height: 410px;
+}
+.calculation-row {
+    display: flex;
+    align-items: center;
+    color: #303030;
+}
+.calculation-row .equal {
+    margin: 0 15px;
+    font-size: 28px;
+}
+.calculation-row h4 {
+    margin: 0!important;
+    padding: 0!important;
+    font-size: 20px;
+}
+
+@media (max-width:1370px){
+    .buy-coin-sec2 .token-head h3 {
+        font-size: 22px;
+    }
+    .buy-coin-sec2 .token-head p {
+        font-size: 13px;
+        line-height: 18px;
+    }
+    .token-box1 .token-content-box .token-flex p {
+        font-size: 13px;
+    }
+    .token-box1 .token-content-box .token-flex span {
+        font-size: 13px;
+    }
+    .buy-coin-sec2 .token-box1 {
+        padding: 15px;
+    }
+    .dashboard-layout .form-control, .dashboard-layout .form-select {
+        padding: 8px 12px;
+    }
+    .buy-coin-sec2 .token-head p {
+        font-size: 13px;
+        line-height: 20px;
+    }
+    .buy-coin-sec2 .token-box2 {
+        padding: 15px;
+    }
+}
+@media (max-width:1200px){
+    .token-box1 .token-content-box .token-flex {
+        margin: 10px 0 0;
+    }
+    .buy-coin-sec2 .token-head p {
+        font-size: 12px;
+        line-height: 18px;
+    }
+    .buy-coin-sec2 .token-head h3 {
+        font-size: 20px;
+    }
+}
+@media (max-width:992px){
+    .buy-coin-sec2 .token-box1 {
+        margin-bottom: 10px;
+        min-height: auto;
+    }
+    .buy-coin-sec2 .token-box2 {
+        min-height: auto;
+    }
+    .calculation-row h4 {
+        font-size: 14px;
+    }
+    .dashboard-layout .input-group .input-group-text {
+        font-size: 14px;
+    }
 }

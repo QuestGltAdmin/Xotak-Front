@@ -21,9 +21,9 @@ export const Buycoin = () => {
                             <h3 className="text-center">Buy Taboo Coin</h3>
                             <div className="swap-dropdown">
                                 <div>
-                                    <Dropdown className="after-connect-dropdown">
+                                    <Dropdown className="coin-dropdown">
                                         <Dropdown.Toggle
-                                            className="connect-wallet-btn"
+                                            className="coin-select-btn"
                                             id="dropdown-basic">
                                             <img
                                                 src="assets/img/btc.png"

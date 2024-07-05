@@ -124,6 +124,9 @@ export default function Header() {
                       <Nav.Link href="/buy-coin">
                         <i className="fa fa-money"></i> Buy Coin
                       </Nav.Link>
+                      <Nav.Link href="/buy-coin2">
+                        <i className="fa fa-money"></i> Buy Coin Second
+                      </Nav.Link>
                       <Nav.Link href="/Transactions">
                         <i className="fa fa-exchange"></i> Transactions
                       </Nav.Link>
