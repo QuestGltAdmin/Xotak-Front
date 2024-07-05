@@ -116,7 +116,7 @@ export default function ResetPassword() {
     <>
       <Layout />
       <section className="signup-sec" id="sign_up">
-        <Toaster/>
+        <Toaster />
         <Container>
           <Row>
             <Col lg={5} className="m-auto">
@@ -183,7 +183,7 @@ export default function ResetPassword() {
                     </InputGroup.Text>
                   </InputGroup>
                 </Form.Group>
-<p>{formError}</p>
+                <p>{formError}</p>
                 <div>
                   <button
                     className="common-btn w-100 m-0"
