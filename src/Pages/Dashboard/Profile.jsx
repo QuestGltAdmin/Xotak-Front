@@ -5,24 +5,35 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import toast, { Toaster } from "react-hot-toast";
-import { encryptData } from "../../Encrypt-Decrypt/encryption-decryption";
+import {
+  encryptData,
+  encryptDataPath,
+} from "../../Encrypt-Decrypt/encryption-decryption";
 import axiosMain from "../../http/axios/axios_main";
 import { setUserprofileData } from "../../store/reducers/authReducer";
 
 const Profile = () => {
-  var loadFile = function (event) {
-    var image = document.getElementById("output");
-    image.src = URL.createObjectURL(event.target.files[0]);
-  };
-
+  //==================================Global Variable================================//
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { user , wallet } = useAuth();
-console.log(wallet,"waaa")
-  console.log(user, "llllll");
+  const { user } = useAuth();
+  //==================================End of code================================//
 
+  //==================================Local Variable================================//
   const [disable, setDisable] = useState(false);
   const [formError, setFormError] = useState("");
+  const [disablepass, setDisablepass] = useState(false);
+  //==================================End of code================================//
+
+  //================================Profile Update code===============================//
+
+  const [inputValuepass, setInputValuepass] = useState({
+    password: "",
+    newpassword: "",
+    confirmnewpassword: "",
+  });
+
+  //========================= show password on eye click =========================//
 
   const [inputvalue, setInputValue] = useState({
     name: user?.name || "",
@@ -30,7 +41,6 @@ console.log(wallet,"waaa")
     photoUrl: user?.profilePic,
   });
 
-  console.log(inputvalue?.file, "opopop");
   const fromdatauser = (e) => {
     setInputValue({
       ...inputvalue,
@@ -38,8 +48,8 @@ console.log(wallet,"waaa")
     });
   };
 
-  let formdata = new FormData();
   //==========================Image upload functions==============================//
+  let formdata = new FormData();
 
   const [imageData, setImageData] = useState({
     file: "",
@@ -48,7 +58,6 @@ console.log(wallet,"waaa")
   const { file, photoUrl } = imageData;
 
   const photoUploadHandler = (event, setState) => {
-    console.log("1111");
     const { files } = event.target;
     if (files[0]) {
       if (files[0].type.includes("image")) {
@@ -72,10 +81,9 @@ console.log(wallet,"waaa")
     }
   };
   //==========================End of code==============================//
-  console.log(file.name, "ffiiiif");
+
   //==========================Handle Student details update============================//
   const HandleUpdate = async () => {
-    console.log("lllll");
     if (!inputvalue?.name) {
       setFormError("Please enter your name");
     } else {
@@ -91,7 +99,6 @@ console.log(wallet,"waaa")
             authorization: `bearer ${user.token}`,
           },
         });
-        console.log(profile, "profiledata");
         if (profile?.data?.status) {
           setDisable(false);
           dispatch(setUserprofileData(profile?.data?.data));
@@ -106,13 +113,115 @@ console.log(wallet,"waaa")
         }
       } catch (err) {
         setDisable(false);
-        console.log(err, "ffffff");
         toast.error(err.response.data.message);
       }
     }
   };
   //==========================End of code============================//
-  console.log(user?.profilePic, "proff");
+
+  //==================================change password code================================//
+
+  const [eyeShow, setEyeShow] = useState(false);
+  const [eyeShow1, setEyeShow1] = useState(false);
+  const [eyeShow2, setEyeShow2] = useState(false);
+
+  const seepass = () => {
+    const password = document.getElementById("id_pass");
+    {
+      password.type === "password"
+        ? (password.type = "text")
+        : (password.type = "password");
+    }
+  };
+  const showeye = () => {
+    const password = document.getElementById("id_pass");
+    {
+      password.type === "password" ? setEyeShow(true) : setEyeShow(false);
+    }
+  };
+  const seepass1 = () => {
+    const password = document.getElementById("id_pass1");
+    {
+      password.type === "password"
+        ? (password.type = "text")
+        : (password.type = "password");
+    }
+  };
+
+  const showeye1 = () => {
+    const password = document.getElementById("id_pass1");
+    {
+      password.type === "password" ? setEyeShow1(true) : setEyeShow1(false);
+    }
+  };
+  const seepass2 = () => {
+    const password = document.getElementById("id_pass2");
+    {
+      password.type === "password"
+        ? (password.type = "text")
+        : (password.type = "password");
+    }
+  };
+
+  const showeye2 = () => {
+    const password = document.getElementById("id_pass2");
+    {
+      password.type === "password" ? setEyeShow1(true) : setEyeShow1(false);
+    }
+  };
+  useEffect(() => {
+    showeye();
+    showeye1();
+    showeye2();
+  }, []);
+
+  //========================= end of code =========================//
+  const HandlePasswordData = (e) => {
+    setInputValuepass({ ...inputValuepass, [e.target.name]: e.target.value });
+  };
+
+  const HandelPassword = async () => {
+    if (!inputValuepass?.password) {
+      setFormError("Please enter your password");
+    } else if (!inputValuepass?.newpassword) {
+      setFormError("Please enter your new password");
+    } else if (!inputValuepass?.confirmnewpassword) {
+      setFormError("Please enter your confirm password");
+    } else if (
+      inputValuepass?.newpassword === inputValuepass?.confirmnewpassword
+    ) {
+      setFormError("password and confirm password does't match");
+    }
+    {
+      setDisablepass(true);
+      setFormError("");
+      const RowPassword = await encryptDataPath(inputValuepass?.password);
+      const RowNewPassword = await encryptData(inputValuepass?.newpassword);
+
+      try {
+        const payload = {
+          oldPassword: RowPassword,
+          password: RowNewPassword,
+        };
+
+        const api = await axiosMain.post("/change-password", payload, {
+          headers: {
+            "content-type": "application/json",
+            authorization: `bearer ${user.token}`,
+          },
+        });
+        if (api?.data?.status) {
+          setDisablepass(false);
+          toast.success("Password Updated successfully.");
+        }
+      } catch (error) {
+        setDisablepass(false);
+        setFormError(error.response.data.message);
+      }
+    }
+  };
+  //==================================Local Variable================================//
+
   return (
     <>
       <Layout>
@@ -129,27 +238,6 @@ console.log(wallet,"waaa")
                       <Row>
                         <Col lg={4} className="text-center">
                           <div class="profile-pic">
-                            {/* <label class="-label" for="file">
-                              <span class="glyphicon glyphicon-camera"></span>
-                              <span>Change Image</span>
-                            </label> */}
-                            {/* <input
-                              id="file"
-                              type="file"
-                              onchange="loadFile(event)"
-                            /> */}
-
-                            {/* {user?.profilePic ? (
-                              <img
-                                onError={() => {
-                                  ImageHandler();
-                                }}
-                                src={
-                                  user?.profilePic || "assets/img/download.jpg"
-                                }
-                                alt=""
-                              />
-                            ) : ( */}
                             <input
                               type="file"
                               onChange={(e) =>
@@ -159,38 +247,20 @@ console.log(wallet,"waaa")
                               ondrop="drop()"
                               id="uploadFile"
                             />
-                              <img
-                                onError={() => {
-                                  ImageHandler();
-                                }}
-                                className="position-relative"
-                                src={
-                                  photoUrl ||
-                                  imageData.photoUrl ||
-                                  user?.profilePic ||
-                                  "assets/img/download.jpg"
-                                }
-                                alt=""
-                              />
-                            {/* )} */}
-                          </div>
-
-                          {/* <div className="edit-image"> */}
-                            {/* <img
-                              src="assets/img/tabler_edit.png"
-                              className="img-fluid "
-                              alt="image"
-                            /> */}
-                            {/* <input
-                              type="file"
-                              onChange={(e) =>
-                                photoUploadHandler(e, setImageData)
+                            <img
+                              onError={() => {
+                                ImageHandler();
+                              }}
+                              className="position-relative"
+                              src={
+                                photoUrl ||
+                                imageData.photoUrl ||
+                                user?.profilePic ||
+                                "assets/img/download.jpg"
                               }
-                              ondragover="drag()"
-                              ondrop="drop()"
-                              id="uploadFile"
-                            /> */}
-                          {/* </div> */}
+                              alt=""
+                            />
+                          </div>
                         </Col>
                         <Col lg={8}>
                           <Row>
@@ -262,9 +332,25 @@ console.log(wallet,"waaa")
                         <Col lg={4}>
                           <Form.Group className="mb-3">
                             <InputGroup className="mb-3">
-                              <Form.Control placeholder="Current Password" />
-                              <InputGroup.Text>
-                                <i class="fa fa-eye"></i>
+                              <Form.Control
+                                placeholder="Current Password"
+                                type="password"
+                                name="password"
+                                onChange={HandlePasswordData}
+                                value={inputValuepass.password}
+                                id="id_pass"
+                              />
+                              <InputGroup.Text
+                                onClick={() => {
+                                  seepass();
+                                  showeye();
+                                }}
+                              >
+                                {eyeShow ? (
+                                  <i className="fa fa-eye-slash"></i>
+                                ) : (
+                                  <i className="fa fa-eye"></i>
+                                )}
                               </InputGroup.Text>
                             </InputGroup>
                           </Form.Group>
@@ -272,9 +358,25 @@ console.log(wallet,"waaa")
                         <Col lg={4}>
                           <Form.Group className="mb-3">
                             <InputGroup className="mb-3">
-                              <Form.Control placeholder="New Password" />
-                              <InputGroup.Text>
-                                <i class="fa fa-eye"></i>
+                              <Form.Control
+                                placeholder="New Password"
+                                type="password"
+                                name="newpassword"
+                                onChange={HandlePasswordData}
+                                value={inputValuepass.newpassword}
+                                id="id_pass1"
+                              />
+                              <InputGroup.Text
+                                onClick={() => {
+                                  seepass1();
+                                  showeye1();
+                                }}
+                              >
+                                {eyeShow1 ? (
+                                  <i className="fa fa-eye-slash"></i>
+                                ) : (
+                                  <i className="fa fa-eye"></i>
+                                )}
                               </InputGroup.Text>
                             </InputGroup>
                           </Form.Group>
@@ -282,9 +384,25 @@ console.log(wallet,"waaa")
                         <Col lg={4}>
                           <Form.Group className="mb-3">
                             <InputGroup className="mb-3">
-                              <Form.Control placeholder="Confirm Password" />
-                              <InputGroup.Text>
-                                <i class="fa fa-eye"></i>
+                              <Form.Control
+                                placeholder="Confirm Password"
+                                type="password"
+                                name="confirmnewpassword"
+                                onChange={HandlePasswordData}
+                                value={inputValuepass.confirmnewpassword}
+                                id="id_pass2"
+                              />
+                              <InputGroup.Text
+                                onClick={() => {
+                                  seepass2();
+                                  showeye2();
+                                }}
+                              >
+                                {eyeShow2 ? (
+                                  <i className="fa fa-eye-slash"></i>
+                                ) : (
+                                  <i className="fa fa-eye"></i>
+                                )}
                               </InputGroup.Text>
                             </InputGroup>
                           </Form.Group>
@@ -292,7 +410,16 @@ console.log(wallet,"waaa")
                       </Row>
 
                       <div>
-                        <button className="common-btn m-0">Update</button>
+                        <button
+                          className="common-btn m-0"
+                          disabled={disablepass}
+                          onClick={() => {
+                            HandelPassword();
+                          }}
+                        >
+                          {" "}
+                          {disablepass === true ? "Processing" : "Update"}
+                        </button>
                       </div>
                     </div>
                   </div>
