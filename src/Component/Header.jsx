@@ -15,6 +15,7 @@ import useAuth from "../hooks/useAuth";
 import { setWallet } from "../store/reducers/authReducer";
 import ConnectWalletModal from "../component/ConnectWalletModal";
 import { Connect, ReConnect, onDisconnect } from "../helpers/Connect";
+import { Provider } from "../helpers/Web3Helper";
 
 export default function Header() {
   //========================= Global variable =========================//
@@ -104,6 +105,35 @@ export default function Header() {
     } catch (err) {}
   };
 
+
+  useEffect(() => {
+    // if (wallet) {
+    const handleChain = async () => {
+      let provider = await Provider(Wallet?.type);
+      //=================Account change code===============//
+      provider.on("accountsChanged", async (accounts) => {
+        console.log(accounts,"accounts")
+        const walletAcc = await Connect(Wallet?.type);
+        console.log(walletAcc,"walletAcc")
+
+        dispatch(setWallet(walletAcc));
+        console.log("33333333")
+        window.location.reload();
+        // }
+      });
+
+      //=================Chain change code===============//
+      provider.on("chainChanged", async (chainId) => {
+        const walletChain = await Connect(Wallet?.type);
+
+        dispatch(setWallet(walletChain));
+        window.location.reload();
+        // }
+      });
+    };
+    handleChain();
+    // }
+  }, []);
   return (
     <>
       <header className="main-header login-header-home">

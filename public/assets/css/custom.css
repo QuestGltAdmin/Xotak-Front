@@ -139,3 +139,20 @@
         padding: 5px 20px;
     }
 }
+
+.profile-pic{
+    position: relative;
+    display: inline-block;
+}
+.profile-pic input{
+    position: relative;
+    opacity: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;  
+    cursor: pointer;  
+    display: block;
+}
