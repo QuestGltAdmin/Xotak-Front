@@ -185,6 +185,7 @@ export default function Header() {
                     </Nav>
                   </Navbar.Collapse>
 
+                  <div className="d-flex">
                   {!Wallet?.selectedAccount ? (
                     <button
                       onClick={() => {
@@ -230,14 +231,9 @@ export default function Header() {
                     </Dropdown>
                   )}
                   <ConnectWalletModal {...ConnectWalletModalProps} />
-
-                  {/* <Link to="/" className="ms-auto profile-dropdown">
-                    <img src="assets/img/coin.png" /> GTH4536675...
-                  </Link> */}
-                  {/* <Link to="/" className="border-btn">
-                    Logout <i className="fa fa-sign-out"></i>
-                  </Link> */}
+                 
                   <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                  </div>
                 </div>
               </Col>
             </Row>

@@ -141,6 +141,10 @@
         font-size: 12px;
         padding: 5px 20px;
     }
+    .connect-wallet-btn {
+        padding: 6px 8px;
+        font-size: 14px;
+    }
 }
 
 .profile-pic{
