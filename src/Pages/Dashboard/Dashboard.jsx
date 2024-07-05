@@ -21,6 +21,7 @@ import {
   Title,
 } from "chart.js";
 import { Doughnut, Pie, Line } from "react-chartjs-2";
+import useAuth from "../../hooks/useAuth";
 ChartJS.register(
   ArcElement,
   Tooltip,

@@ -5,13 +5,13 @@ const userData = localStorage.getItem("userData");
 const usertoken = localStorage.getItem("usertoken");
 
 const Wallet = localStorage.getItem("Wallet");
-
+console.log(Wallet)
 const authSlice = createSlice({
   name: "auth",
   initialState: {
     isLoading: false,
     isUserAuthenticated: !!isUserAuthenticated ? true : false,
-    user: !!userData && userData !== "undefind" ? userData : {},
+    user: !!userData && userData !== "undefind" ? JSON.parse(userData) : {},
     usertoken: !!usertoken ? JSON.parse(usertoken) : {},
     Wallet: !!Wallet && Wallet !== "undefined"?  JSON.parse(Wallet) : {},
 
@@ -34,6 +34,7 @@ const authSlice = createSlice({
     },
 
     setUserprofileData: (state, action) => {
+      console.log(action,"reducer")
       localStorage.setItem("userData", JSON.stringify(action.payload));
       return {
         ...state,
@@ -51,14 +52,14 @@ const authSlice = createSlice({
       };
     },
 
-    userWalletLogin: (state, action) => {
-      localStorage.setItem("userData", JSON.stringify(action.payload));
-      return {
-        ...state,
-        isUserAuthenticated: true,
-        user: action.payload,
-      };
-    },
+    // userWalletLogin: (state, action) => {
+    //   localStorage.setItem("userData", JSON.stringify(action.payload));
+    //   return {
+    //     ...state,
+    //     isUserAuthenticated: true,
+    //     user: action.payload,
+    //   };
+    // },
     isLogin: (state, action) => {
       localStorage.setItem("isUserAuthenticated", JSON.stringify(action.payload));
       return {
@@ -80,6 +81,7 @@ const authSlice = createSlice({
     
     setWallet: (state, action) => {
       localStorage.setItem("Wallet", JSON.stringify(action.payload));
+      console.log(action.payload)
       return {
         ...state,
         Wallet: action.payload,
@@ -142,7 +144,7 @@ export const {
   userLoginStart,
   userloginSuccess,
   userLoginFail,
-  userWalletLogin,
+  // userWalletLogin,
   isLogin,
 } = authSlice.actions;
 
