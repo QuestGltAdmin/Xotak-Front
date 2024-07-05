@@ -1,0 +1,102 @@
+.connect-wallet-btn {
+    background-color: purple;
+    color: #fff;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 10px 20px;
+    line-height: normal;
+}
+.connect-wallet-modal .modal-content{
+    background-color: #3e043e;
+}
+.connect-wallet-modal .modal-header {
+    padding: 10px 15px;
+    border-bottom: none;
+}
+.connect-wallet-modal .modal-header .modal-title {
+    color: #fff;
+    font-size: 20px;
+}
+.connect-wallet-modal .modal-header  .btn-close {
+    background-color: #905690;
+    box-shadow: none !important;
+    outline: none !important;
+    opacity: 1;
+}
+.connect-wallet-modal .connect-tech-div {
+    max-width: 350px;
+    margin: 0 auto 40px;
+}
+.connect-wallet-modal .connect-tech-div .common-btn {
+    background-color: #905690;
+    box-shadow: none !important;
+    outline: none !important;
+    border: none !important;
+    margin: 10px 0;
+    font-size: 16px;
+    font-weight: 500;
+    width: 100%;
+    border-radius: 10px;
+}
+.connect-wallet-modal .connect-tech-div .common-btn img {
+    height: 28px;
+    width: 28px;
+    object-fit: contain;
+    margin-left: 15px;
+}
+.connect-wallet-modal .learnmore-link {
+    text-align: center;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+}
+.connect-wallet-modal .learnmore-link a {
+    color: #905690;
+    font-weight: 600;
+    margin-left: 5px;
+}
+.connect-wallet-btn.dropdown-toggle{
+    background-color: purple;
+    border-color: purple;
+}
+.connect-wallet-btn.dropdown-toggle img{
+    height: 28px;
+    width: 28px;
+    object-fit: contain;
+    margin-right: 15px;
+}
+.after-connect-dropdown .dropdown-menu {
+    width: 100%;
+    padding: 0;
+    overflow: hidden;
+}
+.after-connect-dropdown .dropdown-menu .dropdown-item {
+    font-size: 14px;
+    font-weight: 500;
+    padding: 10px 20px;
+}
+.after-connect-dropdown .dropdown-menu .dropdown-item:hover,
+.after-connect-dropdown .dropdown-menu .dropdown-item:focus,
+.after-connect-dropdown .dropdown-menu .dropdown-item:active{
+    background-color: #905690;
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    .connect-wallet-modal .modal-header .modal-title {
+        font-size: 16px;
+    }
+    .connect-wallet-modal .modal-header  .btn-close {
+        padding: 8px;
+        height: 10px;
+        width: 10px;
+        background-size: 12px;
+    }
+    .connect-wallet-modal .connect-tech-div .common-btn {
+        margin: 8px 0;
+        font-size: 14px;
+    }
+    .connect-wallet-modal .learnmore-link {
+        font-size: 12px;
+    }
+}

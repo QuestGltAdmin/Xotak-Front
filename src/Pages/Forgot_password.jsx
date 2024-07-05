@@ -46,14 +46,12 @@ export default function Forgot_password() {
         };
 
         const api = await axiosMain.post("/forgot-password", payload);
-        console.log(api,"appp")
         if (api?.data?.status) {
           setDisable(false);
           toast.success("Forget password link send  successfully.");
-          console.log(api?.data?.data?.email,"Datatata")
           setTimeout(() => {
             navigate("/Otp_verification", {
-              state: { email: api?.data?.data?.email ,flag:"forget"},
+              state: { email: api?.data?.data?.email, flag: "forget" },
             });
           }, 3000);
         }

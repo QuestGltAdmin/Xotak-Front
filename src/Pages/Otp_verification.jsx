@@ -18,11 +18,11 @@ import axiosMain from "../http/axios/axios_main";
 export default function Otp_verification() {
   //==================================Global Variable================================//
   const { state } = useLocation("");
-  const { email , flag } = state || "";
+  const { email, flag } = state || "";
   const navigate = useNavigate();
 
   //==================================End of code================================//
-  console.log(flag, "flag");
+
   //=============== Local vaiable ====================//
   const [formError, setFormError] = useState("");
   const [otp, setOTP] = useState("");
@@ -52,13 +52,10 @@ export default function Otp_verification() {
         if (api?.data?.status) {
           setDisable(false);
           toast.success("Otp verify successfully.");
-          
+
           setTimeout(() => {
-            flag === "forget" ? 
-                navigate("/ResetPassword") :
-                navigate("/");
-        },2000);
-        
+            flag === "forget" ? navigate("/ResetPassword") : navigate("/");
+          }, 2000);
         }
       } catch (error) {
         setDisable(false);
@@ -68,7 +65,31 @@ export default function Otp_verification() {
   };
   //===============End of code====================//
 
-  console.log(otp, "otp");
+  //=============== Handle otp function ====================//
+  const ReSendOtp = async () => {
+    if (!email) {
+      setFormError("Email not found!");
+    } else {
+      setFormError("");
+      const RowEmail = await encryptData(email);
+      const RowFlag = await encryptData(flag);
+
+      try {
+        const payload = {
+          email: RowEmail,
+          type: RowFlag,
+        };
+
+        const api = await axiosMain.post("/resend-otp", payload);
+        if (api?.data?.status) {
+          toast.success("Otp resend successfully.");
+        }
+      } catch (error) {
+        setFormError(error.response.data.message);
+      }
+    }
+  };
+  //===============End of code====================//
   return (
     <>
       <Layout />
@@ -108,8 +129,10 @@ export default function Otp_verification() {
                   </button>
                 </div>
                 <div className="outer-forgot-pass-link">
-                  <p className="dont-have-acc">
-                    Don't got the OTP? <a href="/">Resend Otp</a>
+                  <p className="dont-have-acc" >
+                    Don't got the OTP? <a  onClick={() => {
+                      ReSendOtp();
+                    }} style={{cursor:"pointer"}}>Resend Otp</a>
                   </p>
                 </div>
               </div>

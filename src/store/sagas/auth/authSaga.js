@@ -68,7 +68,7 @@ export function* registerSaga(action) {
       yield put(registerSuccess(response.data.data));
       setDisable(false);
       navigate("/Otp_verification", {
-        state: { email: response.data.data?.email },
+        state: { email: response.data.data?.email ,flag:"signup"},
       });
     } else {
       setDisable(false);

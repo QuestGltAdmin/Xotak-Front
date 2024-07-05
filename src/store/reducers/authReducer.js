@@ -4,7 +4,7 @@ const isUserAuthenticated = localStorage.getItem("isUserAuthenticated");
 const userData = localStorage.getItem("userData");
 const usertoken = localStorage.getItem("usertoken");
 
-const WalletEVM = localStorage.getItem("WalletEVM");
+const Wallet = localStorage.getItem("Wallet");
 
 const authSlice = createSlice({
   name: "auth",
@@ -13,8 +13,8 @@ const authSlice = createSlice({
     isUserAuthenticated: !!isUserAuthenticated ? true : false,
     user: !!userData && userData !== "undefind" ? userData : {},
     usertoken: !!usertoken ? JSON.parse(usertoken) : {},
-    WalletEVM:
-      !!WalletEVM && WalletEVM !== "undefined" ? JSON.parse(WalletEVM) : {},
+    Wallet: !!Wallet && Wallet !== "undefined"?  JSON.parse(Wallet) : {},
+
   },
 
   reducers: {
@@ -77,11 +77,12 @@ const authSlice = createSlice({
       };
     },
 
-    setEVMWallet: (state, action) => {
-      localStorage.setItem("WalletEVM", JSON.stringify(action.payload));
+    
+    setWallet: (state, action) => {
+      localStorage.setItem("Wallet", JSON.stringify(action.payload));
       return {
         ...state,
-        WalletEVM: action.payload,
+        Wallet: action.payload,
       };
     },
 
@@ -136,7 +137,7 @@ export const {
   registerStart,
   registerFail,
   setUserprofileData,
-  setEVMWallet,
+  setWallet,
   userLoginSaga,
   userLoginStart,
   userloginSuccess,

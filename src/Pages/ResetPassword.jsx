@@ -98,7 +98,6 @@ export default function ResetPassword() {
         };
 
         const api = await axiosMain.post("/reset-password", payload);
-        console.log(api, "appp");
         if (api?.data?.status) {
           setDisable(false);
           toast.success("Password Reset successfully.");
