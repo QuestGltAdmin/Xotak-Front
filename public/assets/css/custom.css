@@ -6,9 +6,11 @@
     padding: 10px 20px;
     line-height: normal;
 }
-.connect-wallet-modal .modal-content{
+.connect-wallet-modal .modal-content {
     background-color: #303030;
+    border-radius: 0;
 }
+
 .connect-wallet-modal .modal-header {
     padding: 10px 15px;
     border-bottom: none;
@@ -22,6 +24,7 @@
     box-shadow: none !important;
     outline: none !important;
     opacity: 1;
+    border-radius: 0;
 }
 .connect-wallet-modal .connect-tech-div {
     max-width: 350px;
@@ -37,7 +40,7 @@
     font-size: 16px;
     font-weight: 500;
     width: 100%;
-    border-radius: 10px;
+    border-radius: 0px;
 }
 .connect-wallet-modal .connect-tech-div .common-btn img {
     height: 28px;

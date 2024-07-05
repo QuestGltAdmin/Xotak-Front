@@ -897,6 +897,95 @@ margin-bottom: 10px;
     padding: 0!important;
     font-size: 20px;
 }
+.buy-coin-modal .modal-content {
+    background-color: #303030;
+    border-radius: 0;
+}
+
+.buy-coin-modal .modal-header {
+    padding: 10px 15px;
+    border-bottom: none;
+}
+.buy-coin-modal .modal-header .modal-title {
+    color: #fff;
+    font-size: 20px;
+}
+.buy-coin-modal .modal-header  .btn-close {
+    background-color: #fff;
+    box-shadow: none !important;
+    outline: none !important;
+    opacity: 1;
+    border-radius: 0;
+}
+.buy-coin-modal .modal-body p {
+    color: #fff;
+    padding: 10px 0;
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 10px;
+    padding: 0;
+}
+.buy-coin-modal .modal-body h3 {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+}
+.scan-qr-row{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 30px 0;
+}
+.scan-qr-row .qr-img {
+    max-width: 130px;
+    margin-right: 15px;
+}
+.buy-coin-modal .modal-dialog{
+    max-width: 600px;
+}
+.buy-coin-modal .form-control {
+    border: 1px solid #fff !important;
+    box-shadow: none !important;
+    padding: 10px 15px;
+    border-radius: 0px;
+    color: #000 !important;
+    background-color: transparent !important;
+}
+.buy-coin-modal .form-control::placeholder{
+    color: #ddd;
+    font-weight: 300;
+}
+.buy-coin-modal .input-group {
+    border: 1px solid #fff !important;
+    border-radius: 0px;
+}
+.buy-coin-modal .input-group .form-control{
+    border: none !important;
+}
+.buy-coin-modal .input-group .input-group-text {
+    background-color: transparent !important;
+    color: #fff;
+    border: none !important;
+}
+.buy-coin-modal .input-group .input-group-text img{
+    height: 30px;
+}
+.buy-coin-modal .input-group .input-group-text a{
+    color: #fff;
+}
+.white-btn{
+    border: 2px solid #fff !important;
+    background-color: #fff !important;
+    color: #303030 !important;
+    padding: 5px 15px;
+    border-radius: 0px;
+    font-size: 16px;
+    font-weight: 600;
+    display: inline-block;
+}
+.buy-coin-modal .white-btn{
+    margin-right: 10px;
+}
 
 @media (max-width:1370px){
     .buy-coin-sec2 .token-head h3 {
@@ -951,5 +1040,43 @@ margin-bottom: 10px;
     }
     .dashboard-layout .input-group .input-group-text {
         font-size: 14px;
+    }
+    .buy-coin-modal .modal-body p {
+        font-size: 12px;
+        line-height: 16px;
+    }
+    .buy-coin-modal .modal-body h3 {
+        font-size: 14px;
+    }
+    .scan-qr-row {
+        display: block;
+        margin: 20px 0;
+    }
+    .scan-qr-row .qr-img {
+        max-width: 80px;
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+    .buy-coin-modal .input-group .input-group-text img {
+        height: 20px;
+    }
+    .buy-coin-modal .input-group .form-control {
+        border: none !important;
+        padding: 0;
+        font-size: 12px;
+    }
+    .buy-coin-modal .input-group .input-group-text {
+        font-size: 14px;
+    }
+    .white-btn {
+        font-size: 14px;
+    }
+   
+}
+@media (max-width:768px){
+    .buy-coin-modal .white-btn {
+        margin-right: 0;
+        margin-bottom: 10px;
+        width: 100%;
     }
 }
