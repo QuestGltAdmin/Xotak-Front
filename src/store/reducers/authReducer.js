@@ -5,7 +5,6 @@ const userData = localStorage.getItem("userData");
 const usertoken = localStorage.getItem("usertoken");
 
 const Wallet = localStorage.getItem("Wallet");
-console.log(Wallet)
 const authSlice = createSlice({
   name: "auth",
   initialState: {
@@ -34,7 +33,6 @@ const authSlice = createSlice({
     },
 
     setUserprofileData: (state, action) => {
-      console.log(action,"reducer")
       localStorage.setItem("userData", JSON.stringify(action.payload));
       return {
         ...state,
@@ -81,7 +79,6 @@ const authSlice = createSlice({
     
     setWallet: (state, action) => {
       localStorage.setItem("Wallet", JSON.stringify(action.payload));
-      console.log(action.payload)
       return {
         ...state,
         Wallet: action.payload,

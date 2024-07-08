@@ -11,12 +11,126 @@ import {
   InputGroup,
 } from "react-bootstrap";
 import Layout from "../../Component/Layout";
+import {
+  getDollarPrice,
+  getDollarPriceMatic,
+} from "../../helpers/getConvertedPrice";
+import axiosMain from "../../http/axios/axios_main";
+import { encryptData } from "../../Encrypt-Decrypt/encryption-decryption";
+import useAuth from "../../hooks/useAuth";
 
 export const BuycoinTwo = () => {
-  const [show, setShow] = useState(false);
+  //==================================Global Variable================================//
+  const { user } = useAuth();
+  //==================================End of Code================================//
 
+  //==================================Local Variable================================//
+  const [show, setShow] = useState(false);
+  const [chain, setChain] = useState("BNB");
+  const [currentPrice, setCurrentPrice] = useState(0);
+  const [disable, setDisable] = useState(false);
+  const [formError, setFormError] = useState("");
+  const [inputValue, setInputValue] = useState({
+    amount: "",
+  });
+  const [inputdata, setInputData] = useState({
+    walletaddress: "",
+    hash: "",
+  });
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  //==================================End of Code================================//
+  const xotakprice = currentPrice / 0.012;
+  const FinalPrice = inputValue?.amount * xotakprice;
+
+  const HandleData = (e) => {
+    setInputValue({ ...inputValue, [e.target.name]: e.target.value });
+  };
+  const HandleFinalData = (e) => {
+    setInputData({ ...inputdata, [e.target.name]: e.target.value });
+  };
+
+  //==================================Price handle code================================//
+
+  useEffect(() => {
+    handlePrice();
+  }, [chain]);
+
+  console.log(xotakprice, "xotakprice");
+  console.log(FinalPrice, "final");
+
+  const handlePrice = async () => {
+    try {
+      if (chain == "MATIC") {
+        const maticprices = await getDollarPriceMatic();
+        setCurrentPrice(maticprices);
+      } else {
+        const Getprice = await getDollarPrice(chain);
+        setCurrentPrice(Getprice);
+      }
+    } catch (error) {
+      console.error("Error to change:", error);
+    }
+  };
+  //==================================End of Code================================//
+
+  const handlechains = async (data) => {
+    setChain(data?.chaintype);
+  };
+
+  console.log(inputdata, "dtatt");
+  //==================================Final Payment================================//
+
+  const HandleFinalPayment = async () => {
+    if (!inputdata?.walletaddress) {
+      setFormError("Please enter your walletaddress");
+    } else if (!inputdata?.hash) {
+      setFormError("Please enter payment Transaction hash");
+    } else {
+      setDisable(true);
+      setFormError("");
+      const RowWallet = await encryptData(inputdata?.walletaddress);
+      const RowHash = await encryptData(inputdata?.hash);
+      const RowXotakAmount = await encryptData(inputValue?.amount);
+      const RowAdminaddress = await encryptData(
+        "0x25E8dCdF4ceF1536C38B815D1b06D6cF0E52E7F7"
+      );
+      const RowPaymentAmount = await encryptData(FinalPrice);
+      const RowNetwork = await encryptData(chain);
+     
+      try {
+        const payload = {
+          walletAddress: RowWallet,
+          transactionHash: RowHash,
+          xotakAmount: RowXotakAmount,
+          adminAddress: RowAdminaddress,
+          paymentAmount: RowPaymentAmount,
+          network: RowNetwork,
+        };
+
+        const api = await axiosMain.post(
+          "/create-transaction-request",
+          payload,
+          {
+            headers: {
+              "content-type": "application/json",
+              authorization: `bearer ${user.token}`,
+            },
+          }
+        );
+        if (api?.data?.status) {
+
+          setDisable(false);
+          toast.success(api?.data?.message);
+        }
+      } catch (error) {
+        setDisable(false);
+        setFormError(error.response.data.message);
+      }
+    }
+  };
+  //==================================End of Code================================//
+
   return (
     <>
       <Layout>
@@ -35,69 +149,89 @@ export const BuycoinTwo = () => {
                   </div>
                   <Row>
                     <Col xl={6} lg={12} md={6}>
-                      <a href="">
-                        <div className="token-content-box">
-                          <div className="token-flex">
-                            <div className="img">
-                              <img
-                                src="https://coin-images.coingecko.com/coins/images/825/large/bnb-icon2_2x.png?1696501970"
-                                alt=""
-                                style={{ width: 20 }}
-                              />
-                              <span> BNB</span>
-                            </div>
-                            <p>71.0874 XOTAK</p>
+                      <div className="token-content-box">
+                        <div
+                          className="token-flex"
+                          onClick={(data) =>
+                            handlechains({
+                              chaintype: "BNB",
+                            })
+                          }
+                        >
+                          <div className="img">
+                            <img
+                              src="https://coin-images.coingecko.com/coins/images/825/large/bnb-icon2_2x.png?1696501970"
+                              alt=""
+                              style={{ width: 20 }}
+                            />
+                            <span>BNB</span>
                           </div>
+                          <p>00.00 XOTAK</p>
                         </div>
-                      </a>
-                      <a href="">
-                        <div className="token-content-box">
-                          <div className="token-flex">
-                            <div className="img">
-                              <img
-                                src="https://coin-images.coingecko.com/coins/images/1/large/bitcoin.png?1696501400"
-                                alt=""
-                                style={{ width: 20 }}
-                              />
-                              <span> USDT</span>
-                            </div>
-                            <p>8147.7426 XOTAK</p>
+                      </div>
+                      <div className="token-content-box">
+                        <div
+                          className="token-flex"
+                          onClick={(data) =>
+                            handlechains({
+                              chaintype: "USDT",
+                            })
+                          }
+                        >
+                          <div className="img">
+                            <img
+                              src="https://coin-images.coingecko.com/coins/images/1/large/bitcoin.png?1696501400"
+                              alt=""
+                              style={{ width: 20 }}
+                            />
+                            <span>USDT</span>
                           </div>
+                          <p>00.00 XOTAK</p>
                         </div>
-                      </a>
+                      </div>
                     </Col>
                     <Col xl={6} lg={12} md={6}>
                       {" "}
-                      <a href="">
-                        <div className="token-content-box">
-                          <div className="token-flex">
-                            <div className="img">
-                              <img
-                                src="https://coin-images.coingecko.com/coins/images/279/large/ethereum.png?1696501628"
-                                alt=""
-                                style={{ width: 20 }}
-                              />
-                              <span> ETH</span>
-                            </div>
-                            <p>430.5685 XOTAK</p>
+                      <div className="token-content-box">
+                        <div
+                          className="token-flex"
+                          onClick={(data) =>
+                            handlechains({
+                              chaintype: "MATIC",
+                            })
+                          }
+                        >
+                          <div className="img">
+                            <img
+                              src="https://coin-images.coingecko.com/coins/images/279/large/ethereum.png?1696501628"
+                              alt=""
+                              style={{ width: 20 }}
+                            />
+                            <span>MATIC</span>
                           </div>
+                          <p>00.00 XOTAK</p>
                         </div>
-                      </a>
-                      <a href="">
-                        <div className="token-content-box">
-                          <div className="token-flex">
-                            <div className="img">
-                              <img
-                                src="https://coin-images.coingecko.com/coins/images/279/large/ethereum.png?1696501628"
-                                alt=""
-                                style={{ width: 20 }}
-                              />
-                              <span>MATIC</span>
-                            </div>
-                            <p>430.5685 XOTAK</p>
+                      </div>
+                      <div className="token-content-box">
+                        <div
+                          className="token-flex"
+                          onClick={(data) =>
+                            handlechains({
+                              chaintype: "ETH",
+                            })
+                          }
+                        >
+                          <div className="img">
+                            <img
+                              src="https://coin-images.coingecko.com/coins/images/279/large/ethereum.png?1696501628"
+                              alt=""
+                              style={{ width: 20 }}
+                            />
+                            <span>ETH</span>
                           </div>
+                          <p>00.00 XOTAK</p>
                         </div>
-                      </a>
+                      </div>
                     </Col>
                   </Row>
                 </div>
@@ -120,12 +254,17 @@ export const BuycoinTwo = () => {
                           placeholder="0.00"
                           id="takeval"
                           defaultValue=""
+                          name="amount"
+                          onChange={HandleData}
+                          value={inputValue?.amount}
                         />
                         <span className="input-group-text">XOTAK</span>
                       </div>
                       <div className="equal">=</div>
                       <div>
-                        <h4>0.0000</h4>
+                        <h4>
+                          {FinalPrice.toFixed(4)} &nbsp;{chain}
+                        </h4>
                       </div>
                     </div>
                     <p className="info-text">1 XOTAK = 0.012 USD</p>
@@ -159,11 +298,11 @@ export const BuycoinTwo = () => {
           <Modal.Body>
             <p>Your Order has been placed successfully.</p>
             <p>
-              Please send 0.02552 ETH to the address below. The coin balance
-              will appear in your account only after transaction gets
-              confirmation and approved by our team.
+              Please send {FinalPrice.toFixed(4)} &nbsp;{chain} to the address
+              below. The coin balance will appear in your account only after
+              transaction gets confirmation and approved by our team.
             </p>
-            <h3>Payment to the following ETH Wallet Address</h3>
+            <h3>Payment to the following {chain} Wallet Address</h3>
             <div className="scan-qr-row">
               <img
                 className="qr-img"
@@ -171,7 +310,9 @@ export const BuycoinTwo = () => {
                 alt=""
               />
               <div>
-                <p>Send Amount: 0.02552 ETH</p>
+                <p>
+                  Send Amount: {FinalPrice.toFixed(4)} &nbsp;{chain}
+                </p>
                 <InputGroup className="mb-3">
                   <InputGroup.Text>
                     <img
@@ -182,19 +323,17 @@ export const BuycoinTwo = () => {
                   </InputGroup.Text>
                   <Form.Control
                     type="text"
-                    placeholder="7eq8q8r87q0879r87r7887r9"
+                    placeholder="0x25E8dCdF4ceF1536C38B815D1b06D6cF0E52E7F7"
                   />
                   <InputGroup.Text>
-                    <a href="">
-                      <i className="fa fa-copy"></i>
-                    </a>{" "}
+                    <i className="fa fa-copy"></i>
                   </InputGroup.Text>
                 </InputGroup>
 
                 <p>
                   <small>
-                    IMPORTANT: Only send ETH coins to this address, all other
-                    token formats might result in loss of funds!
+                    IMPORTANT: Only send {chain} coins to this address, all
+                    other token formats might result in loss of funds!
                   </small>
                 </p>
               </div>
@@ -211,16 +350,32 @@ export const BuycoinTwo = () => {
               className="mb-3"
               type="text"
               placeholder="Insert Your Wallet Address*"
+              name="walletaddress"
+              value={inputdata?.walletaddress}
+              onChange={HandleFinalData}
             />
             <Form.Control
               className="mb-3"
               type="text"
               placeholder="Insert Your Transaction hash*"
+              name="hash"
+              value={inputdata?.hash}
+              onChange={HandleFinalData}
             />
-
+            <p>{formError}</p>
             <div>
-              <button className="white-btn">Confirm Payment</button>
-              <button className="white-btn">Cancel Order</button>
+              <button
+                className="white-btn"
+                disabled={disable}
+                onClick={() => {
+                  HandleFinalPayment();
+                }}
+              >
+                Confirm Payment
+              </button>
+              <button className="white-btn" onClick={() => handleClose()}>
+                Cancel Order
+              </button>
             </div>
           </Modal.Body>
         </Modal>

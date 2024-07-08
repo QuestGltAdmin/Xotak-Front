@@ -14,6 +14,7 @@ import Transactions from "./Pages/Dashboard/Transactions";
 import Profile from "./Pages/Dashboard/Profile";
 import { Buycoin } from "./Pages/Dashboard/Buycoin";
 import { BuycoinTwo } from "./Pages/Dashboard/BuycoinTwo";
+import UserPrivateRoute from "./PrivateRoute/UserPrivateRoute";
 
 function App() {
   return (
@@ -29,11 +30,46 @@ function App() {
           <Route path="/Forgot_password" element={<Forgot_password />} />
           {/* Auth end */}
 
-          <Route path="/Dashboard" element={<Dashboard />} />
-          <Route path="/Transactions" element={<Transactions />} />
-          <Route path="/Profile" element={<Profile />} />
-          <Route path="/buy-coin" element={<Buycoin />} />
-          <Route path="/buy-coin2" element={<BuycoinTwo />} />
+          <Route
+            path="/Dashboard"
+            element={
+              <UserPrivateRoute>
+                <Dashboard />
+              </UserPrivateRoute>
+            }
+          />
+          <Route
+            path="/Transactions"
+            element={
+              <UserPrivateRoute>
+                <Transactions />
+              </UserPrivateRoute>
+            }
+          />
+          <Route
+            path="/Profile"
+            element={
+              <UserPrivateRoute>
+                <Profile />
+              </UserPrivateRoute>
+            }
+          />
+          <Route
+            path="/buy-coin"
+            element={
+              <UserPrivateRoute>
+                <Buycoin />
+              </UserPrivateRoute>
+            }
+          />
+          <Route
+            path="/buy-coin2"
+            element={
+              <UserPrivateRoute>
+                <BuycoinTwo />
+              </UserPrivateRoute>
+            }
+          />
         </Routes>
       </BrowserRouter>
     </>
