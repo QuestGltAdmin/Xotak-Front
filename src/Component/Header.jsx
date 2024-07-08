@@ -105,19 +105,18 @@ export default function Header() {
     } catch (err) {}
   };
 
-
   useEffect(() => {
     // if (wallet) {
     const handleChain = async () => {
       let provider = await Provider(Wallet?.type);
       //=================Account change code===============//
       provider.on("accountsChanged", async (accounts) => {
-        console.log(accounts,"accounts")
+        console.log(accounts, "accounts");
         const walletAcc = await Connect(Wallet?.type);
-        console.log(walletAcc,"walletAcc")
+        console.log(walletAcc, "walletAcc");
 
         dispatch(setWallet(walletAcc));
-        console.log("33333333")
+        console.log("33333333");
         window.location.reload();
         // }
       });
@@ -148,19 +147,39 @@ export default function Header() {
 
                   <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
-                      <Nav.Link href="/Dashboard">
+                      <Nav.Link
+                        onClick={() => {
+                          navigate("/Dashboard");
+                        }}
+                      >
                         <i className="fa fa-th-large"></i> Dashboard
                       </Nav.Link>
-                      <Nav.Link href="/buy-coin">
+                      <Nav.Link
+                        onClick={() => {
+                          navigate("/buy-coin");
+                        }}
+                      >
                         <i className="fa fa-money"></i> Buy Coin
                       </Nav.Link>
-                      <Nav.Link href="/buy-coin2">
+                      <Nav.Link
+                        onClick={() => {
+                          navigate("/buy-coin2");
+                        }}
+                      >
                         <i className="fa fa-money"></i> Buy Coin Second
                       </Nav.Link>
-                      <Nav.Link href="/Transactions">
+                      <Nav.Link
+                        onClick={() => {
+                          navigate("/Transactions");
+                        }}
+                      >
                         <i className="fa fa-exchange"></i> Transactions
                       </Nav.Link>
-                      <Nav.Link href="/Profile">
+                      <Nav.Link
+                        onClick={() => {
+                          navigate("/Profile");
+                        }}
+                      >
                         <i className="fa fa-user"></i> Profile
                       </Nav.Link>
                       {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
@@ -186,53 +205,53 @@ export default function Header() {
                   </Navbar.Collapse>
 
                   <div className="d-flex">
-                  {!Wallet?.selectedAccount ? (
-                    <button
-                      onClick={() => {
-                        setShow(true);
-                      }}
-                      className="connect-wallet-btn"
-                    >
-                      Connect Wallet
-                    </button>
-                  ) : (
-                    <Dropdown className="after-connect-dropdown">
-                      <Dropdown.Toggle
+                    {!Wallet?.selectedAccount ? (
+                      <button
+                        onClick={() => {
+                          setShow(true);
+                        }}
                         className="connect-wallet-btn"
-                        id="dropdown-basic"
                       >
-                        <img
-                          src={
-                            Wallet?.type === "metamask"
-                              ? "assets/Compress-img/metamask.svg"
-                              : Wallet?.type === "walletConnect"
-                              ? "assets/Compress-img/walletconnect.svg"
-                              : "assets/Compress-img/coinbase.webp"
-                          }
-                          loading="lazy"
-                          alt="Img"
-                        />
-                        {Wallet?.selectedAccount.replace(
-                          Wallet?.selectedAccount.substring(5, 37),
-                          "..."
-                        )}
-                      </Dropdown.Toggle>
-
-                      <Dropdown.Menu>
-                        <Dropdown.Item
-                          onClick={() => {
-                            logout();
-                          }}
+                        Connect Wallet
+                      </button>
+                    ) : (
+                      <Dropdown className="after-connect-dropdown">
+                        <Dropdown.Toggle
+                          className="connect-wallet-btn"
+                          id="dropdown-basic"
                         >
-                          Disconnect
-                        </Dropdown.Item>
-                        {/* <Dropdown.Item>Test Link</Dropdown.Item> */}
-                      </Dropdown.Menu>
-                    </Dropdown>
-                  )}
-                  <ConnectWalletModal {...ConnectWalletModalProps} />
-                 
-                  <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                          <img
+                            src={
+                              Wallet?.type === "metamask"
+                                ? "assets/Compress-img/metamask.svg"
+                                : Wallet?.type === "walletConnect"
+                                ? "assets/Compress-img/walletconnect.svg"
+                                : "assets/Compress-img/coinbase.webp"
+                            }
+                            loading="lazy"
+                            alt="Img"
+                          />
+                          {Wallet?.selectedAccount.replace(
+                            Wallet?.selectedAccount.substring(5, 37),
+                            "..."
+                          )}
+                        </Dropdown.Toggle>
+
+                        <Dropdown.Menu>
+                          <Dropdown.Item
+                            onClick={() => {
+                              logout();
+                            }}
+                          >
+                            Disconnect
+                          </Dropdown.Item>
+                          {/* <Dropdown.Item>Test Link</Dropdown.Item> */}
+                        </Dropdown.Menu>
+                      </Dropdown>
+                    )}
+                    <ConnectWalletModal {...ConnectWalletModalProps} />
+
+                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
                   </div>
                 </div>
               </Col>
