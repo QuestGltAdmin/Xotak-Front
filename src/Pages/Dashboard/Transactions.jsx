@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from 'react'
-import { Col, Container, Row, Table, Form, Pagination, Dropdown, InputGroup, Tabs, Tab } from 'react-bootstrap'
+import { Col, Container, Row, Form, Dropdown, InputGroup, Tabs, Tab } from 'react-bootstrap'
 import Layout from '../../Component/Layout';
 
 

@@ -3,114 +3,15 @@ import {
   Col,
   Container,
   Row,
-  Table,
   Form,
-  Pagination,
+  Dropdown, InputGroup, Tabs, Tab
 } from "react-bootstrap-v5";
 import Layout from "../../Component/Layout";
+import Marquee from "react-fast-marquee";
 
-import {
-  Chart as ChartJS,
-  ArcElement,
-  Tooltip,
-  Legend,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-} from "chart.js";
-import { Doughnut, Pie, Line } from "react-chartjs-2";
-import useAuth from "../../hooks/useAuth";
-ChartJS.register(
-  ArcElement,
-  Tooltip,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Legend
-);
+
 
 const Dashboard = () => {
-  const data1 = {
-    labels: ["Red", "Blue", "Yellow", "Green"],
-    datasets: [
-      {
-        label: "# of Votes",
-        data: [12, 19, 3, 5],
-        backgroundColor: ["#002e5b", "#256aad", "#45b6fe", "#00004d"],
-        borderColor: ["#002e5b", "#256aad", "#45b6fe", "#00004d"],
-        borderWidth: 1,
-      },
-    ],
-  };
-  const data2 = {
-    labels: ["Red", "Blue", "Yellow", "Green"],
-    datasets: [
-      {
-        label: "# of Votes",
-        data: [6, 24, 3, 5],
-        backgroundColor: ["#002e5b", "#256aad", "#45b6fe", "#00004d"],
-        borderColor: ["#002e5b", "#256aad", "#45b6fe", "#00004d"],
-        borderWidth: 1,
-      },
-    ],
-  };
-  const data = {
-    labels: ["Red", "Blue", "Yellow", "Green"],
-    datasets: [
-      {
-        label: "# of Votes",
-        data: [12, 19, 3, 5],
-        backgroundColor: ["#002e5b", "#256aad", "#45b6fe", "#00004d"],
-        borderColor: ["#002e5b", "#256aad", "#45b6fe", "#00004d"],
-        borderWidth: 1,
-      },
-    ],
-  };
-
-  const options = {
-    responsive: true,
-    plugins: {
-      legend: {
-        position: "bottom",
-      },
-      title: {
-        display: false,
-        text: "Chart.js Line Chart",
-      },
-    },
-  };
-
-  const labels = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-  ];
-
-  const data3 = {
-    labels,
-    datasets: [
-      {
-        label: "Dataset 1",
-        data: labels.map(() => Math.random() * 100),
-        borderColor: "#002e5b",
-        backgroundColor: "#002e5b",
-      },
-      {
-        label: "Dataset 2",
-        data: labels.map(() => Math.random() * 100),
-        borderColor: "rgb(53, 162, 235)",
-        backgroundColor: "rgb(53, 162, 235)",
-      },
-    ],
-  };
 
   return (
     <>
@@ -122,45 +23,123 @@ const Dashboard = () => {
                 <div className="dashboard-white-box">
                   <div className="w-100">
                     <h2 className="inner-page-heading">Dashboard</h2>
-                    <Row>
+                    <Marquee className="marquee-spacing">
+                      <div className="shadow-box-dash">
+                        <img className="img-coin" src="assets/img/ethereum1.png" alt="" />
+                        <h4>$168,331.09</h4>
+                        <p><img src="assets/img/trend-up.png" alt="" /> This week</p>
+                      </div>
+                      <div className="shadow-box-dash">
+                        <img className="img-coin" src="assets/img/bitcoin.png" alt="" />
+                        <h4>$168,331.09</h4>
+                        <p><img src="assets/img/trend-down.png" alt="" /> This week</p>
+                      </div>
+                      <div className="shadow-box-dash">
+                        <img className="img-coin" src="assets/img/usdt.png" alt="" />
+                        <h4>$168,331.09</h4>
+                        <p><img src="assets/img/trend-up.png" alt="" /> This week</p>
+                      </div>
+                      <div className="shadow-box-dash">
+                        <img className="img-coin" src="assets/img/BNB.png" alt="" />
+                        <h4>$168,331.09</h4>
+                        <p><img src="assets/img/trend-down.png" alt="" /> This week</p>
+                      </div>
+                    </Marquee>
+                    {/* <Row>
                       <Col lg={3} md={6} sm={6} xs={12}>
                         <div className="shadow-box-dash">
-                          <p>Total Token Purchased</p>
-                          <h4>YUSE 0.00</h4>
+                          <img className="img-coin" src="assets/img/ethereum1.png" alt="" />
+                          <h4>$168,331.09</h4>
+                          <p><img src="assets/img/trend-up.png" alt="" /> This week</p>
                         </div>
                       </Col>
                       <Col lg={3} md={6} sm={6} xs={12}>
                         <div className="shadow-box-dash">
-                          <p>BNB</p>
-
-                          <h4>BNB 0.00</h4>
+                          <img className="img-coin" src="assets/img/bitcoin.png" alt="" />
+                          <h4>$168,331.09</h4>
+                          <p><img src="assets/img/trend-down.png" alt="" /> This week</p>
                         </div>
                       </Col>
                       <Col lg={3} md={6} sm={6} xs={12}>
                         <div className="shadow-box-dash">
-                          <p>BUSD</p>
-
-                          <h4>BUSD 0.0000</h4>
+                          <img className="img-coin" src="assets/img/usdt.png" alt="" />
+                          <h4>$168,331.09</h4>
+                          <p><img src="assets/img/trend-up.png" alt="" /> This week</p>
                         </div>
                       </Col>
                       <Col lg={3} md={6} sm={6} xs={12}>
                         <div className="shadow-box-dash">
-                          <p>ETH</p>
-
-                          <h4>ETH 0.00</h4>
+                          <img className="img-coin" src="assets/img/BNB.png" alt="" />
+                          <h4>$168,331.09</h4>
+                          <p><img src="assets/img/trend-down.png" alt="" /> This week</p>
                         </div>
                       </Col>
-                    </Row>
-
-                    <Row>
-                      <Col lg={6}>
-                        <div className="chart-box shadow-box-main">
-                          <h3>Doughnut</h3>
-                          <Doughnut data={data1} />
-                        </div>
-                      </Col>
-                    </Row>
+                    </Row> */}
                   </div>
+                </div>
+
+                <div className="total-balance-box">
+                   <div>
+                      <h5>Total Balance</h5>
+                      <h3>$ 456.789</h3>
+                      <h4><img src="assets/img/coin.png" alt="" /> 34.88 XOTAK</h4>
+                   </div>
+                   <div className="outer-btn">
+                      <h6>1 XOTAK Coin = 23.34 USD</h6>
+                      <button className="white-btn m-0">Buy Coin</button>
+                   </div>
+                  
+                </div>
+
+                <div>
+                  <h2 className="inner-page-heading mb-2">Recent Transactions</h2>
+                  <Row>
+                    <Col>
+                      <div className="table-box-new shadow-box-main">
+                        <div className="table-view-transaction">
+                          <div className="thead">
+                            <div>
+                              <p>S. No</p>
+                              <p>First Name</p>
+                              <p>Last Name</p>
+                              <p>Wallet Address</p>
+                              <p>Action</p>
+                            </div>
+                          </div>
+                          <div className="tbody">
+                            <div>
+                              <p>1</p>
+                              <p>test</p>
+                              <p>xyz</p>
+                              <p>trertv5v3hgm5g354g35ghghrmgegegg53gj53jg5g3</p>
+                              <p><button className="common-btn">View</button></p>
+                            </div>
+                            <div>
+                              <p>1</p>
+                              <p>test</p>
+                              <p>xyz</p>
+                              <p>trertv5v3hgm5g354g35ghghrmgegegg53gj53jg5g3</p>
+                              <p><button className="common-btn">View</button></p>
+                            </div>
+                            <div>
+                              <p>1</p>
+                              <p>test</p>
+                              <p>xyz</p>
+                              <p>trertv5v3hgm5g354g35ghghrmgegegg53gj53jg5g3</p>
+                              <p><button className="common-btn">View</button></p>
+                            </div>
+                            <div>
+                              <p>1</p>
+                              <p>test</p>
+                              <p>xyz</p>
+                              <p>trertv5v3hgm5g354g35ghghrmgegegg53gj53jg5g3</p>
+                              <p><button className="common-btn">View</button></p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </Col>
+                  </Row>
                 </div>
               </Col>
             </Row>
