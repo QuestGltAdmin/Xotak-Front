@@ -21,10 +21,10 @@ export default function ConnectWalletModal({
     try {
       props.modalProps.onHide();
 
-      if (type === "walletConnect") {
-        // Display loading toast only for WalletConnect
-        loadingToastId = toast("Connecting Wallet...", { autoClose: 3000 });
-      }
+      // if (type === "walletConnect") {
+      //   // Display loading toast only for WalletConnect
+      //   loadingToastId = toast("Connecting Wallet...", { autoClose: 3000 });
+      // }
 
       const wallet = await Connect(type);
 
@@ -33,26 +33,27 @@ export default function ConnectWalletModal({
           if (e.detail) {
             toast.dismiss(loadingToastId);
             dispatch(setWallet(e.detail));
-            window.location.reload();
+            console.log(e,"eeeeeeeee")
+            // window.location.reload();
           }
         });
-        document.addEventListener("SELECT_WALLET", (e) => {
-          if (e.detail) {
-            dispatch(setWallet(e.detail));
-          }
-        });
-        document.addEventListener("MODAL_CLOSE", (e) => {
-          if (e.detail) {
-            dispatch(setWallet(e.detail));
-            window.location.reload();
-          }
-        });
-        document.addEventListener("CONNECT_SUCCESS", (e) => {
-          if (e.detail) {
-            dispatch(setWallet(e.detail));
-            window.location.reload();
-          }
-        });
+        // document.addEventListener("SELECT_WALLET", (e) => {
+        //   if (e.detail) {
+        //     dispatch(setWallet(e.detail));
+        //   }
+        // });
+        // document.addEventListener("MODAL_CLOSE", (e) => {
+        //   if (e.detail) {
+        //     dispatch(setWallet(e.detail));
+        //     window.location.reload();
+        //   }
+        // });
+        // document.addEventListener("CONNECT_SUCCESS", (e) => {
+        //   if (e.detail) {
+        //     dispatch(setWallet(e.detail));
+        //     window.location.reload();
+        //   }
+        // });
       } else {
         dispatch(setWallet(wallet));
         window.location.reload();
