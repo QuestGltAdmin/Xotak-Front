@@ -1,6 +1,6 @@
 import { createWeb3Modal } from "@web3modal/wagmi/react";
 import { http, createConfig, WagmiProvider } from "wagmi";
-import { mainnet, bsc, polygon } from "viem/chains";
+import { mainnet, bsc, polygon, bscTestnet } from "viem/chains";
 import { walletConnect } from "wagmi/connectors";
 import {
   getAccount,
@@ -26,13 +26,15 @@ const metadata = {
 };
 
 // Define chains
-const chains = [mainnet, bsc, polygon];
+const chains = [mainnet, bsc, polygon, bscTestnet];
 const wagmiConfig = createConfig({
   chains, // Use the defined chains here
   transports: {
     [mainnet.id]: http(),
     [bsc.id]: http(),
     [polygon.id]: http(),
+    [bscTestnet.id]: http(),
+    
   },
   connectors: [
     walletConnect({ projectId, metadata, showQrModal: false }),
