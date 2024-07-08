@@ -27,22 +27,22 @@ const Dashboard = () => {
                       <div className="shadow-box-dash">
                         <img className="img-coin" src="assets/img/ethereum1.png" alt="" />
                         <h4>$168,331.09</h4>
-                        <p><img src="assets/img/trend-up.png" alt="" /> This week</p>
+                        <p>ETH</p>
                       </div>
                       <div className="shadow-box-dash">
                         <img className="img-coin" src="assets/img/bitcoin.png" alt="" />
                         <h4>$168,331.09</h4>
-                        <p><img src="assets/img/trend-down.png" alt="" /> This week</p>
+                        <p>BitCoin</p>
                       </div>
                       <div className="shadow-box-dash">
                         <img className="img-coin" src="assets/img/usdt.png" alt="" />
                         <h4>$168,331.09</h4>
-                        <p><img src="assets/img/trend-up.png" alt="" /> This week</p>
+                        <p>USDT</p>
                       </div>
                       <div className="shadow-box-dash">
                         <img className="img-coin" src="assets/img/BNB.png" alt="" />
                         <h4>$168,331.09</h4>
-                        <p><img src="assets/img/trend-down.png" alt="" /> This week</p>
+                        <p>BNB</p>
                       </div>
                     </Marquee>
                     {/* <Row>
@@ -92,7 +92,7 @@ const Dashboard = () => {
                 </div>
 
                 <div>
-                  <h2 className="inner-page-heading mb-2">Recent Transactions</h2>
+                  <h2 className="inner-page-heading mb-2 all-transaction-link">Recent Transactions <a href="">View All Transactions</a> </h2>
                   <Row>
                     <Col>
                       <div className="table-box-new shadow-box-main">
@@ -112,28 +112,24 @@ const Dashboard = () => {
                               <p>test</p>
                               <p>xyz</p>
                               <p>trertv5v3hgm5g354g35ghghrmgegegg53gj53jg5g3</p>
-                              <p><button className="common-btn">View</button></p>
                             </div>
                             <div>
                               <p>1</p>
                               <p>test</p>
                               <p>xyz</p>
                               <p>trertv5v3hgm5g354g35ghghrmgegegg53gj53jg5g3</p>
-                              <p><button className="common-btn">View</button></p>
                             </div>
                             <div>
                               <p>1</p>
                               <p>test</p>
                               <p>xyz</p>
                               <p>trertv5v3hgm5g354g35ghghrmgegegg53gj53jg5g3</p>
-                              <p><button className="common-btn">View</button></p>
                             </div>
                             <div>
                               <p>1</p>
                               <p>test</p>
                               <p>xyz</p>
                               <p>trertv5v3hgm5g354g35ghghrmgegegg53gj53jg5g3</p>
-                              <p><button className="common-btn">View</button></p>
                             </div>
                           </div>
                         </div>
