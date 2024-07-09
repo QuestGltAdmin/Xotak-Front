@@ -43,7 +43,6 @@ export const getDollarPrice = async (chainType) => {
 };
 
 export const getDollarPriceMatic = async () => {
-  console.log("pricein");
   const web3 = new Web3(
     new Web3.providers.HttpProvider("https://bsc-dataseed1.binance.org/")
   );

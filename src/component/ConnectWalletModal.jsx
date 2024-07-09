@@ -33,7 +33,6 @@ export default function ConnectWalletModal({
           if (e.detail) {
             toast.dismiss(loadingToastId);
             dispatch(setWallet(e.detail));
-            console.log(e,"eeeeeeeee")
             // window.location.reload();
           }
         });

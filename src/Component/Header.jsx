@@ -111,12 +111,8 @@ export default function Header() {
       let provider = await Provider(Wallet?.type);
       //=================Account change code===============//
       provider.on("accountsChanged", async (accounts) => {
-        console.log(accounts, "accounts");
         const walletAcc = await Connect(Wallet?.type);
-        console.log(walletAcc, "walletAcc");
-
         dispatch(setWallet(walletAcc));
-        console.log("33333333");
         window.location.reload();
         // }
       });

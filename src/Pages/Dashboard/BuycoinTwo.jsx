@@ -66,9 +66,6 @@ export const BuycoinTwo = () => {
     handleCurrentPrice();
   }, [chain]);
 
-  // console.log(xotakprice, "xotakprice");
-  // console.log(FinalPrice, "final");
-
   const handleCurrentPrice = async () => {
     try {
       if (chain == "MATIC") {
@@ -109,7 +106,6 @@ export const BuycoinTwo = () => {
     setChain(data?.chaintype);
   };
 
-  // console.log(inputdata, "dtatt");
   //==================================Final Payment================================//
 
   const HandleFinalPayment = async () => {
@@ -213,7 +209,7 @@ export const BuycoinTwo = () => {
                         >
                           <div className="img">
                             <img
-                              src="https://coin-images.coingecko.com/coins/images/1/large/bitcoin.png?1696501400"
+                              src="assets/img/Tokens.png"
                               alt=""
                               style={{ width: 20 }}
                             />
@@ -350,7 +346,17 @@ export const BuycoinTwo = () => {
                   <InputGroup.Text>
                     <img
                       className=""
-                      src="https://coin-images.coingecko.com/coins/images/279/large/ethereum.png?1696501628"
+                      src={
+                        chain === "BNB"
+                          ? "https://coin-images.coingecko.com/coins/images/825/large/bnb-icon2_2x.png?1696501970"
+                          : chain === "ETH"
+                          ? "https://coin-images.coingecko.com/coins/images/279/large/ethereum.png?1696501628"
+                          : chain == "USDT"
+                          ? "assets/img/Tokens.png"
+                          : chain == "MATIC"
+                          ? "assets/img/matic.png"
+                          : ""
+                      }
                       alt=""
                     />{" "}
                   </InputGroup.Text>
