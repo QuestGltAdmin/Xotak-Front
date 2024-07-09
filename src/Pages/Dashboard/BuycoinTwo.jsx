@@ -53,6 +53,7 @@ export const BuycoinTwo = () => {
   const xotakprice = currentPrice / 0.012;
   const FinalPrice = inputValue?.amount * xotakprice;
 
+  const usdtPrice = 1.0000 /0.012
   const HandleData = (e) => {
     setInputValue({ ...inputValue, [e.target.name]: e.target.value });
   };
@@ -215,7 +216,7 @@ export const BuycoinTwo = () => {
                             />
                             <span>USDT</span>
                           </div>
-                          <p>1.0000 XOTAK</p>
+                          <p>{usdtPrice.toFixed(4)} XOTAK</p>
                         </div>
                       </div>
                     </Col>
