@@ -39,7 +39,6 @@ export const Connect = async (type) => {
 
 
 export const ReConnect = async (type) => {
-  console.log("inreconn")
   if (type === "walletConnect") {
     setTimeout(async () => {
       let account = await reConnect();
@@ -54,7 +53,6 @@ export const ReConnect = async (type) => {
 
     let selectedAccount = accounts[0];
     const chainId = await web3connect.eth.getChainId();
-    console.log(selectedAccount,"selectedAccountreconnect")
     return {
       selectedAccount: selectedAccount,
       chainId: chainId,

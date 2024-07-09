@@ -227,7 +227,6 @@ const Profile = () => {
       <Layout>
         <section className="outer-dash-section">
           <Toaster />
-
           <Container>
             <Row>
               <Col lg={12}>

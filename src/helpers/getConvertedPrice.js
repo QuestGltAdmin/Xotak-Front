@@ -6,11 +6,11 @@ const BNBPairAddress = "0x16b9a82891338f9bA80E2D6970FddA79D1eb0daE";
 const maticPairAddress = "0x3B09e13Ca9189FBD6a196cfE5FbD477C885afBf3";
 
 export const getDollarPrice = async (chainType) => {
-  //   console.log(chainType, "chainType");
   try {
     const web3 = new Web3(
       new Web3.providers.HttpProvider("https://bsc-dataseed1.binance.org/")
     );
+
     let pairAddress;
     if (chainType == "BNB") {
       pairAddress = web3.utils.toChecksumAddress(BNBPairAddress);
@@ -43,6 +43,7 @@ export const getDollarPrice = async (chainType) => {
 };
 
 export const getDollarPriceMatic = async () => {
+  console.log("pricein");
   const web3 = new Web3(
     new Web3.providers.HttpProvider("https://bsc-dataseed1.binance.org/")
   );
@@ -70,3 +71,5 @@ export const getDollarPriceMatic = async () => {
 
   return rate;
 };
+
+

@@ -18,6 +18,8 @@ import {
 import axiosMain from "../../http/axios/axios_main";
 import { encryptData } from "../../Encrypt-Decrypt/encryption-decryption";
 import useAuth from "../../hooks/useAuth";
+import toast, { Toaster } from "react-hot-toast";
+import CopyToClipboard from "react-copy-to-clipboard";
 
 export const BuycoinTwo = () => {
   //==================================Global Variable================================//
@@ -28,6 +30,10 @@ export const BuycoinTwo = () => {
   const [show, setShow] = useState(false);
   const [chain, setChain] = useState("BNB");
   const [currentPrice, setCurrentPrice] = useState(0);
+  const [copied, setCopied] = useState(false);
+  const [maticprice, setMaticPrice] = useState(0);
+  const [bnbprice, setBNBPrice] = useState(0);
+  const [ethprice, setETHPrice] = useState(0);
   const [disable, setDisable] = useState(false);
   const [formError, setFormError] = useState("");
   const [inputValue, setInputValue] = useState({
@@ -37,7 +43,11 @@ export const BuycoinTwo = () => {
     walletaddress: "",
     hash: "",
   });
-  const handleClose = () => setShow(false);
+  const handleClose = () => {
+    setShow(false);
+    setCopied(false);
+  };
+
   const handleShow = () => setShow(true);
   //==================================End of Code================================//
   const xotakprice = currentPrice / 0.012;
@@ -53,21 +63,42 @@ export const BuycoinTwo = () => {
   //==================================Price handle code================================//
 
   useEffect(() => {
-    handlePrice();
+    handleCurrentPrice();
   }, [chain]);
 
-  console.log(xotakprice, "xotakprice");
-  console.log(FinalPrice, "final");
+  // console.log(xotakprice, "xotakprice");
+  // console.log(FinalPrice, "final");
 
-  const handlePrice = async () => {
+  const handleCurrentPrice = async () => {
     try {
       if (chain == "MATIC") {
         const maticprices = await getDollarPriceMatic();
         setCurrentPrice(maticprices);
+      } else if (chain == "USDT") {
+        setCurrentPrice(1);
       } else {
         const Getprice = await getDollarPrice(chain);
         setCurrentPrice(Getprice);
       }
+    } catch (error) {
+      console.error("Error to change:", error);
+    }
+  };
+
+  useEffect(() => {
+    handlexotakPrice();
+  });
+
+  const handlexotakPrice = async () => {
+    try {
+      const maticprices = await getDollarPriceMatic();
+      setMaticPrice(maticprices / 0.012);
+
+      const bnbprice = await getDollarPrice("BNB");
+      setBNBPrice(bnbprice / 0.012);
+
+      const ethprice = await getDollarPrice("ETH");
+      setETHPrice(ethprice / 0.012);
     } catch (error) {
       console.error("Error to change:", error);
     }
@@ -78,7 +109,7 @@ export const BuycoinTwo = () => {
     setChain(data?.chaintype);
   };
 
-  console.log(inputdata, "dtatt");
+  // console.log(inputdata, "dtatt");
   //==================================Final Payment================================//
 
   const HandleFinalPayment = async () => {
@@ -97,7 +128,7 @@ export const BuycoinTwo = () => {
       );
       const RowPaymentAmount = await encryptData(FinalPrice);
       const RowNetwork = await encryptData(chain);
-     
+
       try {
         const payload = {
           walletAddress: RowWallet,
@@ -119,12 +150,13 @@ export const BuycoinTwo = () => {
           }
         );
         if (api?.data?.status) {
-
           setDisable(false);
           toast.success(api?.data?.message);
+          handleClose();
         }
       } catch (error) {
         setDisable(false);
+        handleClose();
         setFormError(error.response.data.message);
       }
     }
@@ -135,6 +167,7 @@ export const BuycoinTwo = () => {
     <>
       <Layout>
         <section className="buy-coin-sec2">
+          <Toaster />
           <Container>
             <Row>
               <Col lg={6}>
@@ -166,7 +199,7 @@ export const BuycoinTwo = () => {
                             />
                             <span>BNB</span>
                           </div>
-                          <p>00.00 XOTAK</p>
+                          <p>{bnbprice?.toFixed(4)} XOTAK</p>
                         </div>
                       </div>
                       <div className="token-content-box">
@@ -186,7 +219,7 @@ export const BuycoinTwo = () => {
                             />
                             <span>USDT</span>
                           </div>
-                          <p>00.00 XOTAK</p>
+                          <p>1.0000 XOTAK</p>
                         </div>
                       </div>
                     </Col>
@@ -203,13 +236,13 @@ export const BuycoinTwo = () => {
                         >
                           <div className="img">
                             <img
-                              src="https://coin-images.coingecko.com/coins/images/279/large/ethereum.png?1696501628"
+                              src="assets/img/matic.png"
                               alt=""
                               style={{ width: 20 }}
                             />
                             <span>MATIC</span>
                           </div>
-                          <p>00.00 XOTAK</p>
+                          <p>{maticprice?.toFixed(4)} XOTAK</p>
                         </div>
                       </div>
                       <div className="token-content-box">
@@ -229,7 +262,7 @@ export const BuycoinTwo = () => {
                             />
                             <span>ETH</span>
                           </div>
-                          <p>00.00 XOTAK</p>
+                          <p>{ethprice?.toFixed(4)} XOTAK</p>
                         </div>
                       </div>
                     </Col>
@@ -325,9 +358,18 @@ export const BuycoinTwo = () => {
                     type="text"
                     placeholder="0x25E8dCdF4ceF1536C38B815D1b06D6cF0E52E7F7"
                   />
-                  <InputGroup.Text>
-                    <i className="fa fa-copy"></i>
-                  </InputGroup.Text>
+                  <CopyToClipboard
+                    text={"0x25E8dCdF4ceF1536C38B815D1b06D6cF0E52E7F7"}
+                    onCopy={(text, result) => {
+                      setCopied(true);
+                    }}
+                  >
+                    {copied ? (
+                      <span style={{ color: "white" }}>Copied</span>
+                    ) : (
+                      <i className="fa fa-copy" style={{ color: "white" }}></i>
+                    )}
+                  </CopyToClipboard>
                 </InputGroup>
 
                 <p>
@@ -371,7 +413,7 @@ export const BuycoinTwo = () => {
                   HandleFinalPayment();
                 }}
               >
-                Confirm Payment
+                {disable === true ? "Processing" : "Confirm Payment"}
               </button>
               <button className="white-btn" onClick={() => handleClose()}>
                 Cancel Order
