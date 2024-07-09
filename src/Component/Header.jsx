@@ -16,6 +16,7 @@ import { setWallet } from "../store/reducers/authReducer";
 import ConnectWalletModal from "../component/ConnectWalletModal";
 import { Connect, ReConnect, onDisconnect } from "../helpers/Connect";
 import { Provider } from "../helpers/Web3Helper";
+import { toast } from "react-toastify";
 
 export default function Header() {
   //========================= Global variable =========================//

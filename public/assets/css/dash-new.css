@@ -1016,6 +1016,10 @@ margin-bottom: 10px;
     align-items: center;
     padding: 10px;
     margin: 25px 0;
+
+}
+.token-box1 .token-content-box .token-flex .img img {
+    margin-right: 10px;
 }
 .token-box1 .token-content-box .token-flex span {
     color: #fff;

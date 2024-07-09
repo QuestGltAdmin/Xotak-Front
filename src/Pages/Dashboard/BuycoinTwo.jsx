@@ -365,18 +365,23 @@ export const BuycoinTwo = () => {
                     type="text"
                     placeholder="0x25E8dCdF4ceF1536C38B815D1b06D6cF0E52E7F7"
                   />
-                  <CopyToClipboard
-                    text={"0x25E8dCdF4ceF1536C38B815D1b06D6cF0E52E7F7"}
-                    onCopy={(text, result) => {
-                      setCopied(true);
-                    }}
-                  >
-                    {copied ? (
-                      <span style={{ color: "white" }}>Copied</span>
-                    ) : (
-                      <i className="fa fa-copy" style={{ color: "white" }}></i>
-                    )}
-                  </CopyToClipboard>
+                  <InputGroup.Text>
+                    <CopyToClipboard
+                      text={"0x25E8dCdF4ceF1536C38B815D1b06D6cF0E52E7F7"}
+                      onCopy={(text, result) => {
+                        setCopied(true);
+                      }}
+                    >
+                      {copied ? (
+                        <span style={{ color: "white" }}>Copied</span>
+                      ) : (
+                        <i
+                          className="fa fa-copy"
+                          style={{ color: "white" }}
+                        ></i>
+                      )}
+                    </CopyToClipboard>
+                  </InputGroup.Text>
                 </InputGroup>
 
                 <p>
