@@ -162,7 +162,7 @@ export default function Header() {
                           navigate("/buy-coin2");
                         }}
                       >
-                        <i className="fa fa-money"></i> Buy Coin Second
+                        <i className="fa fa-money"></i> Buy Coin Manual
                       </Nav.Link>
                       <Nav.Link
                         onClick={() => {

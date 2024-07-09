@@ -4,14 +4,41 @@ import {
   Container,
   Row,
   Form,
-  Dropdown, InputGroup, Tabs, Tab
+  Dropdown,
+  InputGroup,
+  Tabs,
+  Tab,
 } from "react-bootstrap-v5";
 import Layout from "../../Component/Layout";
 import Marquee from "react-fast-marquee";
-
-
+import {
+  getDollarPrice,
+  getDollarPriceMatic,
+} from "../../helpers/getConvertedPrice";
 
 const Dashboard = () => {
+  const [maticprice, setMaticPrice] = useState(0);
+  const [bnbprice, setBNBPrice] = useState(0);
+  const [ethprice, setETHPrice] = useState(0);
+
+  useEffect(() => {
+    handlexotakPrice();
+  });
+
+  const handlexotakPrice = async () => {
+    try {
+      const maticprices = await getDollarPriceMatic();
+      setMaticPrice(maticprices);
+
+      const bnbprice = await getDollarPrice("BNB");
+      setBNBPrice(bnbprice);
+
+      const ethprice = await getDollarPrice("ETH");
+      setETHPrice(ethprice);
+    } catch (error) {
+      console.error("Error to change:", error);
+    }
+  };
 
   return (
     <>
@@ -25,23 +52,39 @@ const Dashboard = () => {
                     <h2 className="inner-page-heading">Dashboard</h2>
                     <Marquee className="marquee-spacing">
                       <div className="shadow-box-dash">
-                        <img className="img-coin" src="assets/img/ethereum1.png" alt="" />
-                        <h4>$168,331.09</h4>
+                        <img
+                          className="img-coin"
+                          src="assets/img/ethereum1.png"
+                          alt=""
+                        />
+                        <h4>${ethprice?.toFixed(4)}</h4>
                         <p>ETH</p>
                       </div>
                       <div className="shadow-box-dash">
-                        <img className="img-coin" src="assets/img/bitcoin.png" alt="" />
-                        <h4>$168,331.09</h4>
-                        <p>BitCoin</p>
+                        <img
+                          className="img-coin"
+                          src="assets/img/matic.png"
+                          alt=""
+                        />
+                        <h4>${maticprice?.toFixed(4)}</h4>
+                        <p>MATIC</p>
                       </div>
                       <div className="shadow-box-dash">
-                        <img className="img-coin" src="assets/img/usdt.png" alt="" />
-                        <h4>$168,331.09</h4>
+                        <img
+                          className="img-coin"
+                          src="assets/img/usdt.png"
+                          alt=""
+                        />
+                        <h4>$1.0000</h4>
                         <p>USDT</p>
                       </div>
                       <div className="shadow-box-dash">
-                        <img className="img-coin" src="assets/img/BNB.png" alt="" />
-                        <h4>$168,331.09</h4>
+                        <img
+                          className="img-coin"
+                          src="assets/img/BNB.png"
+                          alt=""
+                        />
+                        <h4>${bnbprice?.toFixed(4)}</h4>
                         <p>BNB</p>
                       </div>
                     </Marquee>
@@ -79,20 +122,25 @@ const Dashboard = () => {
                 </div>
 
                 <div className="total-balance-box">
-                   <div>
-                      <h5>Total Balance</h5>
-                      <h3>$ 456.789</h3>
-                      <h4><img src="assets/img/coin.png" alt="" /> 34.88 XOTAK</h4>
-                   </div>
-                   <div className="outer-btn">
-                      <h6>1 XOTAK Coin = 23.34 USD</h6>
-                      <button className="white-btn m-0">Buy Coin</button>
-                   </div>
-                  
+                  <div>
+                    <h5>Total Balance</h5>
+                    <h3>$ 456.789</h3>
+                    <h4>
+                      <img src="assets/img/coin.png" alt="" />{" "}
+                      0.000 XOTAK
+                    </h4>
+                  </div>
+                  <div className="outer-btn">
+                    <h6>1 XOTAK Coin = 0.012 USD</h6>
+                    <button className="white-btn m-0">Buy Coin</button>
+                  </div>
                 </div>
 
                 <div>
-                  <h2 className="inner-page-heading mb-2 all-transaction-link">Recent Transactions <a href="">View All Transactions</a> </h2>
+                  <h2 className="inner-page-heading mb-2 all-transaction-link">
+                    Recent Transactions{" "}
+                    <a href="/Transactions">View All Transactions</a>{" "}
+                  </h2>
                   <Row>
                     <Col>
                       <div className="table-box-new shadow-box-main">

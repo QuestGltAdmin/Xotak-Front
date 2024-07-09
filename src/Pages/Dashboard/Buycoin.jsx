@@ -1,18 +1,28 @@
-import React, { useEffect, useState } from 'react'
-import { Col, Container, Row, Table, Form, Pagination, Dropdown, FormControl } from 'react-bootstrap'
-import Layout from '../../Component/Layout';
-import useAuth from '../../hooks/useAuth';
-import { TokenBalance } from '../../helpers/xotakBalanceHelper';
-import { getDollarPrice } from '../../helpers/getConvertedPrice';
-import { buyXotakBNB } from '../../helpers/buyXotakBNBHelper';
+import React, { useEffect, useState } from "react";
+import {
+  Col,
+  Container,
+  Row,
+  Table,
+  Form,
+  Pagination,
+  Dropdown,
+  FormControl,
+} from "react-bootstrap";
+import Layout from "../../Component/Layout";
+import useAuth from "../../hooks/useAuth";
+import { TokenBalance } from "../../helpers/xotakBalanceHelper";
+import { getDollarPrice } from "../../helpers/getConvertedPrice";
+import { buyXotakBNB } from "../../helpers/buyXotakBNBHelper";
 import Contracts from "../../Json/ContractList.json";
 const ContractList = Contracts.Contracts[0];
 const xotakAddress = ContractList.xotakToken;
-
 import { toast } from "react-toastify";
+import { encryptData } from "../../Encrypt-Decrypt/encryption-decryption";
+import axiosMain from "../../http/axios/axios_main";
 
 export const Buycoin = () => {
-  const { Wallet } = useAuth();
+  const { Wallet, user } = useAuth();
   const [xotakBalance, setXotakBalance] = useState(0);
   const [balance, setBalance] = useState(0);
   const [amountFrom, setAmountFrom] = useState(0);
@@ -44,7 +54,7 @@ export const Buycoin = () => {
       if (getBalData) {
         setXotakBalance(getBalData.balance);
       }
-    } catch (err) { }
+    } catch (err) {}
   };
 
   useEffect(() => {
@@ -61,7 +71,6 @@ export const Buycoin = () => {
         walletAddress: Wallet.selectedAccount,
         tokenAddress: tokenInNew.address,
       };
- 
 
       const getAllowanceData = await TokenBalance(payload);
       if (getAllowanceData) {
@@ -90,25 +99,56 @@ export const Buycoin = () => {
   const buyXotak = async () => {
     setDisable(true);
     try {
-
       const buyPayload = {
         tokenIn: tokenInNew.address,
         amount: amountFrom,
         AmountOut: Rate,
         chainId: parseInt(tokenInNew.chainId),
-        type : Wallet.type,
-        userAddress : Wallet.selectedAccount
+        type: Wallet.type,
+        userAddress: Wallet.selectedAccount,
       };
 
       const buyRes = await buyXotakBNB(buyPayload);
       console.log("buyRes", buyRes);
+      const RowCurrency = await encryptData("BNB");
+      const RowWallet = await encryptData(Wallet.selectedAccount);
+      const RowAmountIN = await encryptData(amountFrom);
+      const RowAmountOut = await encryptData(Rate);
+      const RowStatusIn = await encryptData("Sucess");
+      const RowIncomingHash = await encryptData(buyRes?.transactionHash);
+      const RowNetworkFrom = await encryptData(tokenInNew.chainId);
+
+      const SavePayload = {
+        currency: RowCurrency,
+        walletAddress: RowWallet,
+        amountIn: RowAmountIN,
+        amountOut: RowAmountOut,
+        statusIn: RowStatusIn,
+        incomingTrxHash: RowIncomingHash,
+        networkFrom: RowNetworkFrom,
+      };
 
       if (buyRes) {
         // write api code here
+        const api = await axiosMain.post("/buy-transaction-save", SavePayload, {
+          headers: {
+            "content-type": "application/json",
+            authorization: `bearer ${user.token}`,
+          },
+        });
+        if (api?.data?.status) {
+          toast.success(api?.data?.message);
+          setAmountFrom(0);
+          setRate(0);
+          getBalanceAllownce();
+          getXotakBalance();
+        } else {
+          toast.error(api?.data?.message);
+        }
+        console.log(api, "api");
       } else {
         toast.error("Transaction Reverted");
       }
-
     } catch (err) {
       setDisable(false);
       console.log(err);
@@ -120,14 +160,13 @@ export const Buycoin = () => {
     <>
       <Layout>
         <section className="outer-dash-section">
-
           <Container>
             <Row>
               <Col lg={12}>
                 <div className="dashboard-white-box">
                   <div className="w-100">
                     {/* <h2 className="inner-page-heading mb-2">Buy Coin</h2>
-                  */}
+                     */}
                     <Row>
                       <Col lg={6} className="m-auto">
                         <div className="buy-coin-box">
@@ -207,10 +246,13 @@ export const Buycoin = () => {
                                 <img
                                   src="assets/img/BNB.png"
                                   loading="lazy"
-                                  alt="Img" />
+                                  alt="Img"
+                                />
                                 BNB
                               </div>
-                              <p>BNB Balance {balance ? balance.toFixed(4) : 0}</p>
+                              <p>
+                                BNB Balance {balance ? balance.toFixed(4) : 0}
+                              </p>
                             </div>
                             <FormControl
                               placeholder=""
@@ -225,7 +267,8 @@ export const Buycoin = () => {
                             <img
                               src="assets/img/swap.png"
                               loading="lazy"
-                              alt="Img" />
+                              alt="Img"
+                            />
                           </div>
                           <div>
                             <div className="swap-sec-box">
@@ -233,10 +276,14 @@ export const Buycoin = () => {
                                 <img
                                   src="assets/img/coin.png"
                                   loading="lazy"
-                                  alt="Img" />
+                                  alt="Img"
+                                />
                                 XOTAK
                               </div>
-                              <p>XOTAK Balance {xotakBalance ? xotakBalance.toFixed(4) : 0}</p>
+                              <p>
+                                XOTAK Balance{" "}
+                                {xotakBalance ? xotakBalance.toFixed(4) : 0}
+                              </p>
                             </div>
                             <FormControl
                               placeholder="Total amount"
@@ -274,19 +321,16 @@ export const Buycoin = () => {
                               </button>
                             )}
                           </div>
-
                         </div>
                       </Col>
                     </Row>
-
                   </div>
                 </div>
               </Col>
-
             </Row>
           </Container>
         </section>
       </Layout>
     </>
-  )
-}
+  );
+};
