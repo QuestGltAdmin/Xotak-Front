@@ -73,7 +73,6 @@ const Dashboard = () => {
 
       const getBalData = await TokenBalance(payload);
       if (getBalData) {
-        console.log(getBalData?.balance, "llll");
         setXotakBalance(getBalData?.balance);
         setUSDBalance(getBalData?.balance * 0.012);
       }
@@ -97,7 +96,6 @@ const Dashboard = () => {
       );
       if (getResAll?.data?.status) {
         setShowDataTrxAll(getResAll?.data?.data?.AllTrxList);
-        console.log(getResAll?.data?.data?.AllTrxList, "lllll");
       }
     } catch (err) {}
   };
