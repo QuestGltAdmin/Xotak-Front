@@ -1,6 +1,6 @@
 import Web3 from "web3";
 import ERC20TokenABI from "../ABI/xotakTokenABI.json";
-import Chain from "../Json/Chain.json";
+import Chain from "../JSON/Chain.json";
 
 const ChainList = Chain.Chains;
 
