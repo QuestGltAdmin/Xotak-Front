@@ -1,10 +1,10 @@
 import { toast } from "react-toastify";
-import Chain from "../Json/Chain.json";
+import Chain from "../JSON/Chain.json";
 import PresaleABI from "../ABI/PresaleAbi.json";
 import { config, getAccountDetail, getNetworkDetail } from "../helpers/web3Model";
 import Web3 from "web3";
 import { sendTransaction } from "@wagmi/core";
-import Contracts from "../Json/ContractList.json";
+import Contracts from "../JSON/ContractList.json";
 import { parseEther } from "ethers/lib/utils";
 
 
