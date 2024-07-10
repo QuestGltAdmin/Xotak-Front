@@ -572,6 +572,11 @@ margin: 0;
 .outer-show-table .pagination .page-item .page-link span{
 
 }
+@media (min-width: 1520px){
+    .shadow-box-dash {
+        min-width: 330px;
+    }
+}
 
 @media (max-width: 1270px) {
    
