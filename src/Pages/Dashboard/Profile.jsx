@@ -22,6 +22,7 @@ const Profile = () => {
   //==================================Local Variable================================//
   const [disable, setDisable] = useState(false);
   const [formError, setFormError] = useState("");
+  const [formError1, setFormError1] = useState("");
   const [disablepass, setDisablepass] = useState(false);
   //==================================End of code================================//
 
@@ -85,7 +86,7 @@ const Profile = () => {
   //==========================Handle Student details update============================//
   const HandleUpdate = async () => {
     if (!inputvalue?.name) {
-      setFormError("Please enter your name");
+      setFormError1("Please enter your name");
     } else {
       setDisable(true);
 
@@ -307,7 +308,7 @@ const Profile = () => {
                               </Form.Group>
                             </Col>
                           </Row>
-                          <p>{formError}</p>
+                          <p>{formError1}</p>
                           <div>
                             <button
                               className="common-btn  m-0"
@@ -407,7 +408,7 @@ const Profile = () => {
                           </Form.Group>
                         </Col>
                       </Row>
-
+                      <p>{formError}</p>
                       <div>
                         <button
                           className="common-btn m-0"
