@@ -1009,6 +1009,13 @@ margin-bottom: 10px;
 .token-box1 .token-content-box {
     background: #303030;
     border-radius: 0;
+    cursor: pointer;
+}
+.token-box1 .token-content-box:hover,
+.token-box1 .token-content-box:focus,
+.token-box1 .token-content-box:active,
+.token-box1 .token-content-box.active{
+    background-color: #000;
 }
 .token-box1 .token-content-box .token-flex {
     display: flex;

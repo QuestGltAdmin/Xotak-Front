@@ -185,7 +185,7 @@ export const BuycoinTwo = () => {
                   </div>
                   <Row>
                     <Col xl={6} lg={12} md={6}>
-                      <div className="token-content-box">
+                      <div className="token-content-box active">
                         <div
                           className="token-flex"
                           onClick={(data) =>
