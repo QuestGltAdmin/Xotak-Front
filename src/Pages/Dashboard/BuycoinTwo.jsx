@@ -24,12 +24,12 @@ import CopyToClipboard from "react-copy-to-clipboard";
 export const BuycoinTwo = () => {
   //==================================Global Variable================================//
   const { user } = useAuth();
-  const ref = useRef()
+  const ref = useRef();
   //==================================End of Code================================//
 
   //==================================Local Variable================================//
   const [show, setShow] = useState(false);
-  const [chain, setChain] = useState("BNB");
+  const [chain, setChain] = useState("");
   const [currentPrice, setCurrentPrice] = useState(0);
   const [copied, setCopied] = useState(false);
   const [maticprice, setMaticPrice] = useState(0);
@@ -37,6 +37,7 @@ export const BuycoinTwo = () => {
   const [ethprice, setETHPrice] = useState(0);
   const [disable, setDisable] = useState(false);
   const [formError, setFormError] = useState("");
+  const [formError1, setFormError1] = useState("");
   const [inputValue, setInputValue] = useState({
     amount: "",
   });
@@ -49,12 +50,19 @@ export const BuycoinTwo = () => {
     setCopied(false);
   };
 
-  const handleShow = () => setShow(true);
+  const handleShow = () => {
+    if (!chain) {
+      setFormError1("Please Select chain First");
+    } else {
+      setFormError1("");
+      setShow(true);
+    }
+  };
   //==================================End of Code================================//
   const xotakprice = currentPrice / 0.012;
-  const FinalPrice = inputValue?.amount * xotakprice;
+  const FinalPrice = inputValue?.amount / xotakprice;
 
-  const usdtPrice = 1.0000 /0.012
+  const usdtPrice = 1.0 / 0.012;
   const HandleData = (e) => {
     setInputValue({ ...inputValue, [e.target.name]: e.target.value });
   };
@@ -104,12 +112,12 @@ export const BuycoinTwo = () => {
   };
   //==================================End of Code================================//
 
-  useEffect(()=>{
-    ref.current.focus()
-  },[])
+  useEffect(() => {
+    ref.current.focus();
+  }, []);
 
   const handlechains = async (data) => {
-    ref.current.focus()
+    ref.current.focus();
     setChain(data?.chaintype);
   };
 
@@ -185,7 +193,13 @@ export const BuycoinTwo = () => {
                   </div>
                   <Row>
                     <Col xl={6} lg={12} md={6}>
-                      <div className="token-content-box active">
+                      <div
+                        className={
+                          chain === "BNB"
+                            ? "token-content-box active"
+                            : " token-content-box"
+                        }
+                      >
                         <div
                           className="token-flex"
                           onClick={(data) =>
@@ -205,7 +219,13 @@ export const BuycoinTwo = () => {
                           <p>{bnbprice?.toFixed(4)} XOTAK</p>
                         </div>
                       </div>
-                      <div className="token-content-box">
+                      <div
+                        className={
+                          chain === "USDT"
+                            ? "token-content-box active"
+                            : " token-content-box"
+                        }
+                      >
                         <div
                           className="token-flex"
                           onClick={(data) =>
@@ -228,7 +248,13 @@ export const BuycoinTwo = () => {
                     </Col>
                     <Col xl={6} lg={12} md={6}>
                       {" "}
-                      <div className="token-content-box">
+                      <div
+                        className={
+                          chain === "MATIC"
+                            ? "token-content-box active"
+                            : " token-content-box"
+                        }
+                      >
                         <div
                           className="token-flex"
                           onClick={(data) =>
@@ -248,7 +274,13 @@ export const BuycoinTwo = () => {
                           <p>{maticprice?.toFixed(4)} XOTAK</p>
                         </div>
                       </div>
-                      <div className="token-content-box">
+                      <div
+                        className={
+                          chain === "ETH"
+                            ? "token-content-box active"
+                            : " token-content-box"
+                        }
+                      >
                         <div
                           className="token-flex"
                           onClick={(data) =>
@@ -300,11 +332,13 @@ export const BuycoinTwo = () => {
                       <div className="equal">=</div>
                       <div>
                         <h4>
-                          {FinalPrice.toFixed(4)} &nbsp;{chain}
+                          {FinalPrice ? FinalPrice.toFixed(4) : "0.0000"} &nbsp;
+                          {chain}
                         </h4>
                       </div>
                     </div>
                     <p className="info-text">1 XOTAK = 0.012 USD</p>
+                    <p>{formError1}</p>
                     <button className="common-btn ms-0" onClick={handleShow}>
                       Buy XOTAK
                     </button>

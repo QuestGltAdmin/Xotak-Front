@@ -12,7 +12,7 @@ import {
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
-import { setWallet } from "../store/reducers/authReducer";
+import { logout,setWallet } from "../store/reducers/authReducer";
 import ConnectWalletModal from "../component/ConnectWalletModal";
 import { Connect, ReConnect, onDisconnect } from "../helpers/Connect";
 import { Provider } from "../helpers/Web3Helper";
@@ -195,7 +195,7 @@ export default function Header() {
                         </NavDropdown.Item>
                       </NavDropdown> */}
 
-                      <Nav.Link href="/">
+                      <Nav.Link onClick={() => HandleLogout()}>
                         <i className="fa fa-sign-out"></i> Logout
                       </Nav.Link>
                     </Nav>
