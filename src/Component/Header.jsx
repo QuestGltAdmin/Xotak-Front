@@ -107,7 +107,7 @@ export default function Header() {
   };
 
   useEffect(() => {
-    // if (wallet) {
+    if (Wallet?.selectedAccount) {
     const handleChain = async () => {
       let provider = await Provider(Wallet?.type);
       //=================Account change code===============//
@@ -128,7 +128,7 @@ export default function Header() {
       });
     };
     handleChain();
-    // }
+    }
   }, []);
   return (
     <>
