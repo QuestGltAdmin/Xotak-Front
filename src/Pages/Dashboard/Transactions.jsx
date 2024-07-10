@@ -32,7 +32,6 @@ const Transactions = () => {
   const [totalOrderCountReqAll, setTotalOrderCountReqAll] = useState(1);
   const [showDataTrxAll, setShowDataTrxAll] = useState([]);
   const [showDataReqAll, setShowDataReqAll] = useState([]);
-  console.log(showDataReqAll?.length);
 
   //==================================End of code================================//
 
@@ -54,7 +53,6 @@ const Transactions = () => {
           },
         }
       );
-      // console.log(getResAll);
       if (getResAll?.data?.status) {
         setShowDataTrxAll(getResAll?.data?.data?.AllTrxList);
         setTotalOrderCountTrxAll(getResAll?.data?.data?.total);

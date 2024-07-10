@@ -15,11 +15,28 @@ import {
   getDollarPrice,
   getDollarPriceMatic,
 } from "../../helpers/getConvertedPrice";
+import { TokenBalance } from "../../helpers/xotakBalanceHelper";
+import useAuth from "../../hooks/useAuth";
+import Contracts from "../../Json/ContractList.json";
+const ContractList = Contracts.Contracts[0];
+const xotakAddress = ContractList.xotakToken;
+
+import { useNavigate } from "react-router-dom";
+import axiosMain from "../../http/axios/axios_main";
+import moment from "moment";
 
 const Dashboard = () => {
+  //=============== Globle vaiable ====================//
+  const navigate = useNavigate();
+  const { Wallet, user } = useAuth();
+  //===============End of code====================//
+
   const [maticprice, setMaticPrice] = useState(0);
   const [bnbprice, setBNBPrice] = useState(0);
   const [ethprice, setETHPrice] = useState(0);
+  const [xotakBalance, setXotakBalance] = useState(0);
+  const [usdBalance, setUSDBalance] = useState(0);
+  const [showDataTrxAll, setShowDataTrxAll] = useState([]);
 
   useEffect(() => {
     handlexotakPrice();
@@ -40,6 +57,49 @@ const Dashboard = () => {
     }
   };
 
+  useEffect(() => {
+    if (Wallet) {
+      getXotakBalance();
+    }
+  });
+
+  const getXotakBalance = async () => {
+    try {
+      const payload = {
+        chainId: 97,
+        walletAddress: Wallet?.selectedAccount,
+        tokenAddress: xotakAddress,
+      };
+
+      const getBalData = await TokenBalance(payload);
+      if (getBalData) {
+        setXotakBalance(getBalData?.balance);
+        setUSDBalance(getBalData?.balance * 0.012);
+      }
+    } catch (err) {}
+  };
+
+  useEffect(() => {
+    getDataTrxAll();
+  }, []);
+  //==============================Get Data All Trx==============================//
+  const getDataTrxAll = async () => {
+    try {
+      const getResAll = await axiosMain.get(
+        `transaction-history?searchTag&filters&pageNo`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            authorization: `bearer ${user.token}`,
+          },
+        }
+      );
+      if (getResAll?.data?.status) {
+        setShowDataTrxAll(getResAll?.data?.data?.AllTrxList);
+      }
+    } catch (err) {}
+  };
+  //==================================End of code================================//
   return (
     <>
       <Layout>
@@ -96,27 +156,6 @@ const Dashboard = () => {
                           <p><img src="assets/img/trend-up.png" alt="" /> This week</p>
                         </div>
                       </Col>
-                      <Col lg={3} md={6} sm={6} xs={12}>
-                        <div className="shadow-box-dash">
-                          <img className="img-coin" src="assets/img/bitcoin.png" alt="" />
-                          <h4>$168,331.09</h4>
-                          <p><img src="assets/img/trend-down.png" alt="" /> This week</p>
-                        </div>
-                      </Col>
-                      <Col lg={3} md={6} sm={6} xs={12}>
-                        <div className="shadow-box-dash">
-                          <img className="img-coin" src="assets/img/usdt.png" alt="" />
-                          <h4>$168,331.09</h4>
-                          <p><img src="assets/img/trend-up.png" alt="" /> This week</p>
-                        </div>
-                      </Col>
-                      <Col lg={3} md={6} sm={6} xs={12}>
-                        <div className="shadow-box-dash">
-                          <img className="img-coin" src="assets/img/BNB.png" alt="" />
-                          <h4>$168,331.09</h4>
-                          <p><img src="assets/img/trend-down.png" alt="" /> This week</p>
-                        </div>
-                      </Col>
                     </Row> */}
                   </div>
                 </div>
@@ -124,15 +163,20 @@ const Dashboard = () => {
                 <div className="total-balance-box">
                   <div>
                     <h5>Total Balance</h5>
-                    <h3>$ 456.789</h3>
+                    <h3>$ {usdBalance?.toFixed(4)}</h3>
                     <h4>
                       <img src="assets/img/coin.png" alt="" />{" "}
-                      0.000 XOTAK
+                      {xotakBalance?.toFixed(4)} XOTAK
                     </h4>
                   </div>
                   <div className="outer-btn">
                     <h6>1 XOTAK Coin = 0.012 USD</h6>
-                    <button className="white-btn m-0">Buy Coin</button>
+                    <button
+                      className="white-btn m-0"
+                      onClick={() => navigate("/buy-coin")}
+                    >
+                      Buy Coin
+                    </button>
                   </div>
                 </div>
 
@@ -148,37 +192,54 @@ const Dashboard = () => {
                           <div className="thead">
                             <div>
                               <p>S. No</p>
-                              <p>First Name</p>
-                              <p>Last Name</p>
+                              <p>Date</p>
                               <p>Wallet Address</p>
-                              <p>Action</p>
+                              <p>Amount In</p>
+                              <p>Amount Out</p>
+                              <p>Incoming Trx Hash</p>
+                              <p>Status</p>
                             </div>
                           </div>
                           <div className="tbody">
-                            <div>
-                              <p>1</p>
-                              <p>test</p>
-                              <p>xyz</p>
-                              <p>trertv5v3hgm5g354g35ghghrmgegegg53gj53jg5g3</p>
-                            </div>
-                            <div>
-                              <p>1</p>
-                              <p>test</p>
-                              <p>xyz</p>
-                              <p>trertv5v3hgm5g354g35ghghrmgegegg53gj53jg5g3</p>
-                            </div>
-                            <div>
-                              <p>1</p>
-                              <p>test</p>
-                              <p>xyz</p>
-                              <p>trertv5v3hgm5g354g35ghghrmgegegg53gj53jg5g3</p>
-                            </div>
-                            <div>
-                              <p>1</p>
-                              <p>test</p>
-                              <p>xyz</p>
-                              <p>trertv5v3hgm5g354g35ghghrmgegegg53gj53jg5g3</p>
-                            </div>
+                            {showDataTrxAll?.length > 0 ? (
+                              showDataTrxAll?.slice(0,5)?.map((items, index) => {
+                                return (
+                                  <div>
+                                    <p>{index + 1}</p>
+                                    <p>
+                                      {moment(items?.createdAt).format("lll")}
+                                    </p>
+                                    <p>
+                                      {items?.walletAddress?.replace(
+                                        items?.walletAddress?.substring(5, 37),
+                                        "..."
+                                      )}
+                                    </p>
+                                    <p>{items?.amountIn}</p>
+                                    <p>{items?.amountOut}</p>
+                                    <p>
+                                      {items?.incomingTrxHash?.replace(
+                                        items?.incomingTrxHash?.substring(
+                                          5,
+                                          37
+                                        ),
+                                        "..."
+                                      )}
+                                    </p>
+                                    <p>{items?.statusIn}</p>
+                                    <p>
+                                      <button className="common-btn">
+                                        View
+                                      </button>
+                                    </p>
+                                  </div>
+                                );
+                              })
+                            ) : (
+                              <div>
+                                <p className="text-center">No Data Found</p>
+                              </div>
+                            )}
                           </div>
                         </div>
                       </div>
