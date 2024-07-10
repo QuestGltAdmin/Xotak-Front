@@ -308,7 +308,7 @@ const Profile = () => {
                               </Form.Group>
                             </Col>
                           </Row>
-                          <p>{formError1}</p>
+                          <p style={{ color: "red" }}>{formError1}</p>
                           <div>
                             <button
                               className="common-btn  m-0"
@@ -408,7 +408,7 @@ const Profile = () => {
                           </Form.Group>
                         </Col>
                       </Row>
-                      <p>{formError}</p>
+                      <p style={{ color: "red" }}>{formError}</p>
                       <div>
                         <button
                           className="common-btn m-0"

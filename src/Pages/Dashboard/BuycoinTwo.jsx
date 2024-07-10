@@ -94,7 +94,7 @@ export const BuycoinTwo = () => {
 
   useEffect(() => {
     handlexotakPrice();
-  },[]);
+  }, []);
 
   const handlexotakPrice = async () => {
     try {
@@ -139,11 +139,7 @@ export const BuycoinTwo = () => {
       );
       const RowPaymentAmount = await encryptData(FinalPrice);
       const RowNetwork = await encryptData(chain);
-console.log(inputdata?.walletaddress,"inputdata?.walletaddress");
-console.log(inputdata?.hash,"inputdata?.hash)");
-console.log(inputValue?.amount,"inputValue?.amount");
-console.log(FinalPrice,"FinalPrice");
-console.log(chain,chain);
+
       try {
         const payload = {
           walletAddress: RowWallet,
@@ -174,7 +170,6 @@ console.log(chain,chain);
         handleClose();
         setFormError(error.response.data.message);
         toast.error(error.response.data.message);
-
       }
     }
   };
@@ -344,7 +339,7 @@ console.log(chain,chain);
                       </div>
                     </div>
                     <p className="info-text">1 XOTAK = 0.012 USD</p>
-                    <p>{formError1}</p>
+                    <p style={{ color: "red" }}>{formError1}</p>
                     <button className="common-btn ms-0" onClick={handleShow}>
                       Buy XOTAK
                     </button>
@@ -463,7 +458,7 @@ console.log(chain,chain);
               value={inputdata?.hash}
               onChange={HandleFinalData}
             />
-            <p>{formError}</p>
+            <p style={{ color: "red" }}>{formError}</p>
             <div>
               <button
                 className="white-btn"

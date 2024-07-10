@@ -400,11 +400,11 @@ const Transactions = () => {
                                                 )}
                                               </p>
                                               <p>{items?.status}</p>
-                                              <p>
+                                              {/* <p>
                                                 <button className="common-btn">
                                                   View
                                                 </button>
-                                              </p>
+                                              </p> */}
                                             </div>
                                           );
                                         })}
