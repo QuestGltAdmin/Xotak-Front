@@ -23,7 +23,6 @@ import axiosMain from "../../http/axios/axios_main";
 
 export const Buycoin = () => {
   const { Wallet, user } = useAuth();
-  console.log("Wallet", Wallet);
   const [xotakBalance, setXotakBalance] = useState(0);
   const [balance, setBalance] = useState(0);
   const [amountFrom, setAmountFrom] = useState(0);
@@ -38,8 +37,10 @@ export const Buycoin = () => {
   });
 
   useEffect(() => {
-    if (Wallet) {
+    if (Wallet?.selectedAccount) {
       getXotakBalance();
+    }else{
+      setXotakBalance(0)
     }
   }, [tokenInNew, Wallet?.selectedAccount, Wallet]);
 
@@ -63,13 +64,14 @@ export const Buycoin = () => {
   };
 
   useEffect(() => {
-    if (Wallet) {
+    if (Wallet?.selectedAccount) {
       getBalanceAllownce();
+    }else{
+      setBalance(0)
     }
   }, [tokenInNew, Wallet?.selectedAccount, Wallet]);
 
   const getBalanceAllownce = async () => {
-    console.log("yha ");
     try {
       const payload = {
         chainId: parseInt(tokenInNew.chainId),
@@ -78,7 +80,6 @@ export const Buycoin = () => {
       };
 
       const getAllowanceData = await TokenBalance(payload);
-      console.log("getAllowanceData", getAllowanceData);
       if (getAllowanceData) {
         setBalance(getAllowanceData.balance);
       } else {
@@ -118,7 +119,6 @@ export const Buycoin = () => {
       };
 
       const buyRes = await buyXotakBNB(buyPayload);
-      console.log("buyRes", buyRes);
       const RowCurrency = await encryptData("BNB");
       const RowWallet = await encryptData(Wallet.selectedAccount);
       const RowAmountIN = await encryptData(amountFrom);
@@ -154,7 +154,6 @@ export const Buycoin = () => {
         } else {
           toast.error(api?.data?.message);
         }
-        console.log(api, "api");
       } else {
         toast.error("Transaction Reverted");
       }
