@@ -17,7 +17,7 @@ import {
 } from "../../helpers/getConvertedPrice";
 import { TokenBalance } from "../../helpers/xotakBalanceHelper";
 import useAuth from "../../hooks/useAuth";
-import Contracts from "../../Json/ContractList.json";
+import Contracts from "../../JSON/ContractList.json";
 const ContractList = Contracts.Contracts[0];
 const xotakAddress = ContractList.xotakToken;
 
