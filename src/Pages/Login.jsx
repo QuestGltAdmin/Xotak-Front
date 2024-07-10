@@ -140,7 +140,7 @@ export default function Sign_in() {
                     </InputGroup.Text>
                   </InputGroup>
                 </Form.Group>
-                <p>{formError}</p>
+                <p style={{color:"red"}}>{formError}</p>
                 <div>
                   <button
                     className="common-btn w-100 m-0"

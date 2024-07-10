@@ -116,7 +116,7 @@ export default function Otp_verification() {
                     />
                   </div>
                 </Form.Group>
-                <p>{formError}</p>
+                <p style={{color:"red"}}>{formError}</p>
                 <div>
                   <button
                     className="common-btn w-100 m-0"

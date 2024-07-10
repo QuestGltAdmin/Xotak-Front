@@ -241,7 +241,7 @@ export default function Register() {
                     </Form.Group>
                   </Col>
                 </Row>
-                <p>{formError}</p>
+                <p style={{color:"red"}}>{formError}</p>
 
                 <div>
                   <button

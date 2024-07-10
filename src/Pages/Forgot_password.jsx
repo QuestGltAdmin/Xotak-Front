@@ -86,7 +86,7 @@ export default function Forgot_password() {
                     value={inputValue?.email}
                   />
                 </Form.Group>
-                <p>{formError}</p>
+                <p style={{color:"red"}}>{formError}</p>
 
                 <div>
                   <button
