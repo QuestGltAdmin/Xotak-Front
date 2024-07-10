@@ -231,23 +231,19 @@ const Transactions = () => {
                                                   "..."
                                                 )}
                                               </p>
-                                              <p>{items?.amountIn}</p>
-                                              <p>{items?.amountOut}</p>
+                                              <p>{(items?.amountIn*1).toFixed(4)}</p>
+                                              <p>{(items?.amountOut*1).toFixed(4)}</p>
                                               <p>
                                                 {items?.incomingTrxHash?.replace(
                                                   items?.incomingTrxHash?.substring(
                                                     5,
-                                                    37
+                                                    61
                                                   ),
                                                   "..."
                                                 )}
                                               </p>
                                               <p>{items?.statusIn}</p>
-                                              <p>
-                                                <button className="common-btn">
-                                                  View
-                                                </button>
-                                              </p>
+                                      
                                             </div>
                                           );
                                         })

@@ -39,8 +39,8 @@ export const Buycoin = () => {
   useEffect(() => {
     if (Wallet?.selectedAccount) {
       getXotakBalance();
-    }else{
-      setXotakBalance(0)
+    } else {
+      setXotakBalance(0);
     }
   }, [tokenInNew, Wallet?.selectedAccount, Wallet]);
 
@@ -66,8 +66,8 @@ export const Buycoin = () => {
   useEffect(() => {
     if (Wallet?.selectedAccount) {
       getBalanceAllownce();
-    }else{
-      setBalance(0)
+    } else {
+      setBalance(0);
     }
   }, [tokenInNew, Wallet?.selectedAccount, Wallet]);
 
@@ -118,44 +118,57 @@ export const Buycoin = () => {
         userAddress: Wallet.selectedAccount,
       };
 
+      console.log(buyPayload);
+
       const buyRes = await buyXotakBNB(buyPayload);
-      const RowCurrency = await encryptData("BNB");
-      const RowWallet = await encryptData(Wallet.selectedAccount);
-      const RowAmountIN = await encryptData(amountFrom);
-      const RowAmountOut = await encryptData(Rate);
-      const RowStatusIn = await encryptData("Sucess");
-      const RowIncomingHash = await encryptData(buyRes?.transactionHash);
-      const RowNetworkFrom = await encryptData(tokenInNew.chainId);
-
-      const SavePayload = {
-        currency: RowCurrency,
-        walletAddress: RowWallet,
-        amountIn: RowAmountIN,
-        amountOut: RowAmountOut,
-        statusIn: RowStatusIn,
-        incomingTrxHash: RowIncomingHash,
-        networkFrom: RowNetworkFrom,
-      };
-
       if (buyRes) {
-        // write api code here
-        const api = await axiosMain.post("/buy-transaction-save", SavePayload, {
-          headers: {
-            "content-type": "application/json",
-            authorization: `bearer ${user.token}`,
-          },
-        });
-        if (api?.data?.status) {
-          toast.success(api?.data?.message);
-          setAmountFrom(0);
-          setRate(0);
-          getBalanceAllownce();
-          getXotakBalance();
-        } else {
-          toast.error(api?.data?.message);
+        try {
+          console.log(buyRes);
+          const RowCurrency = await encryptData("BNB");
+          const RowWallet = await encryptData(Wallet.selectedAccount);
+          const RowAmountIN = await encryptData(amountFrom);
+          const RowAmountOut = await encryptData(Rate);
+          const RowStatusIn = await encryptData("Sucess");
+          const RowIncomingHash = await encryptData(buyRes?.transactionHash);
+          const RowNetworkFrom = await encryptData(tokenInNew.chainId);
+
+          const SavePayload = {
+            currency: RowCurrency,
+            walletAddress: RowWallet,
+            amountIn: RowAmountIN,
+            amountOut: RowAmountOut,
+            statusIn: RowStatusIn,
+            incomingTrxHash: RowIncomingHash,
+            networkFrom: RowNetworkFrom,
+          };
+
+          if (buyRes) {
+            // write api code here
+            const api = await axiosMain.post(
+              "/buy-transaction-save",
+              SavePayload,
+              {
+                headers: {
+                  "content-type": "application/json",
+                  authorization: `bearer ${user.token}`,
+                },
+              }
+            );
+            if (api?.data?.status) {
+              toast.success(api?.data?.message);
+              setAmountFrom(0);
+              setRate(0);
+              getBalanceAllownce();
+              getXotakBalance();
+            } else {
+              toast.error(api?.data?.message);
+            }
+          } else {
+            toast.error("Transaction Reverted");
+          }
+        } catch (err) {
+          toast.error(err?.response?.data?.message);
         }
-      } else {
-        toast.error("Transaction Reverted");
       }
     } catch (err) {
       setDisable(false);

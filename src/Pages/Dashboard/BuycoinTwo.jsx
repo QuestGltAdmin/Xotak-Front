@@ -24,7 +24,7 @@ import CopyToClipboard from "react-copy-to-clipboard";
 export const BuycoinTwo = () => {
   //==================================Global Variable================================//
   const { user } = useAuth();
-  const ref = useRef()
+  const ref = useRef();
   //==================================End of Code================================//
 
   //==================================Local Variable================================//
@@ -54,7 +54,7 @@ export const BuycoinTwo = () => {
   const xotakprice = currentPrice / 0.012;
   const FinalPrice = inputValue?.amount * xotakprice;
 
-  const usdtPrice = 1.0000 /0.012
+  const usdtPrice = 1.0 / 0.012;
   const HandleData = (e) => {
     setInputValue({ ...inputValue, [e.target.name]: e.target.value });
   };
@@ -104,12 +104,12 @@ export const BuycoinTwo = () => {
   };
   //==================================End of Code================================//
 
-  useEffect(()=>{
-    ref.current.focus()
-  },[])
+  useEffect(() => {
+    ref.current.focus();
+  }, []);
 
   const handlechains = async (data) => {
-    ref.current.focus()
+    ref.current.focus();
     setChain(data?.chaintype);
   };
 
