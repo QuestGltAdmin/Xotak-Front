@@ -51,7 +51,7 @@ export default function Otp_verification() {
         const api = await axiosMain.post("/verify-otp", payload);
         if (api?.data?.status) {
           setDisable(false);
-          toast.success("Otp verify successfully.");
+          toast.success("OTP verified successfully.");
 
           setTimeout(() => {
             flag === "forget" ? navigate("/ResetPassword") : navigate("/");
@@ -82,7 +82,7 @@ export default function Otp_verification() {
 
         const api = await axiosMain.post("/resend-otp", payload);
         if (api?.data?.status) {
-          toast.success("Otp resend successfully.");
+          toast.success("OTP resent successfully.");
         }
       } catch (error) {
         setFormError(error.response.data.message);
@@ -130,7 +130,7 @@ export default function Otp_verification() {
                 </div>
                 <div className="outer-forgot-pass-link">
                   <p className="dont-have-acc" >
-                    Don't got the OTP? <a  onClick={() => {
+                  Did'nt get OTP? <a  onClick={() => {
                       ReSendOtp();
                     }} style={{cursor:"pointer"}}>Resend Otp</a>
                   </p>
