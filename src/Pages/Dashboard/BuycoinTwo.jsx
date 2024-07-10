@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   Col,
   Container,
@@ -24,6 +24,7 @@ import CopyToClipboard from "react-copy-to-clipboard";
 export const BuycoinTwo = () => {
   //==================================Global Variable================================//
   const { user } = useAuth();
+  const ref = useRef()
   //==================================End of Code================================//
 
   //==================================Local Variable================================//
@@ -103,7 +104,12 @@ export const BuycoinTwo = () => {
   };
   //==================================End of Code================================//
 
+  useEffect(()=>{
+    ref.current.focus()
+  },[])
+
   const handlechains = async (data) => {
+    ref.current.focus()
     setChain(data?.chaintype);
   };
 
@@ -287,6 +293,7 @@ export const BuycoinTwo = () => {
                           name="amount"
                           onChange={HandleData}
                           value={inputValue?.amount}
+                          ref={ref}
                         />
                         <span className="input-group-text">XOTAK</span>
                       </div>
