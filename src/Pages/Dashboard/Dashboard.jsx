@@ -194,8 +194,8 @@ const Dashboard = () => {
                               <p>S. No</p>
                               <p>Date</p>
                               <p>Wallet Address</p>
-                              <p>Amount In</p>
-                              <p>Amount Out</p>
+                              <p>Payment Amount</p>
+                              <p>XTK amount</p>
                               <p>Incoming Trx Hash</p>
                               <p>Status</p>
                             </div>
@@ -215,8 +215,8 @@ const Dashboard = () => {
                                         "..."
                                       )}
                                     </p>
-                                    <p>{items?.amountIn}</p>
-                                    <p>{items?.amountOut}</p>
+                                    <p>{Number(items?.amountIn)?.toFixed(4)}</p>
+                                    <p>{Number(items?.amountOut)?.toFixed(4)}</p>
                                     <p>
                                       {items?.incomingTrxHash?.replace(
                                         items?.incomingTrxHash?.substring(
@@ -227,11 +227,11 @@ const Dashboard = () => {
                                       )}
                                     </p>
                                     <p>{items?.statusIn}</p>
-                                    <p>
+                                    {/* <p>
                                       <button className="common-btn">
                                         View
                                       </button>
-                                    </p>
+                                    </p> */}
                                   </div>
                                 );
                               })

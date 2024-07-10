@@ -21,6 +21,7 @@ const Transactions = () => {
   //==================================Global Variable================================//
   const { user } = useAuth();
   //==================================End of code================================//
+
   //==================================Local Variable================================//
   const [pageNumberTrxAll, setPageNumberTrxAll] = useState(1);
   const [searchTrxAll, setSearchTrxAll] = useState("");
@@ -32,7 +33,6 @@ const Transactions = () => {
   const [totalOrderCountReqAll, setTotalOrderCountReqAll] = useState(1);
   const [showDataTrxAll, setShowDataTrxAll] = useState([]);
   const [showDataReqAll, setShowDataReqAll] = useState([]);
-
   //==================================End of code================================//
 
   //==============================Get Data All Trx==============================//
@@ -205,14 +205,14 @@ const Transactions = () => {
                                         <p>S. No</p>
                                         <p>Date</p>
                                         <p>Wallet Address</p>
-                                        <p>Amount In</p>
-                                        <p>Amount Out</p>
+                                        <p>Payment Amount</p>
+                                        <p>XTK amount</p>
                                         <p>Incoming Trx Hash</p>
                                         <p>Status</p>
                                       </div>
                                     </div>
                                     <div className="tbody">
-                                      {showDataTrxAll?.length > 0 && (
+                                      {showDataTrxAll?.length > 0 &&
                                         showDataTrxAll?.map((items, index) => {
                                           return (
                                             <div>
@@ -231,8 +231,8 @@ const Transactions = () => {
                                                   "..."
                                                 )}
                                               </p>
-                                              <p>{(items?.amountIn*1).toFixed(4)}</p>
-                                              <p>{(items?.amountOut*1).toFixed(4)}</p>
+                                              <p>{Number(items?.amountIn)?.toFixed(4)}</p>
+                                              <p>{Number(items?.amountOut)?.toFixed(4)}</p>
                                               <p>
                                                 {items?.incomingTrxHash?.replace(
                                                   items?.incomingTrxHash?.substring(
@@ -243,11 +243,14 @@ const Transactions = () => {
                                                 )}
                                               </p>
                                               <p>{items?.statusIn}</p>
-                                      
+                                              {/* <p>
+                                                <button className="common-btn">
+                                                  View
+                                                </button>
+                                              </p> */}
                                             </div>
                                           );
-                                        })
-                                      )}
+                                        })}
                                     </div>
                                   </div>
                                   {showDataTrxAll?.length <= 0 && (
@@ -384,9 +387,9 @@ const Transactions = () => {
                                                   "..."
                                                 )}
                                               </p>
-                                              <p>{items?.xotakAmount}</p>
+                                              <p>{Number(items?.xotakAmount).toFixed(4)}</p>
                                               <p>
-                                                {items?.paymentAmount}{" "}
+                                                {Number(items?.paymentAmount).toFixed(4)}{" "}
                                                 {items?.network}
                                               </p>
 
