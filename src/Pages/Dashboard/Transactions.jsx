@@ -32,6 +32,7 @@ const Transactions = () => {
   const [totalOrderCountReqAll, setTotalOrderCountReqAll] = useState(1);
   const [showDataTrxAll, setShowDataTrxAll] = useState([]);
   const [showDataReqAll, setShowDataReqAll] = useState([]);
+  console.log(showDataReqAll?.length);
 
   //==================================End of code================================//
 
@@ -98,7 +99,7 @@ const Transactions = () => {
       );
       // console.log(getResAll);
       if (getResAll?.data?.status) {
-        setShowDataReqAll(getResAll?.data?.data?.AllReqList);
+        setShowDataReqAll(getResAll?.data?.data?.AllTrxList);
         setTotalOrderCountReqAll(getResAll?.data?.data?.total);
       }
     } catch (err) {}
@@ -213,7 +214,7 @@ const Transactions = () => {
                                       </div>
                                     </div>
                                     <div className="tbody">
-                                      {showDataTrxAll?.length > 0 ? (
+                                      {showDataTrxAll?.length > 0 && (
                                         showDataTrxAll?.map((items, index) => {
                                           return (
                                             <div>
@@ -252,15 +253,16 @@ const Transactions = () => {
                                             </div>
                                           );
                                         })
-                                      ) : (
-                                        <div>
-                                          <p className="text-center">
-                                            No Data Found
-                                          </p>
-                                        </div>
                                       )}
                                     </div>
                                   </div>
+                                  {showDataTrxAll?.length <= 0 && (
+                                    <div>
+                                      <p className="text-center">
+                                        No Data Found
+                                      </p>
+                                    </div>
+                                  )}
                                 </div>
                                 <div className="d-flex justify-content-end">
                                   {showDataTrxAll?.length > 0 ? (
@@ -369,7 +371,7 @@ const Transactions = () => {
                                       </div>
                                     </div>
                                     <div className="tbody">
-                                      {showDataReqAll?.length > 0 ? (
+                                      {showDataReqAll?.length > 0 &&
                                         showDataReqAll?.map((items, index) => {
                                           return (
                                             <div>
@@ -408,16 +410,16 @@ const Transactions = () => {
                                               </p>
                                             </div>
                                           );
-                                        })
-                                      ) : (
-                                        <div>
-                                          <p className="text-center">
-                                            No Data Found
-                                          </p>
-                                        </div>
-                                      )}
+                                        })}
                                     </div>
                                   </div>
+                                  {showDataReqAll?.length <= 0 && (
+                                    <div>
+                                      <p className="text-center">
+                                        No Data Found
+                                      </p>
+                                    </div>
+                                  )}
                                 </div>
                                 <div className="d-flex justify-content-end">
                                   {showDataReqAll?.length > 0 ? (

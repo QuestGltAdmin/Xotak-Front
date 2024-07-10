@@ -23,6 +23,7 @@ import axiosMain from "../../http/axios/axios_main";
 
 export const Buycoin = () => {
   const { Wallet, user } = useAuth();
+  console.log("Wallet", Wallet);
   const [xotakBalance, setXotakBalance] = useState(0);
   const [balance, setBalance] = useState(0);
   const [amountFrom, setAmountFrom] = useState(0);
@@ -40,7 +41,7 @@ export const Buycoin = () => {
     if (Wallet) {
       getXotakBalance();
     }
-  }, [tokenInNew]);
+  }, [tokenInNew, Wallet?.selectedAccount, Wallet]);
 
   const getXotakBalance = async () => {
     try {
@@ -53,18 +54,22 @@ export const Buycoin = () => {
       const getBalData = await TokenBalance(payload);
       if (getBalData) {
         setXotakBalance(getBalData.balance);
+      } else {
+        setXotakBalance(0);
       }
-    } catch (err) {}
+    } catch (err) {
+      setXotakBalance(0);
+    }
   };
 
   useEffect(() => {
     if (Wallet) {
       getBalanceAllownce();
-      getXotakBalance();
     }
-  }, [tokenInNew]);
+  }, [tokenInNew, Wallet?.selectedAccount, Wallet]);
 
   const getBalanceAllownce = async () => {
+    console.log("yha ");
     try {
       const payload = {
         chainId: parseInt(tokenInNew.chainId),
@@ -73,10 +78,14 @@ export const Buycoin = () => {
       };
 
       const getAllowanceData = await TokenBalance(payload);
+      console.log("getAllowanceData", getAllowanceData);
       if (getAllowanceData) {
         setBalance(getAllowanceData.balance);
+      } else {
+        setBalance(0);
       }
     } catch (err) {
+      setBalance(0);
       console.log(err);
     }
   };
@@ -87,7 +96,7 @@ export const Buycoin = () => {
 
   const getAmountOut = async () => {
     try {
-      const getData = await getDollarPrice('BNB');
+      const getData = await getDollarPrice("BNB");
 
       let finalPrice = getData * (amountFrom / 0.012);
       setRate(finalPrice);

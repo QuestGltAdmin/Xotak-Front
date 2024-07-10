@@ -22,7 +22,7 @@ export const TokenBalance = async (data) => {
         data.tokenAddress.toLowerCase()
       );
       balance = await contract.methods
-        .balanceOf(data.walletAddress.toLowerCase())
+        .balanceOf(data?.walletAddress?.toLowerCase())
         .call();
       const decimal = await contract.methods.decimals().call();
       balance = balance / 10 ** decimal;
