@@ -101,7 +101,7 @@ export default function Sign_in() {
           <Row>
             <Col lg={5} className="m-auto">
               <div className="outer-bg-signup">
-                <h3> Welcome </h3>
+                <h3> Wecome </h3>
                 <h5>Please login to continue </h5>
 
                 <Form.Group className="mb-3">
