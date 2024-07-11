@@ -15,6 +15,7 @@ import Profile from "./Pages/Dashboard/Profile";
 import { Buycoin } from "./Pages/Dashboard/Buycoin";
 import { BuycoinTwo } from "./Pages/Dashboard/BuycoinTwo";
 import UserPrivateRoute from "./PrivateRoute/UserPrivateRoute";
+import { Homepage } from "./Pages/Homepage";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
       <BrowserRouter>
         <ToastContainer />
         <Routes>
+           <Route path="/home" element={<Homepage />} />
           {/* Auth */}
           <Route path="/" element={<Login />} />
           <Route path="/Register" element={<Register />} />

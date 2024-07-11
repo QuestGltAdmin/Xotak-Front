@@ -1,0 +1,201 @@
+.homepage-outer-sec{
+    background-color: #000;
+    min-height: 100vh;
+    font-family: "Manrope", sans-serif;
+}
+.home-header {
+    padding: 20px 0;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 1000; 
+    transition: all ease-in-out .3s;
+}
+.home-header.darker-header{
+    padding: 0;
+    background-color: #000;
+    border-bottom: 1px solid #ddd;
+}
+
+.home-header .navbar-brand img{
+height: 40px;
+}
+.home-header .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin: 0 15px;
+}
+.home-header .navbar-nav .nav-link:hover,
+.home-header .navbar-nav .nav-link:focus,
+.home-header .navbar-nav .nav-link:active,
+.home-header .navbar-nav .nav-link.active{
+color: #fff;
+}
+.white-btn-home {
+    background-image: url(../img/home/white-btn-bg.png);
+    padding: 12px 35px;
+    color: #000 !important;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    position: relative;
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.outer-banner-box{
+    position: relative;
+}
+.outer-banner-box .coin-main {
+    position: absolute;
+    height: 290px;
+    top: 140px;
+    left: 20px;
+    right: 0;
+    margin: 0 auto;
+}
+.main-heading{
+font-size: 54px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+color: #fff;
+}
+.homepage-outer-sec p{
+    color: #FFF;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: 25px; /* 156.25% */
+}
+.black-btn-home {
+    background-image: url(../img/home/black-btn-bg.png);
+    padding: 12px 35px;
+    color: #fff !important;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    position: relative;
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+.banner-sec-new .white-btn-home{
+    margin-right: 15px;
+}
+.banner-sec-new  p{
+    margin: 30px 0;
+}
+
+.banner-sec-new{
+    position: relative;
+    padding: 150px 0 60px;
+}
+.banner-sec-new::before {
+    content: "";
+    position: absolute;
+    background-image: url(../img/home/bg-back.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 500px;
+    width: 600px;
+    opacity: 0.2;
+    top: 0;
+    left: 0;
+}
+.xotak-usp-box{
+    padding: 60px 0;
+    position: relative;
+}
+.xotak-usp-box::before {
+    content: "";
+    position: absolute;
+    background-image: url(../img/home/usp-bg.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 630px;
+    width: 330px;
+    opacity: 0.2;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+}
+.xotak-usp-box::after{
+    content: "";
+    position: absolute;
+    height: 630px;
+    width: 330px;
+    bottom: 0;
+    right: 0;
+    border-radius: 969.413px;
+    background-color: #1B1B2A;
+    filter: blur(139.3874969482422px);
+}
+.xotak-usp-box .main-heading{
+    margin-bottom: 60px;
+}
+.usp-inner-box{
+margin-bottom: 40px;
+position: relative;
+z-index: 2;
+}
+.usp-inner-box h4{
+    color: #FFF;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+.usp-inner-box h4 img{
+height: 30px;
+margin-right: 10px;
+}
+.usp-inner-box p{
+    font-size: 15px;
+    margin-top: 10px;
+}
+.xotak-usp-box .white-btn-home{
+    position: relative;
+z-index: 2;
+}
+.toconomics-sec{
+    padding: 60px 0;
+    position: relative;
+    overflow-x: hidden;
+}
+.toconomics-sec::before {
+    content: "";
+    position: absolute;
+    left: 3%;
+    top: 8%;
+    background-image: url(../img/home/peramid.png);
+    height: 160px;
+    width: 160px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.toconomics-sec::after{
+    content: "";
+    position: absolute;
+    right: -4%;
+    top: 35%;
+    background-image: url(../img/home/x-pipe.png);
+    height: 220px;
+    width: 220px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.toconomics-sec .main-heading{
+    margin-bottom: 50px;
+}
