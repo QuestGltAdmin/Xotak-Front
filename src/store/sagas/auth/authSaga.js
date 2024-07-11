@@ -84,7 +84,7 @@ export function* adminLoginSaga(action) {
       sessionStorage.setItem("jwt", "enable");
       toast.success(response.data.message);
       setTimeout(() => {
-        navigate("/dasboard-admin");
+        navigate("/dashboard-admin");
       }, 3000);
     } else {
       setDisable(false);
