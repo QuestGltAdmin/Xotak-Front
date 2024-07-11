@@ -38,7 +38,7 @@ export default function Header() {
   const HandleLogout = async () => {
     toast.success("Logged Out Successfully!");
     navigate("/", { replace: true });
-    dispatch(logout());
+    dispatch(logout({}));
   };
 
   const handleClose = useCallback((e) => {
@@ -98,7 +98,7 @@ export default function Header() {
     }
   }, [walletAddress]);
 
-  const logout = async () => {
+  const logoutWallet = async () => {
     try {
       await onDisconnect(Wallet?.type);
       dispatch(setWallet({}));
@@ -160,7 +160,7 @@ export default function Header() {
                       </Nav.Link>
                       <Nav.Link
                         onClick={() => {
-                          navigate("/buy-coin2");
+                          navigate("/buy-coin-token");
                         }}
                       >
                         <i className="fa fa-money"></i> Buy Coin Manual
@@ -237,7 +237,7 @@ export default function Header() {
                         <Dropdown.Menu>
                           <Dropdown.Item
                             onClick={() => {
-                              logout();
+                              logoutWallet();
                             }}
                           >
                             Disconnect

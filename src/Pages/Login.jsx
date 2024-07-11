@@ -9,7 +9,7 @@ import {
   FormControl,
 } from "react-bootstrap";
 import Layout from "../Component/Loginheader";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import toast, { Toaster } from "react-hot-toast";
 import { encryptData } from "../Encrypt-Decrypt/encryption-decryption";
@@ -159,7 +159,7 @@ export default function Sign_in() {
                     Forgot Password?
                   </a>
                   <p className="dont-have-acc">
-                    Don't have an account? <a href="/Register">Register</a>
+                    Don't have an account? <Link to="/Register">Register</Link>
                   </p>
                 </div>
               </div>

@@ -39,19 +39,37 @@ const Dashboard = () => {
   const [showDataTrxAll, setShowDataTrxAll] = useState([]);
 
   useEffect(() => {
-    handlexotakPrice();
-  });
+    handlexotakPriceMatic();
+    handlexotakPriceBNB();
+    handlexotakPriceETH();
+  }, []);
 
-  const handlexotakPrice = async () => {
+  const handlexotakPriceMatic = async () => {
     try {
       const maticprices = await getDollarPriceMatic();
-      setMaticPrice(maticprices);
-
-      const bnbprice = await getDollarPrice("BNB");
-      setBNBPrice(bnbprice);
-
+      if (maticprices) {
+        setMaticPrice(maticprices);
+      }
+    } catch (error) {
+      console.error("Error to change:", error);
+    }
+  };
+  const handlexotakPriceETH = async () => {
+    try {
       const ethprice = await getDollarPrice("ETH");
-      setETHPrice(ethprice);
+      if (ethprice) {
+        setETHPrice(ethprice);
+      }
+    } catch (error) {
+      console.error("Error to change:", error);
+    }
+  };
+  const handlexotakPriceBNB = async () => {
+    try {
+      const bnbprice = await getDollarPrice("BNB");
+      if (bnbprice) {
+        setBNBPrice(bnbprice);
+      }
     } catch (error) {
       console.error("Error to change:", error);
     }
@@ -202,39 +220,48 @@ const Dashboard = () => {
                           </div>
                           <div className="tbody">
                             {showDataTrxAll?.length > 0 ? (
-                              showDataTrxAll?.slice(0,5)?.map((items, index) => {
-                                return (
-                                  <div>
-                                    <p>{index + 1}</p>
-                                    <p>
-                                      {moment(items?.createdAt).format("lll")}
-                                    </p>
-                                    <p>
-                                      {items?.walletAddress?.replace(
-                                        items?.walletAddress?.substring(5, 37),
-                                        "..."
-                                      )}
-                                    </p>
-                                    <p>{Number(items?.amountIn)?.toFixed(4)}</p>
-                                    <p>{Number(items?.amountOut)?.toFixed(4)}</p>
-                                    <p>
-                                      {items?.incomingTrxHash?.replace(
-                                        items?.incomingTrxHash?.substring(
-                                          5,
-                                          37
-                                        ),
-                                        "..."
-                                      )}
-                                    </p>
-                                    <p>{items?.statusIn}</p>
-                                    {/* <p>
+                              showDataTrxAll
+                                ?.slice(0, 5)
+                                ?.map((items, index) => {
+                                  return (
+                                    <div>
+                                      <p>{index + 1}</p>
+                                      <p>
+                                        {moment(items?.createdAt).format("lll")}
+                                      </p>
+                                      <p>
+                                        {items?.walletAddress?.replace(
+                                          items?.walletAddress?.substring(
+                                            5,
+                                            37
+                                          ),
+                                          "..."
+                                        )}
+                                      </p>
+                                      <p>
+                                        {Number(items?.amountIn)?.toFixed(4)}
+                                      </p>
+                                      <p>
+                                        {Number(items?.amountOut)?.toFixed(4)}
+                                      </p>
+                                      <p>
+                                        {items?.incomingTrxHash?.replace(
+                                          items?.incomingTrxHash?.substring(
+                                            5,
+                                            37
+                                          ),
+                                          "..."
+                                        )}
+                                      </p>
+                                      <p>{items?.statusIn}</p>
+                                      {/* <p>
                                       <button className="common-btn">
                                         View
                                       </button>
                                     </p> */}
-                                  </div>
-                                );
-                              })
+                                    </div>
+                                  );
+                                })
                             ) : (
                               <div>
                                 <p className="text-center">No Data Found</p>

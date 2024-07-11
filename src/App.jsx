@@ -65,7 +65,7 @@ function App() {
             }
           />
           <Route
-            path="/buy-coin2"
+            path="/buy-coin-token"
             element={
               <UserPrivateRoute>
                 <BuycoinTwo />

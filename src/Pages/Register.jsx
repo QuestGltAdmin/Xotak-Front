@@ -11,7 +11,7 @@ import {
 import Layout from "../Component/Loginheader";
 import { registerSaga } from "../store/reducers/authReducer";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import PhoneInput from "react-phone-input-2";
 import toast, { Toaster } from "react-hot-toast";
 import { encryptData } from "../Encrypt-Decrypt/encryption-decryption";
@@ -97,6 +97,7 @@ export default function Register() {
   //========================= Handel Submit =========================//
   const HandleSubmit = async () => {
     let regex = new RegExp("[a-z0-9]+@[a-z]+.[a-z]{2,3}");
+    let passregex = new RegExp("^(?=.*[A-Z])(?=.{8,})");
     if (!inputValue.name) {
       setFormError("Please enter Name");
     } else if (!regex.test(inputValue.email)) {
@@ -105,8 +106,8 @@ export default function Register() {
       setFormError("Please select Coutry code");
     } else if (!inputValue.phone) {
       setFormError("Please enter phone number");
-    } else if (!inputValue.password || inputValue.password.length < 8) {
-      setFormError("password must be greater than 8 words");
+    } else if (!passregex.test(inputValue.password)) {
+      setFormError("Password must contain 1 Uppercase character. Length must be greater or equal to 8 digit");
     } else if (inputValue.password !== inputValue.confirmpassword) {
       setFormError("password and confirm password doesn't match");
     } else {
@@ -257,7 +258,7 @@ export default function Register() {
 
                 <div className="outer-forgot-pass-link justify-content-end">
                   <p className="dont-have-acc">
-                    Already have an account? <a href="/">Login</a>
+                    Already have an account? <Link to="/">Login</Link>
                   </p>
                 </div>
               </div>
