@@ -226,10 +226,9 @@ animation: zoomin 3s infinite;
     position: relative;
 z-index: 2;
 }
-.toconomics-sec{
+.toconomics-sec {
     padding: 60px 0;
     position: relative;
-    overflow-x: hidden;
 }
 .toconomics-sec::before {
     content: "";
@@ -304,6 +303,7 @@ z-index: 2;
     padding: 60px 0;
     position: relative;  
 }
+
 .team-sec p{
     margin-bottom: 60px;
 }
@@ -370,6 +370,16 @@ animation: zoomin 3s infinite;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+}
+.team-hexa-outer::before{
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: 700.9px;
+    background: radial-gradient(74.19% 55.2% at 50% 51.7%, #000 0%, rgba(39, 9, 88, 0.60) 26.04%, #3B3350 100%);
+    filter: blur(221.80381774902344px);
 }
 .faq-main-sec{
     padding: 60px 0;

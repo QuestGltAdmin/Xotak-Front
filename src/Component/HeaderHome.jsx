@@ -38,8 +38,8 @@ export const HeaderHome = () => {
                     </Nav>
                   </Navbar.Collapse>
                     <div>
-                    <a className="black-btn-home header-btn me-3" href="/">Login Now</a>
-                        <a className="white-btn-home header-btn" href="/">Sign Up</a>
+                    <a className="black-btn-home header-btn me-3" href="/login">Login Now</a>
+                        <a className="white-btn-home header-btn" href="/Register">Sign Up</a>
                     </div>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                    

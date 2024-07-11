@@ -38,9 +38,9 @@ function App() {
       <BrowserRouter>
         <ToastContainer />
         <Routes>
-          <Route path="/home" element={<Homepage />} />
+          <Route path="/" element={<Homepage />} />
           {/* Auth */}
-          <Route path="/" element={<Login />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/Register" element={<Register />} />
           <Route path="/ResetPassword" element={<ResetPassword />} />
           <Route path="/Otp_verification" element={<Otp_verification />} />
