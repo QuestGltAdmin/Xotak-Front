@@ -21,6 +21,7 @@ import VerifyAdminOtp from "./Pages/Admin/VerifyAdminOtp";
 import AdminDashboard from "./Pages/Admin/AdminDashboard";
 import AdminUserList from "./Pages/Admin/AdminUserList";
 import AdminTransaction from "./Pages/Admin/AdminTransaction";
+import AdminPrivateRoute from "./PrivateRoute/AdminPrivateRoute";
 
 function App() {
   return (
@@ -80,9 +81,30 @@ function App() {
           {/* Admin routes */}
           <Route path="/auth-admin-login" element={<AdminLogin />} />
           <Route path="/auth-admin-otp" element={<VerifyAdminOtp />} />
-          <Route path="/dasboard-admin" element={<AdminDashboard />} />
-          <Route path="/user-list-admin" element={<AdminUserList />} />
-          <Route path="/all-trx-admin" element={<AdminTransaction />} />
+          <Route
+            path="/dasboard-admin"
+            element={
+              <AdminPrivateRoute>
+                <AdminDashboard />
+              </AdminPrivateRoute>
+            }
+          />
+          <Route
+            path="/user-list-admin"
+            element={
+              <AdminPrivateRoute>
+                <AdminUserList />
+              </AdminPrivateRoute>
+            }
+          />
+          <Route
+            path="/all-trx-admin"
+            element={
+              <AdminPrivateRoute>
+                <AdminTransaction />
+              </AdminPrivateRoute>
+            }
+          />
           {/* End Of Admin routes */}
         </Routes>
       </BrowserRouter>
