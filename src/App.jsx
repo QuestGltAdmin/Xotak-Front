@@ -18,6 +18,12 @@ import { BuycoinTwo } from "./Pages/Dashboard/BuycoinTwo";
 import UserPrivateRoute from "./PrivateRoute/UserPrivateRoute";
 import { Homepage } from "./Pages/Homepage";
 import Aos from "aos";
+import AdminLogin from "./Pages/Admin/AdminLogin";
+import VerifyAdminOtp from "./Pages/Admin/VerifyAdminOtp";
+import AdminDashboard from "./Pages/Admin/AdminDashboard";
+import AdminUserList from "./Pages/Admin/AdminUserList";
+import AdminTransaction from "./Pages/Admin/AdminTransaction";
+import AdminPrivateRoute from "./PrivateRoute/AdminPrivateRoute";
 
 function App() {
 
@@ -32,7 +38,7 @@ function App() {
       <BrowserRouter>
         <ToastContainer />
         <Routes>
-           <Route path="/home" element={<Homepage />} />
+          <Route path="/home" element={<Homepage />} />
           {/* Auth */}
           <Route path="/" element={<Login />} />
           <Route path="/Register" element={<Register />} />
@@ -81,6 +87,34 @@ function App() {
               </UserPrivateRoute>
             }
           />
+          {/* Admin routes */}
+          <Route path="/auth-admin-login" element={<AdminLogin />} />
+          <Route path="/auth-admin-otp" element={<VerifyAdminOtp />} />
+          <Route
+            path="/dasboard-admin"
+            element={
+              <AdminPrivateRoute>
+                <AdminDashboard />
+              </AdminPrivateRoute>
+            }
+          />
+          <Route
+            path="/user-list-admin"
+            element={
+              <AdminPrivateRoute>
+                <AdminUserList />
+              </AdminPrivateRoute>
+            }
+          />
+          <Route
+            path="/all-trx-admin"
+            element={
+              <AdminPrivateRoute>
+                <AdminTransaction />
+              </AdminPrivateRoute>
+            }
+          />
+          {/* End Of Admin routes */}
         </Routes>
       </BrowserRouter>
     </>

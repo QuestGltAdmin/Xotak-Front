@@ -182,21 +182,21 @@ const Profile = () => {
   };
 
   const HandelPassword = async () => {
+    let passregex = new RegExp("^(?=.*[A-Z])(?=.{8,})");
     if (!inputValuepass?.password) {
       setFormError("Please enter your password");
-    } else if (!inputValuepass?.newpassword) {
-      setFormError("Please enter your new password");
-    } else if (!inputValuepass?.confirmnewpassword) {
-      setFormError("Please enter your confirm password");
+    } else if (!passregex.test(inputValuepass.newpassword)) {
+      setFormError(
+        "Password must contain 1 Uppercase character. Length must be greater or equal to 8 digit"
+      );
     } else if (
-      inputValuepass?.newpassword === inputValuepass?.confirmnewpassword
+      inputValuepass.newpassword !== inputValuepass.confirmnewpassword
     ) {
-      setFormError("password and confirm password does't match");
-    }
-    {
+      setFormError("Password and Confirm password not same");
+    } else {
       setDisablepass(true);
       setFormError("");
-      const RowPassword = await encryptDataPath(inputValuepass?.password);
+      const RowPassword = await encryptData(inputValuepass?.password);
       const RowNewPassword = await encryptData(inputValuepass?.newpassword);
 
       try {

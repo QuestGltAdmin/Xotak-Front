@@ -244,7 +244,7 @@ const Transactions = () => {
                                                   "..."
                                                 )}
                                               </p>
-                                              <p>{items?.statusIn}</p>
+                                              <p className="text-success">{items?.statusIn}</p>
                                               {/* <p>
                                                 <button className="common-btn">
                                                   View
@@ -397,11 +397,11 @@ const Transactions = () => {
 
                                               <p>
                                                 {items?.hash?.replace(
-                                                  items?.hash?.substring(5, 37),
+                                                  items?.hash?.substring(5, 61),
                                                   "..."
                                                 )}
                                               </p>
-                                              <p>{items?.status}</p>
+                                              <p className={items?.status === "Success" ? "text-success" : items?.status === "Pending" ? "text-pending" : "text-reject"}>{items?.status}</p>
                                               {/* <p>
                                                 <button className="common-btn">
                                                   View
