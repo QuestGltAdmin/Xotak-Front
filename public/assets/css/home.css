@@ -1,7 +1,30 @@
+@font-face {
+    font-family: clash-light;
+    src: url(../Fonts/OTF/ClashDisplay-Light.otf);
+  }
+  @font-face {
+    font-family: clash-regular;
+    src: url(../Fonts/OTF/ClashDisplay-Regular.otf);
+  }
+  @font-face {
+    font-family: clash-medium;
+    src: url(../Fonts/OTF/ClashDisplay-Medium.otf);
+  }
+  @font-face {
+    font-family: clash-semibold;
+    src: url(../Fonts/OTF/ClashDisplay-Semibold.otf);
+  } 
+  @font-face {
+    font-family: clash-bold;
+    src: url(../Fonts/OTF/ClashDisplay-Bold.otf);
+  } 
+
+
 .homepage-outer-sec{
     background-color: #000;
     min-height: 100vh;
     font-family: "Manrope", sans-serif;
+    overflow-x: hidden;
 }
 .home-header {
     padding: 20px 0;
@@ -49,19 +72,27 @@ color: #fff;
     background-repeat: no-repeat;
 }
 
+.black-btn-home, .white-btn-home{
+transition: all ease-in-out .3s;
+}
+.black-btn-home:hover, .white-btn-home:hover{
+transform: scale(1.05);
+}
 .outer-banner-box{
     position: relative;
 }
 .outer-banner-box .coin-main {
     position: absolute;
-    height: 290px;
-    top: 140px;
-    left: 20px;
+    width: 50%;
+    top: 28%;
+    left: 0;
     right: 0;
     margin: 0 auto;
+    animation: zoomin 3s infinite;
 }
 .main-heading{
 font-size: 54px;
+font-family: clash-medium;
 font-style: normal;
 font-weight: 500;
 line-height: normal;
@@ -96,7 +127,7 @@ line-height: 25px; /* 156.25% */
 
 .banner-sec-new{
     position: relative;
-    padding: 150px 0 60px;
+    padding: 100px 0 60px;
 }
 .banner-sec-new::before {
     content: "";
@@ -110,7 +141,20 @@ line-height: 25px; /* 156.25% */
     opacity: 0.2;
     top: 0;
     left: 0;
+    animation: opacity 3s infinite;
 }
+@keyframes opacity {
+    0% {
+        opacity: 0.2;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 0.2;
+    }
+  }
+
 .xotak-usp-box{
     padding: 60px 0;
     position: relative;
@@ -128,6 +172,7 @@ line-height: 25px; /* 156.25% */
     bottom: 0;
     right: 0;
     z-index: 1;
+    animation: opacity 3s infinite;
 }
 .xotak-usp-box::after{
     content: "";
@@ -139,6 +184,7 @@ line-height: 25px; /* 156.25% */
     border-radius: 969.413px;
     background-color: #1B1B2A;
     filter: blur(139.3874969482422px);
+    
 }
 .xotak-usp-box .main-heading{
     margin-bottom: 60px;
@@ -158,7 +204,20 @@ z-index: 2;
 .usp-inner-box h4 img{
 height: 30px;
 margin-right: 10px;
+animation: zoomin 3s infinite;
 }
+@keyframes zoomin {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
 .usp-inner-box p{
     font-size: 15px;
     margin-top: 10px;
@@ -183,6 +242,7 @@ z-index: 2;
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
+    animation: zoomin 3s infinite;
 }
 .toconomics-sec::after{
     content: "";
@@ -195,7 +255,22 @@ z-index: 2;
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
+    animation: rotate-animation 10s infinite linear;
 }
+
+@keyframes rotate-animation {
+	0% {
+		transform: rotate(0deg);
+  }
+  50% {
+		transform: rotate(180deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+
 .toconomics-sec .main-heading{
     margin-bottom: 50px;
 }
@@ -216,6 +291,7 @@ z-index: 2;
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
+    animation: zoomin 3s infinite;
 }
 
 .roadmap-sec .main-heading{
@@ -270,10 +346,11 @@ z-index: 2;
 .center-hex-box{
 position: relative;
 max-width: 270px;
+animation: zoomin 3s infinite;
 }
 .center-hex-box h2 {
     position: absolute;
-    top: 82px;
+    top: 35%;
     left: 0;
     color: #fff;
     text-align: center;
@@ -293,4 +370,377 @@ max-width: 270px;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.faq-main-sec{
+    padding: 60px 0;
+}
+.faq-main-sec p{
+    margin-bottom: 60px;
+}
+.faq-accordian{
+
+}
+.faq-accordian .accordion-item {
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(7.5px);
+    background-color: transparent;
+    margin-bottom: 15px;
+}
+.faq-accordian .accordion-button {
+    background-color: transparent;
+    border-radius: 0;
+    color: #fff;
+font-size: 16px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+padding-right: 60px;
+overflow: hidden;
+border-radius: 5px;
+}
+.faq-accordian .accordion-button span{
+    min-width: 60px;
+    display: inline-block;
+}
+.faq-accordian .accordion-button::after {
+    content: "";
+    background-image: url(../img/home/plus.png);
+    position: absolute;
+    right: 0px;
+    width: 54px;
+    top: 0;
+    bottom: 0;
+    height: 54px;
+    background-position: center;
+    border-radius: 0px 8px 8px 0px;
+background-color: rgba(255, 255, 255, 0.10);
+}
+.faq-accordian .accordion-button[aria-expanded="true"]::after{
+    background-color: #FFF;
+    background-image: url(../img/home/minus.png);
+}
+.faq-accordian .accordion-body {
+    color: #FFF;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 26px;
+    padding-left: 80px;
+    opacity: 0.8;
+}
+.footer-sec{
+padding: 60px 0;
+}
+.footer-bg-outer {
+    background-image: url(../img/home/footer-bg.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    padding: 50px 50px 010px 50px;
+}
+
+.logo-box-foot .logo{
+height: 35px;
+margin-bottom: 40px;
+}
+.logo-box-foot > div{
+display: flex;
+align-items: center;
+}
+.logo-box-foot > div a {
+    display: block;
+    margin-right: 12px;
+}
+.logo-box-foot > div a img{
+  height: 22px;  
+  width: 20px;
+  object-fit: contain;
+}
+.extra-link{
+margin-top: 20px;
+}
+.extra-link a{
+    display: block;
+    color: rgba(255, 255, 255, 0.88);
+font-size: 15px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+margin-bottom: 20px;
+}
+.coin-footer{
+    margin-top: 30px;
+}
+.coin-footer img{
+    max-width: 130px;
+}
+.footer-bg-outer .copyright{
+margin-top: 20px;
+color: #FFF;
+font-size: 13px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+.home-header .header-btn {
+    padding: 10px 20px;
+    font-size: 14px;
+}
+
+@media (max-width: 992px) {
+    .banner-sec-new::before {
+        height: 350px;
+        width: 430px;
+    }
+    .main-heading {
+        font-size: 28px;
+        margin-bottom: 30px;
+    }
+    .homepage-outer-sec p {
+        font-size: 14px;
+        line-height: 20px;
+        margin-top: 10px;
+    }
+    .white-btn-home, .black-btn-home {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+    .banner-sec-new {
+        padding: 100px 0 0px;
+    }
+    .usp-inner-box h4 {
+         font-size: 15px;
+    }
+    .usp-inner-box h4 img {
+        height: 22px;
+        margin-right: 8px;
+    }
+    .toconomics-sec::before {
+        height: 110px;
+        width: 110px;
+    }
+    .toconomics-sec::after {
+        height: 150px;
+        width: 150px;
+    }
+    .roadmap-sec::before {
+        height: 110px;
+        width: 110px;
+    }
+    .team-left-box > div h3 {
+        font-size: 16px;
+    }
+    .team-left-box > div p {
+        font-size: 13px;
+    }
+    .team-left-box > div {
+        padding: 30px 55px 30px 30px;
+    }
+    .team-left-box.right-box > div {
+        padding: 30px 30px 30px 55px;
+    }
+    .center-hex-box h2 {
+        font-size: 22px;
+        line-height: 32px;
+        top: 30%;
+    }
+    .faq-accordian .accordion-button {
+        font-size: 14px;
+    }
+    .logo-box-foot .logo {
+        height: 26px;
+        margin-bottom: 30px;
+    }
+    .logo-box-foot > div a img {
+        height: 16px;
+        width: 16px;
+    }
+    .extra-link a {
+        font-size: 11px;
+        font-weight: 500;
+        margin-bottom: 10px;
+    }
+    .footer-bg-outer {
+        padding: 30px 30px 2px 30px;
+    }
+    .coin-footer img {
+        max-width: 70px;
+    }
+    .home-header {
+        padding: 0;
+    }
+    .home-header .navbar-brand img {
+        height: 20px;
+    }
+    .home-header .header-btn {
+        padding: 4px 10px;
+        font-size: 12px;
+    }
+    .home-header .header-btn {
+        padding: 4px 10px;
+        font-size: 12px;
+        margin-right: 5px !important;
+    }
+    .home-header .navbar-brand{
+    margin-right: 0;
+    }
+    .home-header .navbar-toggler {
+        padding: 2px 5px;
+        line-height: 14px;
+        background-color: #303030;
+        border: none;
+        margin-left: 5px;
+    }
+    .home-header .navbar-toggler-icon {
+       height: 14px;
+        width: 14px;
+        line-height: 14px;
+    }
+    .home-header .navbar-collapse {
+        background-color: #000;
+        position: absolute;
+        top: 50px;
+        left: 5px;
+        right: 5px;
+        border-bottom: 1px solid #ddd;
+    }
+    .home-header .navbar-nav .nav-link {
+        font-size: 12px;
+        margin: 4px 15px;
+        padding: 4px;
+    }
+}
+
+
+@media (max-width: 768px) {
+    
+    .main-heading {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+    .homepage-outer-sec p {
+        font-size: 12px;
+        line-height: 18px;
+        margin-top: 10px;
+    }
+    .white-btn-home, .black-btn-home {
+        padding: 8px 15px;
+        font-size: 12px;
+    }
+    .banner-sec-new {
+        padding: 130px 0 0px;
+        text-align: center;
+    }
+    .outer-banner-box {
+        max-width: 300px;
+        margin: 0 auto;
+    }
+    .xotak-usp-box .main-heading {
+        margin-bottom: 30px;
+    }
+    .usp-inner-box h4 {
+         font-size: 15px;
+    }
+    .usp-inner-box h4 img {
+        height: 22px;
+        margin-right: 8px;
+    }
+    .toconomics-sec::before {
+        height: 90px;
+        width: 90px;
+    }
+    .toconomics-sec::after {
+        height: 100px;
+        width: 100px;
+        top: 8%;
+    }
+    .roadmap-sec::before {
+        height: 80px;
+        width: 80px;
+        top: 1%;
+    }
+    .roadmap-sec p {
+        margin-bottom: 25px;
+    }
+    .team-left-box > div h3 {
+        font-size: 12px;
+    }
+    .team-left-box > div p {
+        font-size: 11px;
+    }
+    .team-left-box > div {
+        padding: 20px 25px 20px 20px;
+    }
+    .team-left-box.right-box > div {
+        padding: 20px 20px 20px 25px;
+    }
+    .center-hex-box h2 {
+        font-size: 14px;
+        line-height: 22px;
+        top: 32%;
+    }
+    .faq-accordian .accordion-button {
+        font-size: 14px;
+        padding: 12px;
+        padding-right: 45px;
+    }
+    .faq-accordian .accordion-button::after {
+        width: 43px;
+        height: 43px;
+        background-size: 40%;
+    }
+    .footer-bg-outer {
+        padding: 20px;
+        background-image: none;
+        background-color: #18151A;
+        text-align: center;
+    }
+    .logo-box-foot .logo {
+        height: 22px;
+        margin-bottom: 20px;
+    }
+    .logo-box-foot > div {
+        justify-content: center;
+    }
+    .logo-box-foot > div a img {
+        height: 14px;
+        width: 14px;
+    }
+    .logo-box-foot > div a {
+        margin: 0 10px;
+    }
+    .extra-link a {
+        font-size: 11px;
+        font-weight: 500;
+        margin-bottom: 10px;
+    }
+    .footer-bg-outer {
+        padding: 30px 30px 2px 30px;
+    }
+    .coin-footer {
+        margin-top: 10px;
+    }
+    .coin-footer img {
+        max-width: 50px;
+    }
+    .footer-bg-outer .copyright {
+        margin-top: 10px;
+        font-size: 10px;
+    }
+    .footer-sec {
+        padding: 15px 0;
+    }
+    .faq-accordian .accordion-body {
+        font-size: 12px;
+        line-height: 18px;
+        padding: 15px;
+        padding-left: 45px;
+    }
+    .faq-accordian .accordion-button span {
+        min-width: 30px;
+    }
+    .faq-main-sec {
+        padding: 20px 0;
+    }
 }

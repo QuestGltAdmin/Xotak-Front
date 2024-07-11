@@ -1,4 +1,5 @@
 // import logo from './logo.svg';
+import {  useEffect } from "react";
 import "./App.css";
 import "react-phone-input-2/lib/style.css";
 import "react-toastify/dist/ReactToastify.css";
@@ -16,8 +17,16 @@ import { Buycoin } from "./Pages/Dashboard/Buycoin";
 import { BuycoinTwo } from "./Pages/Dashboard/BuycoinTwo";
 import UserPrivateRoute from "./PrivateRoute/UserPrivateRoute";
 import { Homepage } from "./Pages/Homepage";
+import Aos from "aos";
 
 function App() {
+
+  useEffect(() => {
+    Aos.init({
+      duration: 2000,
+    });
+  }, []);
+
   return (
     <>
       <BrowserRouter>

@@ -37,7 +37,10 @@ export const HeaderHome = () => {
                       
                     </Nav>
                   </Navbar.Collapse>
-                    <a className="white-btn-home" href="/">Contact Now</a>
+                    <div>
+                    <a className="black-btn-home header-btn me-3" href="/">Login Now</a>
+                        <a className="white-btn-home header-btn" href="/">Sign Up</a>
+                    </div>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                    
                 </Container>
