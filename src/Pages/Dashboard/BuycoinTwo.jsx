@@ -125,7 +125,7 @@ export const BuycoinTwo = () => {
   //==================================Final Payment================================//
 
   const HandleFinalPayment = async () => {
-    const checkWallet = await CheckWallet(inputValue?.walletAddress);
+    const checkWallet = await CheckWallet(inputdata?.walletaddress);
     console.log(checkWallet);
     if (!checkWallet) {
       setFormError("Please enter your valid walletaddress");
