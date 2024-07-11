@@ -76,6 +76,37 @@ const authSlice = createSlice({
       };
     },
 
+    adminLoginSaga: (state, action) => {
+      return { ...state };
+    },
+
+    adminLoginStart: (state) => {
+      return {
+        ...state,
+        isLoading: true,
+      };
+    },
+
+    adminloginSuccess: (state, action) => {
+      return {
+        ...state,
+        isLoading: false,
+        isUserAuthenticated: true,
+        user: action.payload,
+        authToken: action.payload.token,
+      };
+    },
+
+    adminLoginFail: (state, action) => {
+      return {
+        ...state,
+        isLoading: false,
+        isUserAuthenticated: false,
+        user: {},
+        errorMsg: action.payload,
+      };
+    },
+
     
     setWallet: (state, action) => {
       localStorage.setItem("Wallet", JSON.stringify(action.payload));
@@ -141,6 +172,10 @@ export const {
   userLoginStart,
   userloginSuccess,
   userLoginFail,
+  adminLoginSaga,
+  adminLoginStart,
+  adminloginSuccess,
+  adminLoginFail,
   // userWalletLogin,
   isLogin,
 } = authSlice.actions;

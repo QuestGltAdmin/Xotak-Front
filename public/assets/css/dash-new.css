@@ -1411,3 +1411,39 @@ color: #303030 !important;
         width: 100%;
     }
 }
+.common-btn-accept{
+    border-radius: 8px;
+    background-color: green;
+    border: none;
+    box-shadow: none !important;
+    padding: 4px 12px;
+    color: #fff;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 22px;
+}
+.common-btn-reject{
+    border-radius: 8px;
+    background-color: red;
+    border: none;
+    box-shadow: none !important;
+    padding: 4px 12px;
+    color: #fff;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 22px;
+}
+.text-success{
+    color: green !important;
+    font-weight: 600 !important;
+}
+.text-reject{
+    color: red !important;
+    font-weight: 600 !important;
+}
+.text-pending{
+    color: orange !important;
+    font-weight: 600 !important;
+}

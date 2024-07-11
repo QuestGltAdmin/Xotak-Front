@@ -126,7 +126,6 @@ export const BuycoinTwo = () => {
 
   const HandleFinalPayment = async () => {
     const checkWallet = await CheckWallet(inputdata?.walletaddress);
-    console.log(checkWallet);
     if (!checkWallet) {
       setFormError("Please enter your valid walletaddress");
     } else if (inputdata?.hash?.length < 64 || inputdata?.hash?.length > 64) {

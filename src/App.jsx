@@ -16,6 +16,11 @@ import { Buycoin } from "./Pages/Dashboard/Buycoin";
 import { BuycoinTwo } from "./Pages/Dashboard/BuycoinTwo";
 import UserPrivateRoute from "./PrivateRoute/UserPrivateRoute";
 import { Homepage } from "./Pages/Homepage";
+import AdminLogin from "./Pages/Admin/AdminLogin";
+import VerifyAdminOtp from "./Pages/Admin/VerifyAdminOtp";
+import AdminDashboard from "./Pages/Admin/AdminDashboard";
+import AdminUserList from "./Pages/Admin/AdminUserList";
+import AdminTransaction from "./Pages/Admin/AdminTransaction";
 
 function App() {
   return (
@@ -23,7 +28,7 @@ function App() {
       <BrowserRouter>
         <ToastContainer />
         <Routes>
-           <Route path="/home" element={<Homepage />} />
+          <Route path="/home" element={<Homepage />} />
           {/* Auth */}
           <Route path="/" element={<Login />} />
           <Route path="/Register" element={<Register />} />
@@ -72,6 +77,13 @@ function App() {
               </UserPrivateRoute>
             }
           />
+          {/* Admin routes */}
+          <Route path="/auth-admin-login" element={<AdminLogin />} />
+          <Route path="/auth-admin-otp" element={<VerifyAdminOtp />} />
+          <Route path="/dasboard-admin" element={<AdminDashboard />} />
+          <Route path="/user-list-admin" element={<AdminUserList />} />
+          <Route path="/all-trx-admin" element={<AdminTransaction />} />
+          {/* End Of Admin routes */}
         </Routes>
       </BrowserRouter>
     </>
