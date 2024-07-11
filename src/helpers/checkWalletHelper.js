@@ -9,7 +9,6 @@ const CheckWallet = async (data) => {
   }
   catch (error) {
     return false;
-    throw error;
   }
 };
 
