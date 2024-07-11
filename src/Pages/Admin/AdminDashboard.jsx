@@ -72,42 +72,42 @@ const AdminDashboard = () => {
                     <Row>
                       <Col lg={3} md={6} sm={6} xs={12}>
                         <div className="shadow-box-dash">
-                          <img
+                          {/* <img
                             className="img-coin"
                             src="assets/img/ethereum1.png"
                             alt=""
-                          />
+                          /> */}
                           <h4>{totalReqCount}</h4>
-                          <p>ETH</p>
+                          <p>Total Request Count</p>
                         </div>
                       </Col>
                       <Col lg={3} md={6} sm={6} xs={12}>
                         <div className="shadow-box-dash">
-                          <img
+                          {/* <img
                             className="img-coin"
                             src="assets/img/matic.png"
                             alt=""
-                          />
+                          /> */}
                           <h4>{totalUserCount}</h4>
-                          <p>MATIC</p>
+                          <p>Total User Count</p>
                         </div>
                       </Col>
                       <Col lg={3} md={6} sm={6} xs={12}>
                         <div className="shadow-box-dash">
-                          <img
+                          {/* <img
                             className="img-coin"
                             src="assets/img/BNB.png"
                             alt=""
-                          />
+                          /> */}
                           <h4>{totaltrxCount}</h4>
-                          <p>BNB</p>
+                          <p>Total transaction Count</p>
                         </div>
                       </Col>
                     </Row>
                   </div>
                 </div>
 
-                <div className="total-balance-box">
+                {/* <div className="total-balance-box">
                   <div>
                     <h5>Total Balance</h5>
                     <h3>$ {usdBalance?.toFixed(4)}</h3>
@@ -125,7 +125,7 @@ const AdminDashboard = () => {
                       Buy Coin
                     </button>
                   </div>
-                </div>
+                </div> */}
 
                 <div>
                   <h2 className="inner-page-heading mb-2 all-transaction-link">

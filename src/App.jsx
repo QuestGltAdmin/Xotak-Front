@@ -91,7 +91,7 @@ function App() {
           <Route path="/auth-admin-login" element={<AdminLogin />} />
           <Route path="/auth-admin-otp" element={<VerifyAdminOtp />} />
           <Route
-            path="/dasboard-admin"
+            path="/dashboard-admin"
             element={
               <AdminPrivateRoute>
                 <AdminDashboard />
