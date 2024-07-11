@@ -258,7 +258,7 @@ export default function Register() {
 
                 <div className="outer-forgot-pass-link justify-content-end">
                   <p className="dont-have-acc">
-                    Already have an account? <Link to="/">Login</Link>
+                    Already have an account? <Link to="/login">Login</Link>
                   </p>
                 </div>
               </div>
