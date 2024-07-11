@@ -128,7 +128,7 @@ const Dashboard = () => {
                 <div className="dashboard-white-box">
                   <div className="w-100">
                     <h2 className="inner-page-heading">Dashboard</h2>
-                    <Marquee className="marquee-spacing">
+                    {/* <Marquee className="marquee-spacing">
                       <div className="shadow-box-dash">
                         <img
                           className="img-coin"
@@ -165,16 +165,44 @@ const Dashboard = () => {
                         <h4>${bnbprice?.toFixed(4)}</h4>
                         <p>BNB</p>
                       </div>
-                    </Marquee>
-                    {/* <Row>
+                    </Marquee> */}
+                    <Row>
                       <Col lg={3} md={6} sm={6} xs={12}>
                         <div className="shadow-box-dash">
-                          <img className="img-coin" src="assets/img/ethereum1.png" alt="" />
-                          <h4>$168,331.09</h4>
-                          <p><img src="assets/img/trend-up.png" alt="" /> This week</p>
+                          <img
+                            className="img-coin"
+                            src="assets/img/ethereum1.png"
+                            alt=""
+                          />
+                          <h4>${ethprice?.toFixed(4)}</h4>
+                          <p>ETH</p>
+                          {/* <p><img src="assets/img/trend-up.png" alt="" /> This week</p> */}
                         </div>
                       </Col>
-                    </Row> */}
+                      <Col lg={3} md={6} sm={6} xs={12}>
+                        <div className="shadow-box-dash">
+                          <img
+                            className="img-coin"
+                            src="assets/img/matic.png"
+                            alt=""
+                          />
+                          <h4>${maticprice?.toFixed(4)}</h4>
+                          <p>MATIC</p>
+                          {/* <p><img src="assets/img/trend-up.png" alt="" /> This week</p> */}
+                        </div>
+                      </Col>
+                      <Col lg={3} md={6} sm={6} xs={12}>
+                        <div className="shadow-box-dash">
+                          <img
+                            className="img-coin"
+                            src="assets/img/BNB.png"
+                            alt=""
+                          />
+                          <h4>${bnbprice?.toFixed(4)}</h4>
+                          <p>BNB</p>
+                        </div>
+                      </Col>
+                    </Row>
                   </div>
                 </div>
 

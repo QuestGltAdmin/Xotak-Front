@@ -20,6 +20,7 @@ import { encryptData } from "../../Encrypt-Decrypt/encryption-decryption";
 import useAuth from "../../hooks/useAuth";
 import toast, { Toaster } from "react-hot-toast";
 import CopyToClipboard from "react-copy-to-clipboard";
+import CheckWallet from "../../helpers/checkWalletHelper";
 
 export const BuycoinTwo = () => {
   //==================================Global Variable================================//
@@ -124,10 +125,12 @@ export const BuycoinTwo = () => {
   //==================================Final Payment================================//
 
   const HandleFinalPayment = async () => {
-    if (!inputdata?.walletaddress) {
-      setFormError("Please enter your walletaddress");
-    } else if (!inputdata?.hash) {
-      setFormError("Please enter payment Transaction hash");
+    const checkWallet = await CheckWallet(inputValue?.walletAddress);
+    console.log(checkWallet);
+    if (!checkWallet) {
+      setFormError("Please enter your valid walletaddress");
+    } else if (inputdata?.hash?.length < 64 || inputdata?.hash?.length > 64) {
+      setFormError("Please enter valid payment Transaction hash");
     } else {
       setDisable(true);
       setFormError("");
@@ -163,6 +166,11 @@ export const BuycoinTwo = () => {
         if (api?.data?.status) {
           setDisable(false);
           toast.success(api?.data?.message);
+          setInputValue({ amount: "" });
+          setInputData({
+            walletaddress: "",
+            hash: "",
+          });
           handleClose();
         }
       } catch (error) {
@@ -220,7 +228,7 @@ export const BuycoinTwo = () => {
                           <p>{bnbprice?.toFixed(4)} XOTAK</p>
                         </div>
                       </div>
-                      <div
+                      {/* <div
                         className={
                           chain === "USDT"
                             ? "token-content-box active"
@@ -245,7 +253,7 @@ export const BuycoinTwo = () => {
                           </div>
                           <p>{usdtPrice.toFixed(4)} XOTAK</p>
                         </div>
-                      </div>
+                      </div> */}
                     </Col>
                     <Col xl={6} lg={12} md={6}>
                       {" "}

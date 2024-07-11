@@ -163,12 +163,6 @@ const Transactions = () => {
                                         <Dropdown.Item eventKey="oldest">
                                           Oldest
                                         </Dropdown.Item>
-                                        <Dropdown.Item eventKey="a-z">
-                                          A to Z
-                                        </Dropdown.Item>
-                                        <Dropdown.Item eventKey="z-a">
-                                          Z to A
-                                        </Dropdown.Item>
                                       </Dropdown.Menu>
                                     </Dropdown>
                                     <button
@@ -231,8 +225,16 @@ const Transactions = () => {
                                                   "..."
                                                 )}
                                               </p>
-                                              <p>{Number(items?.amountIn)?.toFixed(4)}</p>
-                                              <p>{Number(items?.amountOut)?.toFixed(4)}</p>
+                                              <p>
+                                                {Number(
+                                                  items?.amountIn
+                                                )?.toFixed(4)}
+                                              </p>
+                                              <p>
+                                                {Number(
+                                                  items?.amountOut
+                                                )?.toFixed(4)}
+                                              </p>
                                               <p>
                                                 {items?.incomingTrxHash?.replace(
                                                   items?.incomingTrxHash?.substring(
@@ -319,12 +321,6 @@ const Transactions = () => {
                                         <Dropdown.Item eventKey="oldest">
                                           Oldest
                                         </Dropdown.Item>
-                                        <Dropdown.Item eventKey="a-z">
-                                          A to Z
-                                        </Dropdown.Item>
-                                        <Dropdown.Item eventKey="z-a">
-                                          Z to A
-                                        </Dropdown.Item>
                                       </Dropdown.Menu>
                                     </Dropdown>
                                     <button
@@ -387,9 +383,15 @@ const Transactions = () => {
                                                   "..."
                                                 )}
                                               </p>
-                                              <p>{Number(items?.xotakAmount).toFixed(4)}</p>
                                               <p>
-                                                {Number(items?.paymentAmount).toFixed(4)}{" "}
+                                                {Number(
+                                                  items?.xotakAmount
+                                                ).toFixed(4)}
+                                              </p>
+                                              <p>
+                                                {Number(
+                                                  items?.paymentAmount
+                                                ).toFixed(4)}{" "}
                                                 {items?.network}
                                               </p>
 
