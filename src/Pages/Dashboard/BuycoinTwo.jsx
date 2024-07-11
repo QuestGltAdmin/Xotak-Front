@@ -201,7 +201,7 @@ export const BuycoinTwo = () => {
                     </p>
                   </div>
                   <Row>
-                    <Col xl={6} lg={12} md={6}>
+                    <Col xl={6} lg={12} md={6} className="m-auto">
                       <div
                         className={
                           chain === "BNB"
@@ -254,8 +254,7 @@ export const BuycoinTwo = () => {
                           <p>{usdtPrice.toFixed(4)} XOTAK</p>
                         </div>
                       </div> */}
-                    </Col>
-                    <Col xl={6} lg={12} md={6}>
+                   
                       {" "}
                       <div
                         className={

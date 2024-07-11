@@ -88,18 +88,99 @@ export const Homepage = () => {
               </Container>
               </section>
 
-              <section className="toconomics-sec">
-            <Container>
-              <Row>
-                 <Col lg={11} className="m-auto">
-                    <div>
-                       <h2 className="main-heading text-center">XOTAK <br/>
-                       Tokenomics</h2>
-                       <img src="assets/img/home/graph.png" className="img-fluid" alt="" />
-                    </div>
-                 </Col>
-              </Row>
-              </Container>
+              <section className="roadmap-sec">
+               <Container>
+               <Row>
+                  <Col lg={11} className="m-auto">
+                     <div>
+                        <h2 className="main-heading text-center">XOTAK <br/>
+                           Roadmap for a Payment Utility Token</h2>
+                           <p className="text-center">This roadmap outlines the key development phases for the XOTAK project, <br/>
+                           focusing on token integration, ecosystem growth, and expanding the utility of the token.</p>
+                        <img src="assets/img/home/roadmap.png" className="img-fluid" alt="" />
+                     </div>
+                  </Col>
+               </Row>
+               </Container>
+              </section>
+
+
+              <section className="team-sec">
+               <Container>
+               <Row>
+                  <Col lg={11} className="m-auto">
+                     <div>
+                        <h2 className="main-heading text-center">Team for a Payment Utility <br/>
+                         Token Project</h2>
+                           <p className="text-center">Building a successful payment utility token project requires a team with a diverse skillset spanning technology, <br/> finance, and business development. Here's a breakdown of key team members and their roles.</p>
+                        <div className="team-hexa-outer">
+                           <div>
+                              <div className="team-left-box">
+                                 <img src="assets/img/home/Hexagon-right.png" className="img-fluid" alt="" />
+                                 <div>
+                                    <div>
+                                    <h3>DIKSHA GURNANI</h3>
+                                    <p>CEO/Founder</p>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div className="team-left-box">
+                                 <img src="assets/img/home/Hexagon-right.png" className="img-fluid" alt="" />
+                                 <div>
+                                    <div>
+                                    <h3>DIKSHA GURNANI</h3>
+                                    <p>CEO/Founder</p>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div>
+                              <div className="center-hex-box">
+                                 <img src="assets/img/home/Hexa-center.png" className="img-fluid" alt="" />
+                                 <h2>Team <br/> members</h2>
+                              </div>
+                           </div>
+                           <div>
+                              <div className="team-left-box right-box">
+                                 <img src="assets/img/home/Hexagon-left.png" className="img-fluid" alt="" />
+                                 <div>
+                                    <div>
+                                    <h3>DIKSHA GURNANI</h3>
+                                    <p>CEO/Founder</p>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div className="team-left-box right-box">
+                                 <img src="assets/img/home/Hexagon-left.png" className="img-fluid" alt="" />
+                                 <div>
+                                    <div>
+                                    <h3>DIKSHA GURNANI</h3>
+                                    <p>CEO/Founder</p>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </Col>
+               </Row>
+               </Container>
+              </section>
+
+              
+              <section className="faq-main-sec">
+               <Container>
+               <Row>
+                  <Col lg={11} className="m-auto">
+                     <div>
+                        <h2 className="main-heading text-center">XOTAK Frequently Asked  <br/>
+                        Questions</h2>
+                           <p className="text-center">XOTAK is a native utility token built on the secure BNB blockchain. It facilitates seamless <br/> payments within the DEXTER ecosystem and unlocks a range of benefits for users.</p>
+                        <img src="assets/img/home/roadmap.png" className="img-fluid" alt="" />
+                     </div>
+                  </Col>
+               </Row>
+               </Container>
               </section>
       </div>
     </>

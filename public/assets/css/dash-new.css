@@ -377,8 +377,7 @@ font-weight: 600;
     position: relative;
     padding-top: 40px;
     text-align: center;
-    min-width: 280px;
-    margin: 10px;
+    margin: 15px 0;
 }
 .shadow-box-dash .img-coin {
     height: 50px;
@@ -572,11 +571,11 @@ margin: 0;
 .outer-show-table .pagination .page-item .page-link span{
 
 }
-@media (min-width: 1520px){
+/* @media (min-width: 1520px){
     .shadow-box-dash {
         min-width: 330px;
     }
-}
+} */
 
 @media (max-width: 1270px) {
    
@@ -599,7 +598,6 @@ margin: 0;
     }
     .shadow-box-dash {
         min-height: auto;
-        min-width: 200px;
     }
     .inner-dash-bpx {
         padding: 15px 0;
@@ -711,7 +709,6 @@ margin: 0;
     }
     .shadow-box-dash {
         min-height: auto;
-        min-width: 150px;
         padding: 15px;
         padding-top: 24px;
     }
@@ -1116,7 +1113,7 @@ margin-bottom: 10px;
     box-shadow: none !important;
     padding: 10px 15px;
     border-radius: 0px;
-    color: #000 !important;
+    color: #fff !important;
     background-color: transparent !important;
 }
 .buy-coin-modal .form-control::placeholder{

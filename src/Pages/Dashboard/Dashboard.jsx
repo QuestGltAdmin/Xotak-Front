@@ -167,7 +167,7 @@ const Dashboard = () => {
                       </div>
                     </Marquee> */}
                     <Row>
-                      <Col lg={3} md={6} sm={6} xs={12}>
+                      <Col lg={4} md={6} sm={6} xs={12}>
                         <div className="shadow-box-dash">
                           <img
                             className="img-coin"
@@ -179,7 +179,7 @@ const Dashboard = () => {
                           {/* <p><img src="assets/img/trend-up.png" alt="" /> This week</p> */}
                         </div>
                       </Col>
-                      <Col lg={3} md={6} sm={6} xs={12}>
+                      <Col lg={4} md={6} sm={6} xs={12}>
                         <div className="shadow-box-dash">
                           <img
                             className="img-coin"
@@ -191,7 +191,7 @@ const Dashboard = () => {
                           {/* <p><img src="assets/img/trend-up.png" alt="" /> This week</p> */}
                         </div>
                       </Col>
-                      <Col lg={3} md={6} sm={6} xs={12}>
+                      <Col lg={4} md={6} sm={6} xs={12}>
                         <div className="shadow-box-dash">
                           <img
                             className="img-coin"

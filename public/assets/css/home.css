@@ -199,3 +199,98 @@ z-index: 2;
 .toconomics-sec .main-heading{
     margin-bottom: 50px;
 }
+
+.roadmap-sec{
+    padding: 60px 0;
+    position: relative;
+    overflow-x: hidden;
+}
+.roadmap-sec::before {
+    content: "";
+    position: absolute;
+    left: -3%;
+    top: 30%;
+    background-image: url(../img/home/lock-circle.png);
+    height: 160px;
+    width: 160px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.roadmap-sec .main-heading{
+    margin-bottom: 20px;
+}
+.roadmap-sec p{
+    margin-bottom: 60px;
+}
+.team-sec{
+    padding: 60px 0;
+    position: relative;  
+}
+.team-sec p{
+    margin-bottom: 60px;
+}
+.team-left-box{
+    position: relative;
+    max-width: 300px;
+    margin-bottom: 15px;
+}
+.team-left-box > div {
+    padding:  30px 70px 30px 47px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.team-left-box > div > div{
+    height: auto;
+}
+.team-left-box > div h3{
+    color: #FFF;
+    text-align: center;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+.team-left-box > div p{
+    color: #B6B6B6;
+    text-align: center;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-bottom: 0;
+}
+.center-hex-box{
+position: relative;
+max-width: 270px;
+}
+.center-hex-box h2 {
+    position: absolute;
+    top: 82px;
+    left: 0;
+    color: #fff;
+    text-align: center;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 36.681px;
+    letter-spacing: 1.683px;
+    text-transform: uppercase;
+    right: 0;
+}
+.team-left-box.right-box > div {
+    padding:   30px 47px 30px 70px;
+   
+}
+.team-hexa-outer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
