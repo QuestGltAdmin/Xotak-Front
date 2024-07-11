@@ -1,4 +1,5 @@
 import { toast } from "react-toastify";
+import { web3 } from "../helpers/Web3Helper"
 import Chain from "../JSON/Chain.json";
 import PresaleABI from "../ABI/PresaleAbi.json";
 import { config, getAccountDetail, getNetworkDetail } from "../helpers/web3Model";
@@ -323,6 +324,7 @@ export const buyXotakBNB = async (data) => {
             });
             return recipt;
         } catch (error) {
+            console.log(error);
             toast.error("Transaction Reverted");
             setTimeout(() => {
                 //window.location.reload();
