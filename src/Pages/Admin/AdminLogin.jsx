@@ -9,7 +9,7 @@ import {
   FormControl,
 } from "react-bootstrap";
 import Layout from "../../Component/Loginheader";
-import {  useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import toast, { Toaster } from "react-hot-toast";
 import { encryptData } from "../../Encrypt-Decrypt/encryption-decryption";
@@ -76,13 +76,13 @@ export default function AdminLogin() {
       };
 
       try {
-        const loginData = await axiosMain.post("/admin/admin-login" , payload)
-        if(loginData?.data?.status){
-            setDisable(false);
-            toast.success("Admin login success. Please verify otp.")
-            setTimeout(() => {
-                navigate("/auth-admin-otp" , {state : {email : RowEmail}})
-            }, 3000);
+        const loginData = await axiosMain.post("/admin/admin-login", payload);
+        if (loginData?.data?.status) {
+          setDisable(false);
+          toast.success("Admin login success. Please verify otp.");
+          setTimeout(() => {
+            navigate("/auth-admin-otp", { state: { email: RowEmail } });
+          }, 3000);
         }
       } catch (err) {
         setDisable(false);
@@ -140,7 +140,7 @@ export default function AdminLogin() {
                     </InputGroup.Text>
                   </InputGroup>
                 </Form.Group>
-                <p style={{color:"red"}}>{formError}</p>
+                <p style={{ color: "red" }}>{formError}</p>
                 <div>
                   <button
                     className="common-btn w-100 m-0"

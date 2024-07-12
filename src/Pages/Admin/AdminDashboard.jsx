@@ -1,9 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  Col,
-  Container,
-  Row,
-} from "react-bootstrap-v5";
+import { Col, Container, Row } from "react-bootstrap-v5";
 import {
   getDollarPrice,
   getDollarPriceMatic,
@@ -31,28 +27,23 @@ const AdminDashboard = () => {
   const [usdBalance, setUSDBalance] = useState(0);
   const [showDataTrxAll, setShowDataTrxAll] = useState([]);
 
-
-
   useEffect(() => {
     getDataTrxAll();
   }, []);
   //==============================Get Data All Trx==============================//
   const getDataTrxAll = async () => {
     try {
-      const getResAll = await axiosMain.get("/admin/admin-dashboard",
-        {
-          headers: {
-            "Content-Type": "application/json",
-            authorization: `bearer ${user.token}`,
-          },
-        }
-      );
+      const getResAll = await axiosMain.get("/admin/admin-dashboard", {
+        headers: {
+          "Content-Type": "application/json",
+          authorization: `bearer ${user.token}`,
+        },
+      });
       console.log(getResAll);
       if (getResAll?.data?.status) {
-        
-        setTotaltrxCount(getResAll?.data?.data?.dashboardData?.totaltrxCount)
-        setTotalUserCount(getResAll?.data?.data?.dashboardData?.totalUserCount)
-        setTotalReqCount(getResAll?.data?.data?.dashboardData?.totalReqCount)
+        setTotaltrxCount(getResAll?.data?.data?.dashboardData?.totaltrxCount);
+        setTotalUserCount(getResAll?.data?.data?.dashboardData?.totalUserCount);
+        setTotalReqCount(getResAll?.data?.data?.dashboardData?.totalReqCount);
         setShowDataTrxAll(getResAll?.data?.data?.userList);
       }
     } catch (err) {}
@@ -130,7 +121,7 @@ const AdminDashboard = () => {
                 <div>
                   <h2 className="inner-page-heading mb-2 all-transaction-link">
                     Recent Transactions{" "}
-                    <a href="/Transactions">View All Transactions</a>{" "}
+                    <a href="/all-trx-admin">View All Transactions</a>{" "}
                   </h2>
                   <Row>
                     <Col>
@@ -143,7 +134,6 @@ const AdminDashboard = () => {
                               <p>Email</p>
                               <p>Phone No</p>
                               <p>Date</p>
-                       
                             </div>
                           </div>
                           <div className="tbody">
@@ -156,18 +146,18 @@ const AdminDashboard = () => {
                                       <p>{index + 1}</p>
                                       <p>{items?.name}</p>
                                       <p>{items?.email}</p>
-                                      <p>+{items?.countryCode}-{items?.mobile_no}</p>
+                                      <p>
+                                        +{items?.countryCode}-{items?.mobile_no}
+                                      </p>
                                       <p>
                                         {moment(items?.createdAt).format("lll")}
                                       </p>
-                                  
-                                    
                                     </div>
                                   );
                                 })
                             ) : (
                               <div>
-                                <p className="text-center">No Data Found</p>
+                                <p className="text-center" style={{color:"White"}}>No Data Found</p>
                               </div>
                             )}
                           </div>

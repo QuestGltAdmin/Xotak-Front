@@ -171,7 +171,7 @@ const AdminUserList = () => {
                               </div>
                               {showDataTrxAll?.length <= 0 && (
                                 <div>
-                                  <p className="text-center">No Data Found</p>
+                                  <p className="text-center" style={{color:"White"}}>No Data Found</p>
                                 </div>
                               )}
                             </div>
