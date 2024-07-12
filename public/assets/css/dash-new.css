@@ -218,7 +218,7 @@ font-size: 14px;
         margin: 5px;
     }
     .common-btn {
-        padding: 1px 10px;
+        padding: 10px 10px;
         font-size: 13px;
         margin: 5px;
     }
@@ -702,6 +702,9 @@ margin: 0;
 }
 
 @media (max-width:768px) {
+    .dashboard-layout .login-header-home .navbar-brand img {
+        height: 20px;
+    }
     .outer-show-table {
         flex-wrap: wrap;
     }
@@ -1382,39 +1385,7 @@ color: #ddd !important;
     background-color: #000 !important;
     color: #fff !important;
 }
-
-@media (max-width:768px){
-    .table-box-new {
-        margin: 20px 0;
-    }
-    .tabs-outer-transaction .nav-tabs .nav-item .nav-link {
-        padding: 5px 8px;
-        margin: 5px 5px 5px 0px;
-        font-size: 12px;
-    }
-    .d-flex.filter-row{
-        display: block !important;
-    }
-    .search-input.input-group {
-        max-width: 100%;
-        margin-top: 10px;
-    }
-    .sort-dropdown.dropdown .dropdown-toggle {
-        padding: 4px 10px;
-        width: 100%;
-        padding-right: 20px;
-        font-size: 12px;
-    }
-    .sort-dropdown.dropdown .dropdown-toggle::after {
-        height: 6px;
-        width: 6px;
-        right: 10px;
-        top: 9px;
-    }
-    .search-input.input-group .input-group-text {
-        font-size: 12px;
-        line-height: 12px;
-    }
+@media (max-width:992px){
     .table-view-transaction {
         display: block;
     }
@@ -1446,6 +1417,41 @@ color: #ddd !important;
         margin-top: 10px;
         width: 100%;
     }
+}
+@media (max-width:768px){
+    .table-box-new {
+        margin: 20px 0;
+        padding: 10px;
+    }
+    .tabs-outer-transaction .nav-tabs .nav-item .nav-link {
+        padding: 5px 8px;
+        margin: 5px 5px 5px 0px;
+        font-size: 12px;
+    }
+    .d-flex.filter-row{
+        display: block !important;
+    }
+    .search-input.input-group {
+        max-width: 100%;
+        margin-top: 10px;
+    }
+    .sort-dropdown.dropdown .dropdown-toggle {
+        padding: 4px 10px;
+        width: 100%;
+        padding-right: 20px;
+        font-size: 12px;
+    }
+    .sort-dropdown.dropdown .dropdown-toggle::after {
+        height: 6px;
+        width: 6px;
+        right: 10px;
+        top: 9px;
+    }
+    .search-input.input-group .input-group-text {
+        font-size: 12px;
+        line-height: 12px;
+    }
+   
 }
 .common-btn-accept{
     border-radius: 8px;
