@@ -97,8 +97,9 @@ export default function Register() {
   //========================= Handel Submit =========================//
   const HandleSubmit = async () => {
     let regex = new RegExp("[a-z0-9]+@[a-z]+.[a-z]{2,3}");
-    let passregex = new RegExp("^(?=.*[A-Z])(?=.{8,})");
-    if (!inputValue.name) {
+    let passregex =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()\-_=+{};:,<.>])[^\s]{6,}$/;
+          if (!inputValue.name) {
       setFormError("Please enter Name");
     } else if (!regex.test(inputValue.email)) {
       setFormError("Please enter valid email");
@@ -107,7 +108,7 @@ export default function Register() {
     } else if (!inputValue.phone) {
       setFormError("Please enter phone number");
     } else if (!passregex.test(inputValue.password)) {
-      setFormError("Password must contain 1 Uppercase character. Length must be greater or equal to 8 digit");
+      setFormError("Password must contain 1 Uppercase character. Length must be greater or equal to 8 digit & 1 special character");
     } else if (inputValue.password !== inputValue.confirmpassword) {
       setFormError("password and confirm password doesn't match");
     } else {
