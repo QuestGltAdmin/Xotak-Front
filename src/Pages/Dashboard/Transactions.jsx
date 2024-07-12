@@ -257,7 +257,7 @@ const Transactions = () => {
                                   </div>
                                   {showDataTrxAll?.length <= 0 && (
                                     <div>
-                                      <p className="text-center">
+                                      <p className="text-center" style={{color:"White"}}>
                                         No Data Found
                                       </p>
                                     </div>
@@ -414,7 +414,7 @@ const Transactions = () => {
                                   </div>
                                   {showDataReqAll?.length <= 0 && (
                                     <div>
-                                      <p className="text-center">
+                                      <p className="text-center" style={{color:"White"}}>
                                         No Data Found
                                       </p>
                                     </div>
