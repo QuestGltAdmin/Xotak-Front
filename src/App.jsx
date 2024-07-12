@@ -3,6 +3,7 @@ import {  useEffect } from "react";
 import "./App.css";
 import "react-phone-input-2/lib/style.css";
 import "react-toastify/dist/ReactToastify.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { ToastContainer } from "react-toastify";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./Pages/Login";

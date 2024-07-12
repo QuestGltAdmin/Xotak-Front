@@ -14,6 +14,7 @@ import toast, { Toaster } from "react-hot-toast";
 import OTPInput from "react-otp-input";
 import { encryptData } from "../Encrypt-Decrypt/encryption-decryption";
 import axiosMain from "../http/axios/axios_main";
+import Spinner from "react-bootstrap/Spinner";
 
 export default function Otp_verification() {
   //==================================Global Variable================================//
@@ -27,7 +28,7 @@ export default function Otp_verification() {
   const [formError, setFormError] = useState("");
   const [otp, setOTP] = useState("");
   const [disable, setDisable] = useState(false);
-
+  const [checkdata, setCheckdata] = useState(false);
   //===============End of code====================//
 
   //=============== Handle otp function ====================//
@@ -73,7 +74,7 @@ export default function Otp_verification() {
       setFormError("");
       const RowEmail = await encryptData(email);
       const RowFlag = await encryptData(flag);
-
+      setCheckdata(true);
       try {
         const payload = {
           email: RowEmail,
@@ -82,9 +83,14 @@ export default function Otp_verification() {
 
         const api = await axiosMain.post("/resend-otp", payload);
         if (api?.data?.status) {
+          setCheckdata(false);
           toast.success("OTP resent successfully.");
+        } else {
+          setCheckdata(false);
         }
       } catch (error) {
+        setCheckdata(false);
+
         setFormError(error.response.data.message);
       }
     }
@@ -116,7 +122,7 @@ export default function Otp_verification() {
                     />
                   </div>
                 </Form.Group>
-                <p style={{color:"red"}}>{formError}</p>
+                <p style={{ color: "red" }}>{formError}</p>
                 <div>
                   <button
                     className="common-btn w-100 m-0"
@@ -129,10 +135,20 @@ export default function Otp_verification() {
                   </button>
                 </div>
                 <div className="outer-forgot-pass-link">
-                  <p className="dont-have-acc" >
-                  Did'nt get OTP? <a  onClick={() => {
-                      ReSendOtp();
-                    }} style={{cursor:"pointer"}}>Resend Otp</a>
+                  <p className="dont-have-acc">
+                    Did'nt get OTP?{" "}
+                    <a
+                      onClick={() => {
+                        ReSendOtp();
+                      }}
+                      style={{ cursor: "pointer" }}
+                    >
+                      {checkdata ? (
+                        <Spinner animation="border" role="status"></Spinner>
+                      ) : (
+                        "Resend Otp"
+                      )}
+                    </a>
                   </p>
                 </div>
               </div>
