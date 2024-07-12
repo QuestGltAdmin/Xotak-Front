@@ -1385,6 +1385,10 @@ color: #ddd !important;
     background-color: #000 !important;
     color: #fff !important;
 }
+.table-view-transaction > div.tbody p .mobile-only{
+    display: none;
+}
+
 @media (max-width:992px){
     .table-view-transaction {
         display: block;
@@ -1416,6 +1420,10 @@ color: #ddd !important;
         font-size: 12px;
         margin-top: 10px;
         width: 100%;
+    }
+    .table-view-transaction > div.tbody p .mobile-only {
+        display: inline-block !important;
+        min-width: 110px;
     }
 }
 @media (max-width:768px){
@@ -1451,7 +1459,13 @@ color: #ddd !important;
         font-size: 12px;
         line-height: 12px;
     }
-   
+    .profile-pic {
+        margin-bottom: 30px;
+    }
+    .profile-pic img {
+        width: 95px;
+        height: 95px;
+    }
 }
 .common-btn-accept{
     border-radius: 8px;

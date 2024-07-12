@@ -212,11 +212,13 @@ const Transactions = () => {
                                             <div>
                                               <p>{index + 1}</p>
                                               <p>
+                                                <span className="mobile-only">Date - </span>
                                                 {moment(
                                                   items?.createdAt
                                                 ).format("lll")}
                                               </p>
                                               <p>
+                                                <span className="mobile-only">Wallet Address - </span>
                                                 {items?.walletAddress?.replace(
                                                   items?.walletAddress?.substring(
                                                     5,
@@ -226,16 +228,19 @@ const Transactions = () => {
                                                 )}
                                               </p>
                                               <p>
+                                               <span className="mobile-only">Amount - </span>
                                                 {Number(
                                                   items?.amountIn
                                                 )?.toFixed(4)}
                                               </p>
                                               <p>
+                                              <span className="mobile-only">XTK Amount - </span>
                                                 {Number(
                                                   items?.amountOut
                                                 )?.toFixed(4)}
                                               </p>
                                               <p>
+                                                <span className="mobile-only">Trx Hash - </span>
                                                 {items?.incomingTrxHash?.replace(
                                                   items?.incomingTrxHash?.substring(
                                                     5,
