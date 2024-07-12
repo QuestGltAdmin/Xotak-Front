@@ -439,6 +439,12 @@ background-color: rgba(255, 255, 255, 0.10);
     padding-left: 80px;
     opacity: 0.8;
 }
+.faq-accordian .accordion-body ul{
+padding-left: 20px;
+}
+.faq-accordian .accordion-body ul li{
+    margin-bottom: 10px;
+}
 .footer-sec{
 padding: 60px 0;
 }
@@ -752,5 +758,19 @@ line-height: normal;
     }
     .faq-main-sec {
         padding: 20px 0;
+    }
+}
+
+@media (max-width: 420px) {
+    .team-left-box > div h3 {
+        font-size: 10px;
+    }
+    .team-left-box > div p {
+        font-size: 8px;
+    }
+    .center-hex-box h2 {
+        font-size: 11px;
+        line-height: 18px;
+        top: 26%;
     }
 }

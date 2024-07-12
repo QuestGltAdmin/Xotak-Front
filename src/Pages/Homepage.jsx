@@ -31,7 +31,7 @@ export const Homepage = () => {
               </Row>
             </Container>
           </section>
-          <section className="xotak-usp-box">
+          <section className="xotak-usp-box" id="usp">
             <Container>
               <Row>
                  <Col lg={12}>
@@ -77,7 +77,7 @@ export const Homepage = () => {
             </Container>
           </section>
 
-          <section className="toconomics-sec">
+          <section className="toconomics-sec" id="tokenomics">
             <Container>
               <Row>
                  <Col lg={9} className="m-auto">
@@ -91,7 +91,7 @@ export const Homepage = () => {
               </Container>
               </section>
 
-              <section className="roadmap-sec">
+              <section className="roadmap-sec" id="roadmap">
                <Container>
                <Row>
                   <Col lg={10} className="m-auto">
@@ -108,7 +108,7 @@ export const Homepage = () => {
               </section>
 
 
-              <section className="team-sec">
+              <section className="team-sec" id="team">
                <Container>
                <Row>
                   <Col lg={11} className="m-auto">
@@ -171,7 +171,7 @@ export const Homepage = () => {
               </section>
 
               
-              <section className="faq-main-sec">
+              <section className="faq-main-sec" id="faq">
                <Container>
                <Row>
                   <Col lg={8} className="m-auto">
@@ -191,49 +191,67 @@ export const Homepage = () => {
                            <Accordion.Item eventKey="1">
                               <Accordion.Header><span>02</span> What are the benefits of using XOTAK?</Accordion.Header>
                               <Accordion.Body>
-                              XOTAK is a native utility token built on the secure BNB blockchain. It facilitates seamless payments within the DEXTER ecosystem and unlocks a range of benefits for users.
-                              </Accordion.Body>
+                                 <ul>
+                                    <li>Fast and Secure Transactions: XOTAK enables near-instantaneous settlements with enhanced security compared to traditional payment methods.
+                                    </li>
+                                    <li>Reduced Fees: Enjoy significantly lower transaction fees compared to credit cards, wire transfers, and other payment gateways.
+                                    </li>
+                                    <li>Global Payments: Send and receive payments internationally without restrictions or high conversion fees.
+                                    </li>
+                                    <li>Enhanced User Experience: XOTAK simplifies payments within the DEXTER platform, creating a smoother user experience.
+                                    </li>
+                                    <li>Staking and Governance: Stake your XOTAK to earn rewards and participate in shaping the future of the DEXTER ecosystem.
+                                    </li>
+                                 </ul>
+                                </Accordion.Body>
                            </Accordion.Item>
                            <Accordion.Item eventKey="2">
                               <Accordion.Header><span>03</span> How can I use XOTAK?</Accordion.Header>
                               <Accordion.Body>
-                              XOTAK is a native utility token built on the secure BNB blockchain. It facilitates seamless payments within the DEXTER ecosystem and unlocks a range of benefits for users.
+                                  <ul>
+                                    <li>Make Payments: Use XOTAK to pay for goods and services within the DEXTER platform.</li>
+                                    <li>Staking: Stake your XOTAK to earn rewards and contribute to the governance of the platform.</li>
+                                    <li>Potential Future Use Cases: In the future, XOTAK may be used for additional functionalities within the ecosystem.</li>
+                                  </ul>
                               </Accordion.Body>
                            </Accordion.Item>
                            <Accordion.Item eventKey="3">
                               <Accordion.Header><span>04</span> Where can I buy XOTAK?</Accordion.Header>
                               <Accordion.Body>
-                              XOTAK is a native utility token built on the secure BNB blockchain. It facilitates seamless payments within the DEXTER ecosystem and unlocks a range of benefits for users.
+                              XOTAK WILL BE SOON AVAILABLE ON OUR WEBSITE AND PANCAKESWAP EXCHANGE.
                               </Accordion.Body>
                            </Accordion.Item>
                            <Accordion.Item eventKey="4">
                               <Accordion.Header><span>05</span> How is XOTAK secured?</Accordion.Header>
                               <Accordion.Body>
-                              XOTAK is a native utility token built on the secure BNB blockchain. It facilitates seamless payments within the DEXTER ecosystem and unlocks a range of benefits for users.
+                              XOTAK leverages the security and transparency of the BNB blockchain. All transactions are immutably recorded, minimizing the risk of fraud and unauthorized access.
                               </Accordion.Body>
                            </Accordion.Item>
                            <Accordion.Item eventKey="5">
                               <Accordion.Header><span>06</span> Is XOTAK an investment?</Accordion.Header>
                               <Accordion.Body>
-                              XOTAK is a native utility token built on the secure BNB blockchain. It facilitates seamless payments within the DEXTER ecosystem and unlocks a range of benefits for users.
+                              XOTAK is a utility token designed to facilitate payments and access functionalities within the BNB ecosystem. While the value of the token may fluctuate, it is not intended to be solely an investment asset.
                               </Accordion.Body>
                            </Accordion.Item>
                            <Accordion.Item eventKey="6">
                               <Accordion.Header><span>07</span> How is XOTAK different from other payment tokens?</Accordion.Header>
                               <Accordion.Body>
-                              XOTAK is a native utility token built on the secure BNB blockchain. It facilitates seamless payments within the DEXTER ecosystem and unlocks a range of benefits for users.
+                              XOTAK is designed specifically for the DEXTER ecosystem, offering a range of unique features and functionalities tailored to the platform's needs. 
                               </Accordion.Body>
                            </Accordion.Item>
                            <Accordion.Item eventKey="7">
                               <Accordion.Header><span>08</span> Who is behind XOTAK?</Accordion.Header>
                               <Accordion.Body>
-                              XOTAK is a native utility token built on the secure BNB blockchain. It facilitates seamless payments within the DEXTER ecosystem and unlocks a range of benefits for users.
+                              XOTAK is developed by the DEXTER team, a group of experienced professionals in SAAS technology, finance, and blockchain.
                               </Accordion.Body>
                            </Accordion.Item>
                            <Accordion.Item eventKey="8">
                               <Accordion.Header><span>09</span> Where can I learn more about XOTAK?</Accordion.Header>
                               <Accordion.Body>
-                              XOTAK is a native utility token built on the secure BNB blockchain. It facilitates seamless payments within the DEXTER ecosystem and unlocks a range of benefits for users.
+                                  <ul>
+                                    <li>Website: [Project website URL]</li>
+                                    <li>Whitepaper: [Link to whitepaper]</li>
+                                  </ul>
                               </Accordion.Body>
                            </Accordion.Item>
                         </Accordion>

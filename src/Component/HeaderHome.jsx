@@ -28,12 +28,12 @@ export const HeaderHome = () => {
                     </Navbar.Brand>
                     <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="m-auto">
-                      <Nav.Link className="active">Home</Nav.Link>
-                      <Nav.Link>Product</Nav.Link>
-                      <Nav.Link>Services</Nav.Link>
-                      <Nav.Link>Why Us</Nav.Link>
-                      <Nav.Link>Resources</Nav.Link>
-                      <Nav.Link>About</Nav.Link>
+                      <Nav.Link href="/#" className="active">Home</Nav.Link>
+                      <Nav.Link href="/#usp">Services</Nav.Link>
+                      <Nav.Link href="/#tokenomics">Tokenomics</Nav.Link>
+                      <Nav.Link href="/#roadmap">Roadmap</Nav.Link>
+                      <Nav.Link href="/#team">Team</Nav.Link>
+                      <Nav.Link href="/#faq">FAQ</Nav.Link>
                       
                     </Nav>
                   </Navbar.Collapse>
