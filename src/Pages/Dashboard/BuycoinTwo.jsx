@@ -128,20 +128,23 @@ export const BuycoinTwo = () => {
     const checkWallet = await CheckWallet(inputdata?.walletaddress);
     if (!checkWallet) {
       setFormError("Please enter your valid walletaddress");
-    } else if (inputdata?.hash?.length < 64 || inputdata?.hash?.length > 64) {
+    } else if (inputdata?.hash?.length < 66 || inputdata?.hash?.length > 66) {
       setFormError("Please enter valid payment Transaction hash");
     } else {
       setDisable(true);
       setFormError("");
+      let xotakAmt = (inputValue.amount*1).toFixed(4)
+      let paymentAMt = FinalPrice.toFixed(4)
+      console.log(xotakAmt , paymentAMt );
       const RowWallet = await encryptData(inputdata?.walletaddress);
       const RowHash = await encryptData(inputdata?.hash);
-      const RowXotakAmount = await encryptData(inputValue?.amount);
+      const RowXotakAmount = await encryptData(xotakAmt);
       const RowAdminaddress = await encryptData(
         "0x25E8dCdF4ceF1536C38B815D1b06D6cF0E52E7F7"
       );
-      const RowPaymentAmount = await encryptData(FinalPrice);
+      const RowPaymentAmount = await encryptData(paymentAMt);
       const RowNetwork = await encryptData(chain);
-
+      console.log(RowXotakAmount , RowPaymentAmount );
       try {
         const payload = {
           walletAddress: RowWallet,
