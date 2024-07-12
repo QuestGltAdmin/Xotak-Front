@@ -1,10 +1,17 @@
 .connect-wallet-btn {
-    background-color: #303030;
-    color: #fff;
+    background-color: transparent !important;
     border: none !important;
-    box-shadow: none !important;
-    padding: 10px 20px;
+    background-image: url(../img/home/black-btn-bg.png);
+    padding: 12px 25px;
+    color: #fff !important;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
     line-height: normal;
+    position: relative;
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
 }
 .connect-wallet-modal .modal-content {
     background-color: #303030;
@@ -31,8 +38,8 @@
     margin: 0 auto 40px;
 }
 .connect-wallet-modal .connect-tech-div .common-btn {
-    background-color: #fff !important;
-    color:  #303030 !important;
+    background-color: transparent !important;
+    color:  #fff !important;
     box-shadow: none !important;
     outline: none !important;
     border: none !important;
@@ -41,6 +48,7 @@
     font-weight: 500;
     width: 100%;
     border-radius: 0px;
+
 }
 .connect-wallet-modal .connect-tech-div .common-btn img {
     height: 28px;
@@ -62,20 +70,20 @@
 .connect-wallet-btn.dropdown-toggle {
     background-color: transparent;
     border-color: transparent;
-    padding: 5px 20px 5px 10px;
+    padding: 10px 40px 10px 30px;
     color: #303030;
 }
 .connect-wallet-btn.dropdown-toggle::after {
     content: "";
     position: absolute;
-    border-bottom: 2px solid #000;
-    border-right: 2px solid #000;
+    border-bottom: 2px solid #ddd;
+    border-right: 2px solid #ddd;
     border-left: none;
     height: 9px;
     width: 9px;
     border-top: none;
     transform: rotate(45deg);
-    right: 0;
+    right: 15px;
     top: 12px;
 }
 .connect-wallet-btn.dropdown-toggle img{

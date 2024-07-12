@@ -139,7 +139,7 @@ export default function Header() {
               <Col>
                 <div className="d-flex justify-content-between align-items-center">
                   <Navbar.Brand href="/">
-                    <img src="assets/img/logo.svg" />
+                    <img src="assets/img/home/home-logo.png" />
                   </Navbar.Brand>
 
                   <Navbar.Collapse id="basic-navbar-nav">

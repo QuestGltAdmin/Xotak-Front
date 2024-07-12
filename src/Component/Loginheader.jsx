@@ -21,13 +21,13 @@ export default function Header() {
         <Navbar className="" expand="lg">
           <Container>
             <Navbar.Brand href="/">
-              <img src="assets/img/logo.svg" />
+              <img src="assets/img/home/home-logo.png" />
             </Navbar.Brand>
             {pathname === "auth-admin-login" || pathname === "auth-admin-otp" ? (
               <></>
             ) : (
               <div>
-                <a className="border-btn" href="/">
+                <a className="border-btn me-3" href="/login">
                   Login
                 </a>
                 <a className="common-btn" href="/Register">

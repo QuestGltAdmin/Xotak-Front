@@ -7,7 +7,7 @@
     z-index: 100;
 }
 .login-header-home .navbar-brand img {
-    height: 70px;
+    height: 40px;
 }
 a, button {
     outline: none !important;
@@ -16,24 +16,34 @@ a, button {
     text-decoration: none !important;
 }
 .border-btn {
-    border: 2px solid #303030 !important;
-    background-color: #fff !important;
-    color: #303030 !important;
-    padding: 5px 15px;
-    margin: 10px;
-    border-radius: 0px;
+    background-color: transparent !important;
+    border: none !important;
+    background-image: url(../img/home/white-btn-bg.png);
+    padding: 12px 35px;
+    color: #000 !important;
     font-size: 16px;
+    font-style: normal;
     font-weight: 600;
+    line-height: normal;
+    position: relative;
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
 }
 .common-btn {
-    border: 2px solid #303030 !important;
-    background-color: #303030 !important;
+    background-color: transparent !important;
+    border: none !important;
+    background-image: url(../img/home/black-btn-bg.png);
+    padding: 12px 35px;
     color: #fff !important;
-    padding: 5px 15px;
-    margin: 10px;
-    border-radius: 0px;
     font-size: 16px;
+    font-style: normal;
     font-weight: 600;
+    line-height: normal;
+    position: relative;
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
 }
 .login-header-home .navbar-expand-lg .navbar-nav .nav-link {
     color: #000;
@@ -47,11 +57,12 @@ body {
     margin: 0 !important;
 }
 .signup-sec {
-    background-image: url(../img/bg2.jpg);
+    /* background-image: url(../img/bg2.jpg);
     background-color: #ffff;
     background-blend-mode: multiply;
     background-position: center;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; */
+    background-color: #000;
     background-size: cover;
     min-height: 100vh;
     display: flex;
@@ -62,39 +73,40 @@ body {
 .signup-sec::before {
     content: "";
     position: absolute;
-    background-color: rgba(255,255,255,0.8);
     width: 100%;
     height: 100%;
     left: 0;
     right: 0;
     top: 0;
     bottom: 0;
+    border-radius: 700.9px;
+    background: radial-gradient(74.19% 55.2% at 50% 51.7%, #000 0%, rgba(39, 9, 88, 0.60) 26.04%, #3B3350 100%);
+    filter: blur(221.80381774902344px);
 }
-
 .outer-bg-signup {
     text-align: center;
-    background-color: #fff;
+    background-color: #23133F;
     min-height: 300px;
     padding: 20px;
-    box-shadow: 0 0 10px #303030;
+    border: 3px solid #34254E;
     position: relative;
     z-index: 10;
 }
 .outer-bg-signup h3 {
-    font-weight: 500;
     width: 100%;
     display: block;
     font-size: 28px;
-    color: #303030!important;
+    color: #fff!important;
     margin-top: 0px;
     margin-bottom: 9px;
     line-height: 1.2;
     text-align: center;
+    font-family: clash-medium;
 }
 .outer-bg-signup h5{
     font-size: 18px;
     font-weight: 400;
-    color: #303030;
+    color: #fff;
     margin-bottom: 40px;
 }
 .outer-bg-signup .form-label{
@@ -105,24 +117,24 @@ body {
     color: #000;
 }
 .outer-bg-signup .form-control, .outer-bg-signup .form-select {
-    border: 1px solid #303030 !important;
+    border: 1px solid #ddd !important;
     box-shadow: none !important;
     padding: 10px 15px;
     border-radius: 0px;
-    color: #000 !important;
+    color: #fff !important;
     background-color: transparent !important;
 }
 .outer-bg-signup .form-select option {
-    background-color: #303030 !important;
+    background-color: #fff !important;
 }
 
 .outer-bg-signup .form-control::placeholder{
-    color: #000;
+    color: #ddd;
     font-weight: 300;
 }
 
 .outer-bg-signup .input-group {
-    border: 1px solid #303030 !important;
+    border: 1px solid #ddd !important;
     border-radius: 0px;
 }
 .outer-bg-signup .input-group .form-control{
@@ -130,7 +142,7 @@ body {
 }
 .outer-bg-signup .input-group .input-group-text {
     background-color: transparent !important;
-    color: #303030;
+    color: #fff;
     border: none !important;
 }
 
@@ -142,11 +154,15 @@ body {
 .outer-bg-signup .react-tel-input .flag-dropdown {
     background-color: transparent;
     border: none !important;
-    border-right: 1px solid #000 !important;
+    border-right: 1px solid #ddd !important;
 }
 
 .outer-bg-signup .mb-3 {
     margin-bottom: 25px !important;
+}
+
+.outer-bg-signup .common-btn.w-100{
+    max-width: 220px;
 }
 .outer-forgot-pass-link {
     display: flex;
@@ -158,17 +174,17 @@ body {
 font-weight: 400;
 }
 .outer-forgot-pass-link a.forgot-link{
-    color: #303030;
+    color: #fff;
     font-size: 16px;
 }
 .outer-forgot-pass-link .dont-have-acc{
 margin: 0;
 font-size: 14px;
     line-height: 1.4;
-    color: #000;
+    color: #ddd;
 }
 .outer-forgot-pass-link .dont-have-acc a {
-    color: #303030;
+    color: #fff;
     font-size: 16px;
     font-weight: 600;
 }
@@ -180,7 +196,7 @@ font-size: 14px;
     justify-content: space-between;
 }
 .outer-bg-signup .otp_box input {
-    border: 1px solid #303030 !important;
+    border: 1px solid #fff !important;
     box-shadow: none !important;
     padding: 16px;
     border-radius: 0px;
@@ -260,7 +276,7 @@ font-size: 14px;
     padding-top: 80px;
     padding-left: 300px;
     min-height: 100vh;
-    background-color: #e3e3e3;
+    background-color: #000;
 }
 .inner-dash-bpx{
     padding: 15px;
@@ -268,6 +284,8 @@ font-size: 14px;
 
 .dashboard-layout .login-header-home .navbar-brand img{
 height: 50px;
+max-width: 180px;
+object-fit: contain;
 }
 .dashboard-layout .login-header-home .navbar-expand-lg {
     position: fixed;
@@ -276,7 +294,7 @@ height: 50px;
     left: 0;
     right: 0;
     border-radius: 0;
-    background-color: #fff !important;
+    background-color: #1D1132 !important;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
     width: 100%;
     margin: 0 auto;
@@ -285,7 +303,7 @@ height: 50px;
     position: fixed;
     left: 0;
     top: 75px;
-    background-color: #303030;
+    background-color: #1D1132;
     height: 100% !important;
     width: 290px;
     display: block;
@@ -367,11 +385,11 @@ font-weight: 600;
     position: relative;
 } */
 .shadow-box-dash {
-    border: 1px solid #303030;
+    border: 1px solid #34254E;
     padding: 20px;
     border-radius: 8px;
     min-height: 100px;
-    background-color: #303030;
+    background-color: #23133F;
     background-blend-mode: multiply;
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
     position: relative;
@@ -469,7 +487,7 @@ text-align: right;
     justify-content: space-between;
 }
 .all-transaction-link a {
-    color: #303030;
+    color: #ddd;
     font-size: 14px;
     text-decoration: underline !important;
     font-weight: 400;
@@ -478,7 +496,7 @@ text-align: right;
     margin-bottom: 50px;
     font-size: 20px;
     font-weight: 700;
-    color: #303030;
+    color: #fff;
     position: relative;
 }
 .inner-page-heading::after {
@@ -488,14 +506,14 @@ text-align: right;
     height: 2px;
     width: 100%;
     left: 0;
-    background-color: #303030;
+    background-color: #ddd;
 }
 .shadow-box-main {
     margin: 15px 0;
     border-radius: 0;
-    background-color: #fff;
+    background-color: #160E25;
     padding: 20px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    box-shadow: 0 0 10px #34254E;
 }
 .table-box-new {
     margin: 30px 0;
@@ -651,15 +669,15 @@ margin: 0;
     color: #000;
 }
 .dashboard-layout .form-control, .dashboard-layout .form-select {
-    border: 1px solid #303030 !important;
+    border: 1px solid #ddd !important;
     box-shadow: none !important;
     padding: 10px 15px;
     border-radius: 0px;
-    color: #000 !important;
+    color: #fff !important;
     background-color: transparent !important;
 }
 .dashboard-layout .form-select option {
-    background-color: #303030 !important;
+    background-color: #000 !important;
 }
 
 .dashboard-layout .form-control::placeholder{
@@ -667,15 +685,19 @@ margin: 0;
     font-weight: 300;
 }
 .dashboard-layout .input-group {
-    border: 1px solid #303030 !important;
+    border: 1px solid #ddd !important;
     border-radius: 0px;
 }
 .dashboard-layout .input-group .form-control{
     border: none !important;
+    color: #fff;
+}
+.dashboard-layout .input-group .form-control::placeholder{
+    color: #ddd;
 }
 .dashboard-layout .input-group .input-group-text {
     background-color: transparent !important;
-    color: #303030;
+    color: #fff;
     border: none !important;
 }
 
@@ -752,7 +774,7 @@ margin: 0;
     }
     .total-balance-box .white-btn {
         margin-top: 5px !important;
-        min-width: 100%;
+        min-width: auto;
     }
     .all-transaction-link a {
         font-size: 12px;
@@ -825,14 +847,15 @@ margin: 0;
 
 
 .buy-coin-box{
-    background-color: #fff;
+    background-color: #23133F;
     min-height: 300px;
     padding: 20px;
-    box-shadow: 0 0 10px #303030;
+    border: 3px solid #34254E;
     margin-top: 50px;
 }
 .buy-coin-box h3{
     font-size: 24px;
+    color: #fff;
 }
 .buy-coin-box .swap-dropdown {
     margin: 40px 0;
@@ -913,13 +936,13 @@ margin-bottom: 10px;
 .swap-sec-box p{
     font-size: 14px;
     font-weight: 600;
-    color: #303030;
+    color: #ddd;
     margin-bottom: 0;
 }
 .swap-sec-box > div {
-    background-color: #fff;
-    color: #303030;
-    border-color: #fff;
+    background-color: transparent;
+    color: #fff;
+    border-color: transparent;
     font-size: 16px;
     display: flex;
     align-items: center;
@@ -948,7 +971,12 @@ margin-bottom: 10px;
     top: -18px;
     margin: 0 auto;
     background-color: #fff;
-    padding: 5px 15px;
+    padding: 6px;
+    width: 36px;
+    border-radius: 50%;
+}
+.buy-coin-box .common-btn.w-100{
+max-width: 250px;
 }
 
 @media (max-width:1300px){
@@ -991,25 +1019,26 @@ margin-bottom: 10px;
     padding: 30px 0;
 }
 .buy-coin-sec2 .token-box1 {
-    background-color: #fff;
+    background-color: #23133F;
     border-radius: 0;
     padding: 20px;
     min-height: 410px;
+    border: 2px solid #34254E;
 }
 .buy-coin-sec2 .token-head h3 {
-   color: #303030;
+   color: #fff;
     font-size: 24px;
     font-weight: 600;
 }
 .buy-coin-sec2 .token-head p {
-    color: #303030;
+    color: #ddd;
     padding: 10px 0;
     font-size: 14px;
     line-height: 24px;
     margin-bottom: 0;
 }
 .token-box1 .token-content-box {
-    background: #303030;
+    background: #1D1132;
     border-radius: 0;
     cursor: pointer;
 }
@@ -1043,15 +1072,16 @@ margin-bottom: 10px;
     display: block;
 }
 .buy-coin-sec2 .token-box2 {
-    background-color: #fff;
+    background-color: #23133F;
     border-radius: 0;
     padding: 20px;
     min-height: 410px;
+    border: 2px solid #34254E;
 }
 .calculation-row {
     display: flex;
     align-items: center;
-    color: #303030;
+    color: #ddd;
 }
 .calculation-row .equal {
     margin: 0 15px;
@@ -1063,10 +1093,10 @@ margin-bottom: 10px;
     font-size: 20px;
 }
 .buy-coin-modal .modal-content {
-    background-color: #303030;
+    background-color: #23133F;
     border-radius: 0;
+    border: 2px solid #34254E;
 }
-
 .buy-coin-modal .modal-header {
     padding: 10px 15px;
     border-bottom: none;
@@ -1139,13 +1169,19 @@ margin-bottom: 10px;
     color: #fff;
 }
 .white-btn{
-    border: 2px solid #fff !important;
-    background-color: #fff !important;
-    color: #303030 !important;
-    padding: 5px 15px;
-    border-radius: 0px;
+    background-color: transparent !important;
+    border: none !important;
+    background-image: url(../img/home/white-btn-bg.png);
+    padding: 12px 35px;
+    color: #000 !important;
     font-size: 16px;
+    font-style: normal;
     font-weight: 600;
+    line-height: normal;
+    position: relative;
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
     display: inline-block;
 }
 .buy-coin-modal .white-btn{
@@ -1252,11 +1288,11 @@ margin-bottom: 10px;
     margin-right: 10px;
 }
 .sort-dropdown.dropdown .dropdown-toggle {
-    border: 1px solid #303030 !important;
+    border: 1px solid #ddd !important;
     box-shadow: none !important;
-    padding: 6px 15px;
+    padding: 11px 15px;
     border-radius: 0px;
-    color: #000 !important;
+    color: #fff !important;
     background-color: transparent !important;
     width: 100%;
     text-align: left;
@@ -1266,8 +1302,8 @@ margin-bottom: 10px;
 .sort-dropdown.dropdown .dropdown-toggle::after {
     content: "";
     position: absolute;
-    border-bottom: 2px solid #303030;
-    border-right: 2px solid #303030;
+    border-bottom: 2px solid #ddd;
+    border-right: 2px solid #ddd;
     border-left: none;
     height: 8px;
     width: 8px;
@@ -1283,7 +1319,7 @@ margin-bottom: 10px;
     padding: 5px 10px;
 }
 .search-input.input-group .input-group-text a{
-color: #303030 !important;
+color: #ddd !important;
 }
 .filter-row .common-btn {
     margin: 0;
@@ -1309,14 +1345,14 @@ color: #303030 !important;
 }
 
 .table-view-transaction > div.thead p{
-    background-color: #303030;
+    background-color: #23133F;
     color: #fff;
     font-weight: 500;
     font-size: 14px;
 }
 .table-view-transaction > div.tbody p{
     font-size: 14px;
-    color: #303030;
+    color: #ddd;
     font-weight: 400;
 }
 .table-view-transaction > div.tbody p button.common-btn {
@@ -1330,9 +1366,9 @@ color: #303030 !important;
 
 }
 .tabs-outer-transaction .nav-tabs .nav-item .nav-link{
-    border: 1px solid #303030 ;
+    border: 1px solid #fff ;
     background-color: #fff ;
-    color: #303030 ;
+    color: #000 ;
     padding: 5px 15px;
     margin: 10px 10px 10px 0px;
     border-radius: 0px;
@@ -1343,7 +1379,7 @@ color: #303030 !important;
 .tabs-outer-transaction .nav-tabs .nav-item .nav-link:hover,
 .tabs-outer-transaction .nav-tabs .nav-item .nav-link:focus
 {
-    background-color: #303030 !important;
+    background-color: #000 !important;
     color: #fff !important;
 }
 

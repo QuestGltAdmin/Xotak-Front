@@ -313,26 +313,26 @@ export const Buycoin = () => {
                             />
                           </div>
 
-                          <div>
+                          <div className="text-center">
                             {/* <button className="common-btn w-100 m-0 mt-3">Buy Now</button> */}
                             {amountFrom <= 0 ? (
                               <button
                                 className="common-btn w-100 m-0 mt-3"
-                                style={{ maxWidth: "-webkit-fill-available" }}
+                                
                               >
                                 Please enter amount
                               </button>
                             ) : balance < amountFrom ? (
                               <button
                                 className="common-btn w-100 m-0 mt-3"
-                                style={{ maxWidth: "-webkit-fill-available" }}
+                                
                               >
                                 Insufficient balance
                               </button>
                             ) : (
                               <button
                                 className="common-btn w-100 m-0 mt-3"
-                                style={{ maxWidth: "-webkit-fill-available" }}
+                               
                                 onClick={() => {
                                   buyXotak();
                                 }}
