@@ -1466,6 +1466,10 @@ color: #ddd !important;
         width: 95px;
         height: 95px;
     }
+    .filter-row .common-btn {
+        margin: 0;
+        line-height: 10px;
+    }
 }
 .common-btn-accept{
     border-radius: 8px;

@@ -286,7 +286,7 @@ const Dashboard = () => {
                                           "..."
                                         )}
                                       </p>
-                                      <p>{items?.statusIn}</p>
+                                      <p className="text-success">{items?.statusIn}</p>
                                       {/* <p>
                                       <button className="common-btn">
                                         View
