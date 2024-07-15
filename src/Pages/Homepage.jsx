@@ -13,7 +13,7 @@ export const Homepage = () => {
             <Row className="align-items-center">
               <Col lg={5} md={6}>
                 <div data-aos="fade-right">
-                  <h2 className="main-heading">Introducing the XOTOK</h2>
+                  <h2 className="main-heading">Introducing the XOTAK</h2>
                   <p>
                     XOTAK is a native utility token of the DEXTER ecosystem. It
                     is a digital asset that facilitates seamless payments within
