@@ -20,8 +20,11 @@ const xotakAddress = ContractList.xotakToken;
 import { toast } from "react-toastify";
 import { encryptData } from "../../Encrypt-Decrypt/encryption-decryption";
 import axiosMain from "../../http/axios/axios_main";
+import { useNavigate } from "react-router-dom";
+
 
 export const Buycoin = () => {
+  const navigate = useNavigate();
   const { Wallet, user } = useAuth();
   const [xotakBalance, setXotakBalance] = useState(0);
   const [balance, setBalance] = useState(0);
@@ -160,6 +163,9 @@ export const Buycoin = () => {
               setRate(0);
               getBalanceAllownce();
               getXotakBalance();
+              setTimeout(() => {
+                navigate("/Transactions");
+              }, 3000);
             } else {
               toast.error(api?.data?.message);
             }
@@ -277,6 +283,7 @@ export const Buycoin = () => {
                             </div>
                             <FormControl
                               placeholder=""
+                              type="number"
                               name="amountFrom"
                               onChange={(e) => {
                                 setAmountFrom(e.target.value);
@@ -316,23 +323,16 @@ export const Buycoin = () => {
                           <div className="text-center">
                             {/* <button className="common-btn w-100 m-0 mt-3">Buy Now</button> */}
                             {amountFrom <= 0 ? (
-                              <button
-                                className="common-btn w-100 m-0 mt-3"
-                                
-                              >
+                              <button className="common-btn w-100 m-0 mt-3">
                                 Please enter amount
                               </button>
                             ) : balance < amountFrom ? (
-                              <button
-                                className="common-btn w-100 m-0 mt-3"
-                                
-                              >
+                              <button className="common-btn w-100 m-0 mt-3">
                                 Insufficient balance
                               </button>
                             ) : (
                               <button
                                 className="common-btn w-100 m-0 mt-3"
-                               
                                 onClick={() => {
                                   buyXotak();
                                 }}

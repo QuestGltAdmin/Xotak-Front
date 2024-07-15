@@ -21,9 +21,12 @@ import useAuth from "../../hooks/useAuth";
 import toast, { Toaster } from "react-hot-toast";
 import CopyToClipboard from "react-copy-to-clipboard";
 import CheckWallet from "../../helpers/checkWalletHelper";
+import { useNavigate } from "react-router-dom";
+
 
 export const BuycoinTwo = () => {
   //==================================Global Variable================================//
+  const navigate = useNavigate();
   const { user } = useAuth();
   const ref = useRef();
   //==================================End of Code================================//
@@ -133,9 +136,9 @@ export const BuycoinTwo = () => {
     } else {
       setDisable(true);
       setFormError("");
-      let xotakAmt = (inputValue.amount*1).toFixed(4)
-      let paymentAMt = FinalPrice.toFixed(4)
-      console.log(xotakAmt , paymentAMt );
+      let xotakAmt = (inputValue.amount * 1).toFixed(4);
+      let paymentAMt = FinalPrice.toFixed(4);
+      console.log(xotakAmt, paymentAMt);
       const RowWallet = await encryptData(inputdata?.walletaddress);
       const RowHash = await encryptData(inputdata?.hash);
       const RowXotakAmount = await encryptData(xotakAmt);
@@ -144,7 +147,7 @@ export const BuycoinTwo = () => {
       );
       const RowPaymentAmount = await encryptData(paymentAMt);
       const RowNetwork = await encryptData(chain);
-      console.log(RowXotakAmount , RowPaymentAmount );
+      console.log(RowXotakAmount, RowPaymentAmount);
       try {
         const payload = {
           walletAddress: RowWallet,
@@ -174,6 +177,9 @@ export const BuycoinTwo = () => {
             hash: "",
           });
           handleClose();
+          setTimeout(() => {
+            navigate("/Transactions",{state:{flag:"manual"}});
+          }, 3000);
         }
       } catch (error) {
         setDisable(false);
@@ -255,9 +261,7 @@ export const BuycoinTwo = () => {
                           </div>
                           <p>{usdtPrice.toFixed(4)} XOTAK</p>
                         </div>
-                      </div> */}
-                   
-                      {" "}
+                      </div> */}{" "}
                       <div
                         className={
                           chain === "MATIC"
