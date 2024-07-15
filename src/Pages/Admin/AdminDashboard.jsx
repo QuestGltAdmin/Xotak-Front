@@ -94,6 +94,17 @@ const AdminDashboard = () => {
                           <p>Total transaction Count</p>
                         </div>
                       </Col>
+                      <Col lg={3} md={6} sm={6} xs={12}>
+                        <div className="shadow-box-dash">
+                          {/* <img
+                            className="img-coin"
+                            src="assets/img/BNB.png"
+                            alt=""
+                          /> */}
+                          <h4>$ 0.012</h4>
+                          <p>Price Of XOTAK</p>
+                        </div>
+                      </Col>
                     </Row>
                   </div>
                 </div>
@@ -157,7 +168,12 @@ const AdminDashboard = () => {
                                 })
                             ) : (
                               <div>
-                                <p className="text-center" style={{color:"White"}}>No Data Found</p>
+                                <p
+                                  className="text-center"
+                                  style={{ color: "White" }}
+                                >
+                                  No Data Found
+                                </p>
                               </div>
                             )}
                           </div>
