@@ -26,7 +26,7 @@ export default function Header() {
             {pathname === "auth-admin-login" || pathname === "auth-admin-otp" ? (
               <></>
             ) : (
-              <div>
+              <div className="d-flex">
                 <a className="border-btn me-3" href="/login">
                   Login
                 </a>
