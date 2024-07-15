@@ -72,6 +72,7 @@
     border-color: transparent;
     padding: 10px 40px 10px 30px;
     color: #303030;
+    border-radius: 0 !important;
 }
 .connect-wallet-btn.dropdown-toggle::after {
     content: "";
