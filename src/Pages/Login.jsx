@@ -66,8 +66,6 @@ export default function Sign_in() {
       setFormError("Please enter valid Email");
     } else if (!inputValue.password) {
       setFormError("Please enter your password!");
-    } else if (!passregex.test(inputValue.password)) {
-      setFormError("Please enter your password!");
     } else {
       setDisable(true);
       setFormError("");
