@@ -604,7 +604,7 @@ line-height: normal;
     .home-header .navbar-toggler {
         padding: 2px 5px;
         line-height: 14px;
-        background-color: #303030;
+        background-color: #fff;
         border: none;
         margin-left: 5px;
     }
