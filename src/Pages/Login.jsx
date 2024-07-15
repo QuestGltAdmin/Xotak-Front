@@ -59,14 +59,9 @@ export default function Sign_in() {
   };
 
   const HandleLogin = async () => {
-    let passregex = new RegExp(
-      "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,25}$)"
-    );
     if (!inputValue.email) {
       setFormError("Please enter valid Email");
     } else if (!inputValue.password) {
-      setFormError("Please enter your password!");
-    } else if (!passregex.test(inputValue.password)) {
       setFormError("Please enter your password!");
     } else {
       setDisable(true);

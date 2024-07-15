@@ -16,12 +16,14 @@ import axiosMain from "../../http/axios/axios_main";
 import { debounce } from "lodash";
 import useAuth from "../../hooks/useAuth";
 import moment from "moment/moment";
+import { useLocation } from "react-router-dom";
 
 const Transactions = () => {
   //==================================Global Variable================================//
   const { user } = useAuth();
+  const { state } = useLocation("");
+  const { flag } = state || "";
   //==================================End of code================================//
-
   //==================================Local Variable================================//
   const [pageNumberTrxAll, setPageNumberTrxAll] = useState(1);
   const [searchTrxAll, setSearchTrxAll] = useState("");
@@ -137,7 +139,12 @@ const Transactions = () => {
                       <Col>
                         <div className="table-box-new shadow-box-main">
                           <div className="tabs-outer-transaction">
-                            <Tabs defaultActiveKey="tab1" className="mb-3">
+                            <Tabs
+                              defaultActiveKey={
+                                flag === "manual" ? "tab2" : "tab1"
+                              }
+                              className="mb-3"
+                            >
                               <Tab eventKey="tab1" title="All Transactions">
                                 <div className="d-flex justify-content-between filter-row mb-3">
                                   <div className="d-flex align-items-center">
@@ -212,13 +219,17 @@ const Transactions = () => {
                                             <div>
                                               <p>{index + 1}</p>
                                               <p>
-                                                <span className="mobile-only">Date - </span>
+                                                <span className="mobile-only">
+                                                  Date -{" "}
+                                                </span>
                                                 {moment(
                                                   items?.createdAt
                                                 ).format("lll")}
                                               </p>
                                               <p>
-                                                <span className="mobile-only">Wallet Address - </span>
+                                                <span className="mobile-only">
+                                                  Wallet Address -{" "}
+                                                </span>
                                                 {items?.walletAddress?.replace(
                                                   items?.walletAddress?.substring(
                                                     5,
@@ -228,19 +239,25 @@ const Transactions = () => {
                                                 )}
                                               </p>
                                               <p>
-                                               <span className="mobile-only">Amount - </span>
+                                                <span className="mobile-only">
+                                                  Amount -{" "}
+                                                </span>
                                                 {Number(
                                                   items?.amountIn
                                                 )?.toFixed(4)}
                                               </p>
                                               <p>
-                                              <span className="mobile-only">XTK Amount - </span>
+                                                <span className="mobile-only">
+                                                  XTK Amount -{" "}
+                                                </span>
                                                 {Number(
                                                   items?.amountOut
                                                 )?.toFixed(4)}
                                               </p>
                                               <p>
-                                                <span className="mobile-only">Trx Hash - </span>
+                                                <span className="mobile-only">
+                                                  Trx Hash -{" "}
+                                                </span>
                                                 {items?.incomingTrxHash?.replace(
                                                   items?.incomingTrxHash?.substring(
                                                     5,
@@ -249,7 +266,9 @@ const Transactions = () => {
                                                   "..."
                                                 )}
                                               </p>
-                                              <p className="text-success">{items?.statusIn}</p>
+                                              <p className="text-success">
+                                                {items?.statusIn}
+                                              </p>
                                               {/* <p>
                                                 <button className="common-btn">
                                                   View
@@ -262,7 +281,10 @@ const Transactions = () => {
                                   </div>
                                   {showDataTrxAll?.length <= 0 && (
                                     <div>
-                                      <p className="text-center" style={{color:"White"}}>
+                                      <p
+                                        className="text-center"
+                                        style={{ color: "White" }}
+                                      >
                                         No Data Found
                                       </p>
                                     </div>
@@ -406,7 +428,18 @@ const Transactions = () => {
                                                   "..."
                                                 )}
                                               </p>
-                                              <p className={items?.status === "Success" ? "text-success" : items?.status === "Pending" ? "text-pending" : "text-reject"}>{items?.status}</p>
+                                              <p
+                                                className={
+                                                  items?.status === "Success"
+                                                    ? "text-success"
+                                                    : items?.status ===
+                                                      "Pending"
+                                                    ? "text-pending"
+                                                    : "text-reject"
+                                                }
+                                              >
+                                                {items?.status}
+                                              </p>
                                               {/* <p>
                                                 <button className="common-btn">
                                                   View
@@ -419,7 +452,10 @@ const Transactions = () => {
                                   </div>
                                   {showDataReqAll?.length <= 0 && (
                                     <div>
-                                      <p className="text-center" style={{color:"White"}}>
+                                      <p
+                                        className="text-center"
+                                        style={{ color: "White" }}
+                                      >
                                         No Data Found
                                       </p>
                                     </div>
