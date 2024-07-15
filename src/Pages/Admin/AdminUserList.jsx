@@ -96,10 +96,10 @@ const AdminUserList = () => {
                                   </Dropdown.Toggle>
                                   <Dropdown.Menu>
                                     <Dropdown.Item eventKey="a-z">
-                                    A to Z
+                                      A to Z
                                     </Dropdown.Item>
                                     <Dropdown.Item eventKey="z-a">
-                                  Z to A
+                                      Z to A
                                     </Dropdown.Item>
                                     <Dropdown.Item eventKey="latest">
                                       Latest
@@ -153,7 +153,18 @@ const AdminUserList = () => {
                                       return (
                                         <div>
                                           <p>{index + 1}</p>
-                                          <p>{items?.name}</p>
+                                          <p>
+                                            <img
+                                              className="user-img"
+                                              src={
+                                                items?.profilePic
+                                                  ? items?.profilePic
+                                                  : "assets/img/download.jpg"
+                                              }
+                                              alt=""
+                                            />
+                                            {items?.name}
+                                          </p>
                                           <p>{items?.email}</p>
                                           <p>
                                             +{items?.countryCode}-
@@ -171,7 +182,12 @@ const AdminUserList = () => {
                               </div>
                               {showDataTrxAll?.length <= 0 && (
                                 <div>
-                                  <p className="text-center" style={{color:"White"}}>No Data Found</p>
+                                  <p
+                                    className="text-center"
+                                    style={{ color: "White" }}
+                                  >
+                                    No Data Found
+                                  </p>
                                 </div>
                               )}
                             </div>
