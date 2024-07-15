@@ -294,11 +294,17 @@ const AdminTransaction = () => {
                                             <div>
                                               <p>{index + 1}</p>
                                               <p>
+                                              <span className="mobile-only">
+                                                  Date -{" "}
+                                                </span>
                                                 {moment(
                                                   items?.createdAt
                                                 ).format("lll")}
                                               </p>
                                               <p>
+                                              <span className="mobile-only">
+                                                  Wallet Address -{" "}
+                                                </span>
                                                 {items?.walletAddress?.replace(
                                                   items?.walletAddress?.substring(
                                                     5,
@@ -308,16 +314,25 @@ const AdminTransaction = () => {
                                                 )}
                                               </p>
                                               <p>
+                                              <span className="mobile-only">
+                                                  Amount -{" "}
+                                                </span>
                                                 {Number(
                                                   items?.amountIn
                                                 )?.toFixed(4)}
                                               </p>
                                               <p>
+                                              <span className="mobile-only">
+                                                  XTK Amount -{" "}
+                                                </span>
                                                 {Number(
                                                   items?.amountOut
                                                 )?.toFixed(4)}
                                               </p>
                                               <p>
+                                              <span className="mobile-only">
+                                                  Trx Hash -{" "}
+                                                </span>
                                                 {items?.incomingTrxHash?.replace(
                                                   items?.incomingTrxHash?.substring(
                                                     5,
@@ -453,11 +468,17 @@ const AdminTransaction = () => {
                                             <div>
                                               <p>{index + 1}</p>
                                               <p>
+                                              <span className="mobile-only">
+                                                  Date -{" "}
+                                                </span>
                                                 {moment(
                                                   items?.createdAt
                                                 ).format("lll")}
                                               </p>
                                               <p>
+                                              <span className="mobile-only">
+                                                  Wallet Address -{" "}
+                                                </span>
                                                 {items?.sender_address?.replace(
                                                   items?.sender_address?.substring(
                                                     5,
@@ -467,11 +488,17 @@ const AdminTransaction = () => {
                                                 )}
                                               </p>
                                               <p>
+                                              <span className="mobile-only">
+                                                  Amount -{" "}
+                                                </span>
                                                 {Number(
                                                   items?.xotakAmount
                                                 ).toFixed(4)}
                                               </p>
                                               <p>
+                                              <span className="mobile-only">
+                                                  XTK Amount -{" "}
+                                                </span>
                                                 {Number(
                                                   items?.paymentAmount
                                                 ).toFixed(4)}{" "}
@@ -479,6 +506,9 @@ const AdminTransaction = () => {
                                               </p>
 
                                               <p>
+                                              <span className="mobile-only">
+                                                  Trx Hash -{" "}
+                                                </span>
                                                 {items?.hash?.replace(
                                                   items?.hash?.substring(5, 61),
                                                   "..."
