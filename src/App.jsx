@@ -25,7 +25,6 @@ import AdminDashboard from "./Pages/Admin/AdminDashboard";
 import AdminUserList from "./Pages/Admin/AdminUserList";
 import AdminTransaction from "./Pages/Admin/AdminTransaction";
 import AdminPrivateRoute from "./PrivateRoute/AdminPrivateRoute";
-import ScrollToTop from "../src/component/ScrollToTop";
 // import ScrollToTop from "./component/ScrollToTop";
 
 function App() {
@@ -39,7 +38,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-      <ScrollToTop>
+      {/* <ScrollToTop> */}
         <ToastContainer />
         <Routes>
           <Route path="/" element={<Homepage />} />
@@ -120,7 +119,7 @@ function App() {
           />
           {/* End Of Admin routes */}
         </Routes>
-        </ScrollToTop>
+        {/* </ScrollToTop> */}
       </BrowserRouter>
     </>
   );
