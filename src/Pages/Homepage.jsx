@@ -37,8 +37,6 @@ export const Homepage = () => {
                     </a>
                   </div>
                 </div>
-
-                
               </Col>
               <Col lg={5} md={6} className="m-auto">
                 <div className="outer-banner-box" data-aos="fade-left">
