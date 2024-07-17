@@ -33,7 +33,7 @@ export const Homepage = () => {
                       target="_blank"
                       // rel="noopener noreferrer"
                     >
-                      Whitepaper
+                      Whitepape
                     </a>
                   </div>
                 </div>
