@@ -28,12 +28,12 @@ export const Homepage = () => {
                     </a>
 
                     <a
-                      href="/assets/WHITEPAPER.pdf"
+                      href="/WHITEPAPER.pdf"
                       className="black-btn-home"
                       target="_blank"
                       // rel="noopener noreferrer"
                     >
-                      Whitepape
+                      Whitepaper
                     </a>
                   </div>
                 </div>
@@ -436,7 +436,17 @@ export const Homepage = () => {
                         <Accordion.Body>
                           <ul>
                             <li>Website: [Project website URL]</li>
-                            <li>Whitepaper: [Link to whitepaper]</li>
+                            <li>
+                              Whitepaper: [{" "}
+                              <a
+                                href="/WHITEPAPER.pdf"
+                                target="_blank"
+                                // rel="noopener noreferrer"
+                              >
+                                Link to whitepaper
+                              </a>
+                              ]
+                            </li>
                           </ul>
                         </Accordion.Body>
                       </Accordion.Item>
