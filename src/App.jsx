@@ -25,7 +25,7 @@ import AdminDashboard from "./Pages/Admin/AdminDashboard";
 import AdminUserList from "./Pages/Admin/AdminUserList";
 import AdminTransaction from "./Pages/Admin/AdminTransaction";
 import AdminPrivateRoute from "./PrivateRoute/AdminPrivateRoute";
-import ScrollToTop from "./component/ScrollToTop";
+import ScrollToTop from "../src/component/ScrollToTop";
 // import ScrollToTop from "./component/ScrollToTop";
 
 function App() {
