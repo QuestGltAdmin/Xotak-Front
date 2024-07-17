@@ -26,7 +26,12 @@ export const Homepage = () => {
                     <a href="" className="white-btn-home">
                       Get Started
                     </a>
-                    <a href="" className="black-btn-home">
+                    <a
+                      href="/assets/WHITEPAPER.docx"
+                      className="black-btn-home"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       Whitepaper
                     </a>
                   </div>
