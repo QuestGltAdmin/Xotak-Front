@@ -46,7 +46,7 @@ export const FooterHome = () => {
                       <a href="">Github</a>
                       <a href="">Documentation</a>
                       <a
-                        href="/WHITEPAPER.pdf"
+                        href="/whitepaper.pdf"
                         target="_blank"
                       >
                         Whitepaper

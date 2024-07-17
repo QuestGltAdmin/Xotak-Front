@@ -28,7 +28,7 @@ export const Homepage = () => {
                     </a>
 
                     <a
-                      href="/WHITEPAPER.pdf"
+                      href="/whitepaper.pdf"
                       className="black-btn-home"
                       target="_blank"
                       // rel="noopener noreferrer"
@@ -439,7 +439,7 @@ export const Homepage = () => {
                             <li>
                               Whitepaper: [{" "}
                               <a
-                                href="/WHITEPAPER.pdf"
+                                href="/whitepaper.pdf"
                                 target="_blank"
                                 // rel="noopener noreferrer"
                               >
