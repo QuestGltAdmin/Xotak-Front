@@ -26,16 +26,19 @@ export const Homepage = () => {
                     <a href="" className="white-btn-home">
                       Get Started
                     </a>
+
                     <a
-                      href="/assets/WHITEPAPER.docx"
+                      href="/assets/WHITEPAPER.pdf"
                       className="black-btn-home"
                       target="_blank"
-                      rel="noopener noreferrer"
+                      // rel="noopener noreferrer"
                     >
                       Whitepaper
                     </a>
                   </div>
                 </div>
+
+                
               </Col>
               <Col lg={5} md={6} className="m-auto">
                 <div className="outer-banner-box" data-aos="fade-left">
