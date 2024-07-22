@@ -153,17 +153,17 @@ export default function Header() {
                       </Nav.Link>
                       <Nav.Link
                         onClick={() => {
-                          navigate("/buy-coin");
-                        }}
-                      >
-                        <i className="fa fa-money"></i> Buy Coin
-                      </Nav.Link>
-                      <Nav.Link
-                        onClick={() => {
                           navigate("/buy-coin-token");
                         }}
                       >
-                        <i className="fa fa-money"></i> Buy Coin Manual
+                        <i className="fa fa-money"></i> Easy Buy Xotak
+                      </Nav.Link>
+                      <Nav.Link
+                        onClick={() => {
+                          navigate("/buy-coin");
+                        }}
+                      >
+                        <i className="fa fa-money"></i> Buy Coin / Wallet connect
                       </Nav.Link>
                       <Nav.Link
                         onClick={() => {

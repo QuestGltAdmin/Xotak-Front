@@ -238,7 +238,7 @@ const Profile = () => {
                       <Row>
                         <Col lg={4} className="text-center">
                           <div class="profile-pic">
-                            <input
+                            {/* <input
                               type="file"
                               onChange={(e) =>
                                 photoUploadHandler(e, setImageData)
@@ -246,7 +246,7 @@ const Profile = () => {
                               ondragover="drag()"
                               ondrop="drop()"
                               id="uploadFile"
-                            />
+                            /> */}
                             <img
                               onError={() => {
                                 ImageHandler();
