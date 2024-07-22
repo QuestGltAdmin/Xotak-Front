@@ -15,12 +15,7 @@ export const Homepage = () => {
                 <div data-aos="fade-right">
                   <h2 className="main-heading">Introducing the XOTAK</h2>
                   <p>
-                    XOTAK is a native utility token of the DEXTER ecosystem. It
-                    is a digital asset that facilitates seamless payments within
-                    the platform and unlocks a range of benefits for users.
-                    Built on the secure and scalable BNB blockchain, XOTAK
-                    transactions are transparent, immutable, and resistant to
-                    fraud.
+                  XOTAK is a native utility token of the DEXTER ecosystem. It is a digital asset that facilitates seamless payments within the platform and unlocks a range of benefits for users. Built on the secure and scalable BNB blockchain, XOTAK transactions are transparent, immutable, and resistant to fraud.
                   </p>
                   <div>
                     <a href="" className="white-btn-home">
@@ -64,22 +59,18 @@ export const Homepage = () => {
               <Col lg={3} md={4} sm={6} data-aos="fade-right">
                 <div className="usp-inner-box">
                   <h4>
-                    <img src="assets/img/home/usp1.png" alt="" /> Frictionless
-                    Payments
+                    <img src="assets/img/home/usp1.png" alt="" /> Frictionless Payments
                   </h4>
                   <p>
-                    Users can leverage XOTAK to make instant and secure payments
-                    for services within the platform.
+                  Users can leverage XOTAK to make instant and secure payments for services within the platform.
                   </p>
                 </div>
                 <div className="usp-inner-box">
                   <h4>
-                    <img src="assets/img/home/usp2.png" alt="" /> Enhanced
-                    Security
+                    <img src="assets/img/home/usp2.png" alt="" /> Enhanced Security
                   </h4>
                   <p>
-                    Built on a secure blockchain, XOTAK transactions offer
-                    unparalleled security and transparency.
+                  Built on a secure blockchain, XOTAK transactions offer unparalleled security and transparency.
                   </p>
                 </div>
               </Col>
@@ -89,8 +80,7 @@ export const Homepage = () => {
                     <img src="assets/img/home/usp3.png" alt="" /> Reduced Fees
                   </h4>
                   <p>
-                    Compared to traditional payment methods, XOTAK transactions
-                    incur significantly lower fees.
+                  Compared to traditional payment methods, XOTAK transactions incur significantly lower fees.
                   </p>
                 </div>
                 <div className="usp-inner-box">
@@ -99,8 +89,7 @@ export const Homepage = () => {
                     Governance
                   </h4>
                   <p>
-                    Holders of XOTAK can participate in staking mechanisms to
-                    earn rewards & contribute to the governance.
+                  Holders of XOTAK can participate in staking mechanisms to earn rewards & contribute to the governance.
                   </p>
                 </div>
               </Col>
@@ -110,8 +99,7 @@ export const Homepage = () => {
                     <img src="assets/img/home/usp5.png" alt="" /> Global Reach
                   </h4>
                   <p>
-                    XOTAK transcends geographical boundaries, enabling users to
-                    send and receive payments internationally.
+                  XOTAK transcends geographical boundaries, enabling users to send and receive payments internationally.
                   </p>
                 </div>
                 <div className="usp-inner-box mb-5">
@@ -120,8 +108,7 @@ export const Homepage = () => {
                     Future
                   </h4>
                   <p>
-                    In the future, XOTAK may be used for additional
-                    functionalities within the ecosystem.
+                  In the future, XOTAK may be used for additional functionalities within the ecosystem.
                   </p>
                 </div>
               </Col>
@@ -162,10 +149,8 @@ export const Homepage = () => {
                     Roadmap for a Payment Utility Token
                   </h2>
                   <p className="text-center" data-aos="fade-right">
-                    This roadmap outlines the key development phases for the
-                    XOTAK project, <br />
-                    focusing on token integration, ecosystem growth, and
-                    expanding the utility of the token.
+                    This roadmap outlines the key development phases for the XOTAK project, <br />
+                     focusing on token integration, ecosystem growth, and expanding the utility of the token.
                   </p>
                   <img
                     src="assets/img/home/roadmap.png"
@@ -188,14 +173,12 @@ export const Homepage = () => {
                     className="main-heading text-center"
                     data-aos="fade-right"
                   >
+                    
                     Team for a Payment Utility <br />
                     Token Project
                   </h2>
                   <p className="text-center" data-aos="fade-left">
-                    Building a successful payment utility token project requires
-                    a team with a diverse skillset spanning technology, <br />{" "}
-                    finance, and business development. Here's a breakdown of key
-                    team members and their roles.
+                  Building a successful payment utility token project requires a team with a diverse skillset spanning technology, <br/> finance, and business development. Here's a breakdown of key team members and their roles.
                   </p>
                   <div className="team-hexa-outer">
                     <div>
@@ -220,8 +203,8 @@ export const Homepage = () => {
                         />
                         <div>
                           <div>
-                            <h3>DIKSHA GURNANI</h3>
-                            <p>CEO/Founder</p>
+                            <h3>DHRUV PATEL</h3>
+                            <p>COO/Operations Lead</p>
                           </div>
                         </div>
                       </div>
@@ -250,8 +233,8 @@ export const Homepage = () => {
                         />
                         <div>
                           <div>
-                            <h3>DIKSHA GURNANI</h3>
-                            <p>CEO/Founder</p>
+                            <h3>ALOK AGRAWAL</h3>
+                            <p>CTO/Blockchain Lead</p>
                           </div>
                         </div>
                       </div>
@@ -266,8 +249,8 @@ export const Homepage = () => {
                         />
                         <div>
                           <div>
-                            <h3>DIKSHA GURNANI</h3>
-                            <p>CEO/Founder</p>
+                            <h3>JUHI GURNANI</h3>
+                            <p>Chief Product Officer (CPO)</p>
                           </div>
                         </div>
                       </div>
@@ -292,10 +275,8 @@ export const Homepage = () => {
                     Questions
                   </h2>
                   <p className="text-center" data-aos="fade-right">
-                    XOTAK is a native utility token built on the secure BNB
-                    blockchain. It facilitates seamless <br /> payments within
-                    the DEXTER ecosystem and unlocks a range of benefits for
-                    users.
+                    
+                    This FAQ provides answers to commonly asked questions about XOTAK, the utility <br/> token powering the XOTAK ecosystem.
                   </p>
 
                   <div>
