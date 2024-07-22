@@ -21,7 +21,13 @@ export const Homepage = () => {
                     <a href="" className="white-btn-home">
                       Get Started
                     </a>
-                    <a href="" className="black-btn-home">
+
+                    <a
+                      href="/whitepaper.pdf"
+                      className="black-btn-home"
+                      target="_blank"
+                      // rel="noopener noreferrer"
+                    >
                       Whitepaper
                     </a>
                   </div>
@@ -411,7 +417,17 @@ export const Homepage = () => {
                         <Accordion.Body>
                           <ul>
                             <li>Website: [Project website URL]</li>
-                            <li>Whitepaper: [Link to whitepaper]</li>
+                            <li>
+                              Whitepaper: [{" "}
+                              <a
+                                href="/whitepaper.pdf"
+                                target="_blank"
+                                // rel="noopener noreferrer"
+                              >
+                                Link to whitepaper
+                              </a>
+                              ]
+                            </li>
                           </ul>
                         </Accordion.Body>
                       </Accordion.Item>
