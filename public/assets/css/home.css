@@ -774,3 +774,43 @@ line-height: normal;
         top: 26%;
     }
 }
+
+/* footercss */
+.privacymain{
+    background-color: #000;
+
+}
+.tnc-box {
+    text-align: justify;
+    margin-top: 8rem;
+    margin-bottom: 2rem;
+    background-color: #000;
+}
+.privacymain .main1 h1 {
+    color: #fff;
+    font-size: 36px;
+    font-weight: 900;
+    line-height: 50px;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    /* / font-family: 'Apercu Pro', sans-serif; / */
+    font-family: 'Apercu Pro';
+    letter-spacing: 0.4rem;
+}
+.privacymain .main1 p {
+    color: #acabab;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 22px;
+    margin-bottom: 20px;
+    font-family: 'Apercu Pro Regular';
+    letter-spacing: 1px;
+}
+.privacymain .main1 ul li {
+    list-style: none;
+    font-size: 16px;
+    color: #acabab;
+    font-family: 'Apercu Pro Regular';
+    font-weight: normal;
+    line-height: 22px;
+}

@@ -25,6 +25,9 @@ import AdminDashboard from "./Pages/Admin/AdminDashboard";
 import AdminUserList from "./Pages/Admin/AdminUserList";
 import AdminTransaction from "./Pages/Admin/AdminTransaction";
 import AdminPrivateRoute from "./PrivateRoute/AdminPrivateRoute";
+import TermsandCondition from "./Pages/TermsandCondition";
+import PrivacyPolicy from "./Pages/PrivacyPolicy";
+import CookiePolicy from "./Pages/CookiePolicy";
 // import ScrollToTop from "./component/ScrollToTop";
 
 function App() {
@@ -48,6 +51,9 @@ function App() {
           <Route path="/ResetPassword" element={<ResetPassword />} />
           <Route path="/Otp_verification" element={<Otp_verification />} />
           <Route path="/Forgot_password" element={<Forgot_password />} />
+          <Route path="/terms&condition" element={<TermsandCondition />} />
+          <Route path="/privacypolicy" element={<PrivacyPolicy />} />
+          <Route path="/cookie" element={<CookiePolicy />} />
           {/* Auth end */}
 
           <Route

@@ -99,7 +99,7 @@ export default function Register() {
     let regex = new RegExp("[a-z0-9]+@[a-z]+.[a-z]{2,3}");
     let passregex =
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()\-_=+{};:,<.>])[^\s]{6,}$/;
-          if (!inputValue.name) {
+    if (!inputValue.name) {
       setFormError("Please enter Name");
     } else if (!regex.test(inputValue.email)) {
       setFormError("Please enter valid email");
@@ -180,11 +180,11 @@ export default function Register() {
                   <Col lg={12}>
                     <Form.Group className="mb-3">
                       <PhoneInput
-                        country={"in"}
+                        // country={"in"}
                         name="phone"
+                        placeholder="Phone Number"
                         value={phone}
                         onChange={HandelPhoneNo}
-                        placeholder="Phone Number"
                       />
                     </Form.Group>
                   </Col>
@@ -243,7 +243,7 @@ export default function Register() {
                     </Form.Group>
                   </Col>
                 </Row>
-                <p style={{color:"red"}}>{formError}</p>
+                <p style={{ color: "red" }}>{formError}</p>
 
                 <div>
                   <button

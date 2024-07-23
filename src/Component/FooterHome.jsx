@@ -35,30 +35,28 @@ export const FooterHome = () => {
                 <Row>
                   <Col lg={3} md={3}>
                     <div className="extra-link">
-                      <a href="">Tokenomics</a>
-                      <a href="">Team section</a>
-                      <a href="">About Us</a>
-                      <a href="">Techonlogy</a>
+                      <a href="/#tokenomics">Tokenomics</a>
+                      <a href="/#team">Team section</a>
+
+                      <a href="/">Techonlogy</a>
                     </div>
                   </Col>
                   <Col lg={3} md={3}>
                     <div className="extra-link">
-                      <a href="">Github</a>
-                      <a href="">Documentation</a>
-                      <a
-                        href="/whitepaper.pdf"
-                        target="_blank"
-                      >
+                      {/* <a href="">Github</a>
+                      <a href="">Documentation</a> */}
+                      <a href="/terms&condition">Terms of Service</a>
+                      <a href="/privacypolicy">Privacy Policy</a>
+                      <a href="/cookie">Cookies</a>
+                      {/* <a href="">UI Press kit</a> */}
+                    </div>
+                  </Col>
+                  <Col lg={3} md={3}>
+                    <div className="extra-link">
+                      <a href="/whitepaper.pdf" target="_blank">
                         Whitepaper
                       </a>
-                      <a href="">UI Press kit</a>
-                    </div>
-                  </Col>
-                  <Col lg={3} md={3}>
-                    <div className="extra-link">
-                      <a href="">Terms of Service</a>
-                      <a href="">Privacy Policy</a>
-                      <a href="">Cookies</a>
+                      <a href="/">About Us</a>
                     </div>
                   </Col>
                   <Col lg={3} md={3}>
