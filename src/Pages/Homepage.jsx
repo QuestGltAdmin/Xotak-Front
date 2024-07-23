@@ -18,7 +18,7 @@ export const Homepage = () => {
                   XOTAK is a native utility token of the DEXTER ecosystem. It is a digital asset that facilitates seamless payments within the platform and unlocks a range of benefits for users. Built on the secure and scalable BNB blockchain, XOTAK transactions are transparent, immutable, and resistant to fraud.
                   </p>
                   <div>
-                    <a href="" className="white-btn-home">
+                    <a href="/Register" className="white-btn-home">
                       Get Started
                     </a>
 

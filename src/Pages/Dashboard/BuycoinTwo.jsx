@@ -138,7 +138,6 @@ export const BuycoinTwo = () => {
       setFormError("");
       let xotakAmt = (inputValue.amount * 1).toFixed(4);
       let paymentAMt = FinalPrice.toFixed(4);
-      console.log(xotakAmt, paymentAMt);
       const RowWallet = await encryptData(inputdata?.walletaddress);
       const RowHash = await encryptData(inputdata?.hash);
       const RowXotakAmount = await encryptData(xotakAmt);
@@ -147,7 +146,6 @@ export const BuycoinTwo = () => {
       );
       const RowPaymentAmount = await encryptData(paymentAMt);
       const RowNetwork = await encryptData(chain);
-      console.log(RowXotakAmount, RowPaymentAmount);
       try {
         const payload = {
           walletAddress: RowWallet,

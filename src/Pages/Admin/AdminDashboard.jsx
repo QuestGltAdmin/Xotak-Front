@@ -39,7 +39,6 @@ const AdminDashboard = () => {
           authorization: `bearer ${user.token}`,
         },
       });
-      console.log(getResAll);
       if (getResAll?.data?.status) {
         setTotaltrxCount(getResAll?.data?.data?.dashboardData?.totaltrxCount);
         setTotalUserCount(getResAll?.data?.data?.dashboardData?.totalUserCount);

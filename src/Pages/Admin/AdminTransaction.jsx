@@ -109,7 +109,6 @@ const AdminTransaction = () => {
           },
         }
       );
-      // console.log(getResAll);
       if (getResAll?.data?.status) {
         setShowDataReqAll(getResAll?.data?.data?.AllTrxList);
         setTotalOrderCountReqAll(getResAll?.data?.data?.total);

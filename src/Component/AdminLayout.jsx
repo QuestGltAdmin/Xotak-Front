@@ -25,7 +25,7 @@ function AdminLayout(props) {
         navigate("/auth-admin-login");
       }
     } catch (error) {
-    console.log(error);
+    // console.log(error);
     }
   };
 

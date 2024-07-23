@@ -58,7 +58,7 @@ export default function ConnectWalletModal({
         window.location.reload();
       }
     } catch (err) {
-      console.log("Connect Wallet: ", err);
+      // console.log("Connect Wallet: ", err);
       window.location.reload();
 
       if (loadingToastId) {

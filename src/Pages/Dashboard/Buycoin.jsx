@@ -121,12 +121,10 @@ export const Buycoin = () => {
         userAddress: Wallet.selectedAccount,
       };
 
-      // console.log(buyPayload);
 
       const buyRes = await buyXotakBNB(buyPayload);
       if (buyRes) {
         try {
-          // console.log(buyRes);
           const RowCurrency = await encryptData("BNB");
           const RowWallet = await encryptData(Wallet.selectedAccount);
           const RowAmountIN = await encryptData(amountFrom);

@@ -16,7 +16,6 @@ const PresaleContract = ContractList.BNBPresaleContract;
 export const buyXotakBNB = async (data) => {
     // let tokenIn = ChainList.filter((token) => token.chainId === data.chainId);
     // tokenIn = tokenIn[0];
-    // console.log("tokenIn", tokenIn);
 
     // let network = await getNetworkDetail();
     // let web3connect = new Web3(
@@ -24,14 +23,11 @@ export const buyXotakBNB = async (data) => {
     // );
     // // const web3connect = await web3();
     // const accounts = await getAccountDetail();
-    // console.log("selectedAccount", accounts);
     // let selectedAccount = accounts.selectedAccount;
     // const chainId = accounts.chainId;
 
-    // console.log("data.amount", data.amount);
 
     // let amountIn = "0x" + parseFloat(data.amount * 10 ** 18).toString(16);
-    // console.log("amountIn", amountIn);
 
     // let value = amountIn;
     // const caddress = web3connect.utils.toChecksumAddress(PresaleContract);
@@ -50,7 +46,6 @@ export const buyXotakBNB = async (data) => {
     // let presaleContract = new web3connect.eth.Contract(PresaleABI, caddress);
     // try {
     //     let Data = presaleContract.methods.buyTokens(from_account).encodeABI();
-    //     console.log("Data", Data);
     //     let estimates_gas = await web3connect.eth.estimateGas({
     //         from: from_account,
     //         to: caddress,
@@ -72,7 +67,6 @@ export const buyXotakBNB = async (data) => {
     //         data: Data,
     //     };
 
-    //     console.log(tx);
     //     let _config = config();
     //     let hash = await sendTransaction(_config, tx);
     //     const ids = toast.loading(
@@ -117,7 +111,6 @@ export const buyXotakBNB = async (data) => {
 
     if (data.type === "walletConnect") {
         let network = await getNetworkDetail();
-        console.log("network", network);
         let web3connect = new Web3(
             new Web3.providers.HttpProvider(network.chain.rpcUrls.default.http[0])
         );
@@ -168,7 +161,6 @@ export const buyXotakBNB = async (data) => {
                 gas: gasLimit,
                 data : Data
             };
-            console.log(tx);
             let _config = config();
             let hash = await sendTransaction(_config, tx);
             const ids = toast.loading(
@@ -207,7 +199,6 @@ export const buyXotakBNB = async (data) => {
                 //window.location.reload();
             }
         } catch (error) {
-            console.log(error);
             toast.error("Transaction Reverted");
             setTimeout(() => {
                 //window.location.reload();
@@ -324,7 +315,6 @@ export const buyXotakBNB = async (data) => {
             });
             return recipt;
         } catch (error) {
-            console.log(error);
             toast.error("Transaction Reverted");
             setTimeout(() => {
                 //window.location.reload();
