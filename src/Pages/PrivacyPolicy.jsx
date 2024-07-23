@@ -1,5 +1,6 @@
 import React from "react";
 import { FooterHome } from "../Component/FooterHome";
+import { HeaderHome } from "../Component/HeaderHome";
 
 const PrivacyPolicy = () => {
   return (  <>
