@@ -230,13 +230,29 @@ const Transactions = () => {
                                                 <span className="mobile-only">
                                                   Wallet Address -{" "}
                                                 </span>
-                                                {items?.walletAddress?.replace(
+                                                <a
+                                                  href={`https://bscscan.com/address/${items?.walletAddress}`}
+                                                  target="blank"
+                                                  style={{
+                                                    cursor: "pointer",
+                                                    color: "#ddd",
+                                                  }}
+                                                >
+                                                  {items?.walletAddress?.replace(
+                                                    items?.walletAddress?.substring(
+                                                      5,
+                                                      37
+                                                    ),
+                                                    "..."
+                                                  )}
+                                                </a>
+                                                {/* {items?.walletAddress?.replace(
                                                   items?.walletAddress?.substring(
                                                     5,
                                                     37
                                                   ),
                                                   "..."
-                                                )}
+                                                )} */}
                                               </p>
                                               <p>
                                                 <span className="mobile-only">
@@ -258,13 +274,39 @@ const Transactions = () => {
                                                 <span className="mobile-only">
                                                   Trx Hash -{" "}
                                                 </span>
-                                                {items?.incomingTrxHash?.replace(
+                                                {items?.currency == "BNB" ? (
+                                                  <a
+                                                    href={`https://testnet.bscscan.com/tx/${items?.incomingTrxHash}`}
+                                                    target="blank"
+                                                    style={{
+                                                      cursor: "pointer",
+                                                      color: "#ddd",
+                                                    }}
+                                                  >
+                                                    {items?.incomingTrxHash?.replace(
+                                                      items?.incomingTrxHash?.substring(
+                                                        5,
+                                                        61
+                                                      ),
+                                                      "..."
+                                                    )}
+                                                  </a>
+                                                ) : (
+                                                  items?.incomingTrxHash?.replace(
+                                                    items?.incomingTrxHash?.substring(
+                                                      5,
+                                                      61
+                                                    ),
+                                                    "..."
+                                                  )
+                                                )}
+                                                {/* {items?.incomingTrxHash?.replace(
                                                   items?.incomingTrxHash?.substring(
                                                     5,
                                                     61
                                                   ),
                                                   "..."
-                                                )}
+                                                )} */}
                                               </p>
                                               <p className="text-success">
                                                 {items?.statusIn}
@@ -397,7 +439,7 @@ const Transactions = () => {
                                             <div>
                                               <p>{index + 1}</p>
                                               <p>
-                                              <span className="mobile-only">
+                                                <span className="mobile-only">
                                                   Date -{" "}
                                                 </span>
                                                 {moment(
@@ -405,7 +447,7 @@ const Transactions = () => {
                                                 ).format("lll")}
                                               </p>
                                               <p>
-                                              <span className="mobile-only">
+                                                <span className="mobile-only">
                                                   Wallet Address -{" "}
                                                 </span>
                                                 {items?.sender_address?.replace(
@@ -417,7 +459,7 @@ const Transactions = () => {
                                                 )}
                                               </p>
                                               <p>
-                                              <span className="mobile-only">
+                                                <span className="mobile-only">
                                                   Amount -{" "}
                                                 </span>
                                                 {Number(
@@ -425,7 +467,7 @@ const Transactions = () => {
                                                 ).toFixed(4)}
                                               </p>
                                               <p>
-                                              <span className="mobile-only">
+                                                <span className="mobile-only">
                                                   XTK Amount -{" "}
                                                 </span>
                                                 {Number(
@@ -435,7 +477,7 @@ const Transactions = () => {
                                               </p>
 
                                               <p>
-                                              <span className="mobile-only">
+                                                <span className="mobile-only">
                                                   Trx Hash -{" "}
                                                 </span>
                                                 {items?.hash?.replace(
