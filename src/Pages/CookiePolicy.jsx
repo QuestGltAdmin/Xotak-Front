@@ -17,7 +17,7 @@ const CookiePolicy = () => {
                     <span>Scope of This Policy</span>
                     <br></br>
                     1. XOTAK  (we or us or our) uses cookies when you visit
-                    our website, taboo.io, (the Website) to help customise the
+                    our website, XOTAK, (the Website) to help customise the
                     Website and improve your experience using the Website.
                     <br></br>
                     2. This Policy applies between you, the user of this
@@ -33,7 +33,7 @@ const CookiePolicy = () => {
                     function fully or as intended.<br></br>
                     4. This Cookie Policy should be read alongside, and in
                     addition to, our Privacy Policy, which can be found at:
-                    taboo.io/privacy.
+                    XOTAK/privacy.
                   </li>
                 </ul>
                 <ul>
@@ -54,7 +54,7 @@ const CookiePolicy = () => {
                     to the information obtained from and stored in cookies. For
                     more information on how such personal information is handled
                     and stored, refer to our Privacy Policy which is available
-                    online at: taboo.io/privacy.
+                    online at: XOTAK/privacy.
                   </li>
                 </ul>
                 <ul>
@@ -169,9 +169,7 @@ const CookiePolicy = () => {
                     British Virgin Islands with registered number 2049064 whose
                     registered office is at Intershore Chambers, P.O. Box 4342,
                     Road Town, Tortola, Virgin Islands, VG1110,<br></br>
-                    17. You may contact us:<br></br>
-                    a. by email at cookies@taboo.io.<br></br>
-                    <br></br>
+                    
                     <b>This Policy was created on 13 March 2024.</b>
                   </li>
                 </ul>

@@ -22,7 +22,7 @@ const PrivacyPolicy = () => {
               <p>
                 This Privacy Policy should be read alongside, and in addition
                 to, our Terms and Conditions, which can be found at:
-                taboo.io/terms.
+                XOTAK/terms.
               </p>
 
               <p className="mb-0">
@@ -92,7 +92,7 @@ const PrivacyPolicy = () => {
                             <b>Website</b>
                           </td>
                           <td>
-                            the website that you are currently using, taboo.io,
+                            the website that you are currently using, XOTAK,
                             and any sub-domains of this site unless expressly
                             excluded by their own terms and conditions.
                           </td>
@@ -270,9 +270,7 @@ const PrivacyPolicy = () => {
                   both) in your browser when we use this technology.<br></br>
                   16. Technical and organisational measures include measures to
                   deal with any suspected data breach. If you suspect any misuse
-                  or loss or unauthorised access to your Data, please let us
-                  know immediately by contacting us via this e-mail address:
-                  privacy@taboo.io.<br></br>
+                  or loss or unauthorised access to your Data.<br></br>
                   17. If you want detailed information from Get Safe Online on
                   how to protect your information and your computers and devices
                   against fraud, identity theft, viruses and many other online
@@ -315,8 +313,7 @@ const PrivacyPolicy = () => {
                   <br></br>
                   21. To make enquiries, exercise any of your rights set out
                   above, or withdraw your consent to the processing of your Data
-                  (where consent is our legal basis for processing your Data),
-                  please contact us via this e-mail address: privacy@taboo.io.
+                  (where consent is our legal basis for processing your Data)
                   <br></br>
                   22. It is important that the Data we hold about you is
                   accurate and current. Please keep us informed if your Data
@@ -467,8 +464,7 @@ const PrivacyPolicy = () => {
                   required by law. Any changes will be immediately posted on the
                   Website and you are deemed to have accepted the terms of the
                   Privacy Policy on your first use of the Website following the
-                  alterations. You may contact XOTAK by email at
-                  privacy@taboo.io.
+                  alterations. 
                 </li>
                 <br></br>
                 <li>
