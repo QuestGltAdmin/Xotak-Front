@@ -8,9 +8,9 @@ const PrivacyPolicy = () => {
     <div className="privacymain">
       <div className="container">
         <div className="row">
-          <div className="col-md-12">
+          <div className="col-md-12 m-auto">
             <div className="main1 tnc-box">
-              <h1 className="text-center">Privacy Policy</h1>
+              <h2 className="main-heading text-center">PRIVACY POLICY</h2>
               <p>
                 This Privacy Policy applies between you, the User of this
                 Website, and XOTAK, the owner and provider of this
@@ -37,7 +37,7 @@ const PrivacyPolicy = () => {
                   1. In this Privacy Policy, the following definitions are used:
                   <br />
                   <div className="table-responsive">
-                    <table className="terms-table">
+                    <table className="terms-table table table-bordered mt-3">
                       <tbody>
                         <tr>
                           <td>
@@ -364,7 +364,7 @@ const PrivacyPolicy = () => {
                   the Website may not function fully or as intended.<br></br>
                   29. This Website may place the following Cookies:<br></br>
                   <div className="table-responsive">
-                    <table className="terms-table">
+                    <table className="terms-table table table-bordered mt-3">
                       <thead>
                         <tr>
                           <th>
@@ -479,7 +479,8 @@ const PrivacyPolicy = () => {
           </div>
         </div>
       </div>
-    </div> <FooterHome />
+      <FooterHome />
+    </div>
     </>
   );
 };

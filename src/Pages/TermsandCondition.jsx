@@ -9,9 +9,9 @@ const TermsandCondition = () => {
       <div className="privacymain">
         <div className="container">
           <div className="row">
-            <div className="col-md-12">
+            <div className="col-md-12 m-auto">
               <div className="main1 tnc-box">
-                <h1 className="text-center">TERMS AND CONDITIONS OF USE</h1>
+                <h2 className="main-heading text-center">TERMS AND CONDITIONS OF USE</h2>
                 <ul>
                   <li>
                     <span>Introduction </span>
@@ -246,18 +246,16 @@ const TermsandCondition = () => {
                     taboo.io.
                     <br />
                     <br />
-                    {/* <b>
-                      You can contact XOTAK by email on
-                      mailto:info@taboo.io.
-                    </b> */}
+                   
                   </li>
                 </ul>
               </div>
             </div>
           </div>
         </div>
+        <FooterHome />
       </div>
-      <FooterHome />
+
     </>
   );
 };

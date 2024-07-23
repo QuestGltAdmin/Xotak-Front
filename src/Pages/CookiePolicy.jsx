@@ -11,7 +11,7 @@ const CookiePolicy = () => {
           <div className="row">
             <div className="col-md-12">
               <div className="main1 tnc-box">
-                <h1 className="text-center">COOKIE POLICY</h1>
+              <h2 className="main-heading text-center">COOKIE POLICY</h2>
                 <ul>
                   <li>
                     <span>Scope of This Policy</span>
@@ -64,7 +64,7 @@ const CookiePolicy = () => {
                     8. This Website uses the following cookies:
                     <br></br>
                     <div className="table-responsive">
-                      <table className="terms-table">
+                      <table className="terms-table table table-bordered mt-3 ">
                         <thead>
                           <tr>
                             <th>Type of cookie</th>
@@ -175,11 +175,9 @@ const CookiePolicy = () => {
                     <b>This Policy was created on 13 March 2024.</b>
                   </li>
                 </ul>
-              </div>
-            </div>
-            <div className="col-md-12">
-              <div className="main1 tnc-box">
-                <h1 className="text-center">COOKIE SCHEDULE</h1>
+              
+              <h2 className="main-heading text-center">COOKIE SCHEDULE</h2>
+                
                 <ul>
                   <li>
                     Below is a list of the cookies that we may use. We have
@@ -197,7 +195,7 @@ const CookiePolicy = () => {
                     We may use the following strictly necessary cookies:
                     <br></br>
                     <div className="table-responsive">
-                      <table className="terms-table">
+                      <table className="terms-table table table-bordered mt-3">
                         <thead>
                           <tr>
                             <th>
@@ -228,7 +226,7 @@ const CookiePolicy = () => {
                     We may use the following functionality cookies:
                     <br></br>
                     <div className="table-responsive">
-                      <table className="terms-table">
+                      <table className="terms-table table table-bordered mt-3">
                         <thead>
                           <tr>
                             <th>
@@ -259,7 +257,7 @@ const CookiePolicy = () => {
                     We may use the following analytical/performance cookies:
                     <br></br>
                     <div className="table-responsive">
-                      <table className="terms-table">
+                      <table className="terms-table table table-bordered mt-3">
                         <thead>
                           <tr>
                             <th>
@@ -290,7 +288,7 @@ const CookiePolicy = () => {
                     We may use the following targeting cookies:
                     <br></br>
                     <div className="table-responsive">
-                      <table className="terms-table">
+                      <table className="terms-table table table-bordered mt-3">
                         <thead>
                           <tr>
                             <th>
@@ -318,8 +316,9 @@ const CookiePolicy = () => {
             </div>
           </div>
         </div>
+        <FooterHome />
       </div>
-      <FooterHome />
+     
     </>
   );
 };

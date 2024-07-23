@@ -778,39 +778,55 @@ line-height: normal;
 /* footercss */
 .privacymain{
     background-color: #000;
-
+    min-height: 100vh;
+    font-family: "Manrope", sans-serif;
+    overflow-x: hidden;
+    padding: 60px 0;
 }
 .tnc-box {
     text-align: justify;
     margin-top: 8rem;
     margin-bottom: 2rem;
-    background-color: #000;
+    border: 1px solid #fff;
+    padding: 20px;
+    border-radius: 10px;
 }
-.privacymain .main1 h1 {
-    color: #fff;
-    font-size: 36px;
-    font-weight: 900;
-    line-height: 50px;
-    margin-bottom: 16px;
-    text-transform: uppercase;
-    /* / font-family: 'Apercu Pro', sans-serif; / */
-    font-family: 'Apercu Pro';
-    letter-spacing: 0.4rem;
+.tnc-box .main-heading{
+margin-bottom: 40px;
 }
+
 .privacymain .main1 p {
     color: #acabab;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: normal;
     line-height: 22px;
     margin-bottom: 20px;
-    font-family: 'Apercu Pro Regular';
-    letter-spacing: 1px;
+}
+.privacymain .main1 ul{
+    padding-left: 0px;
 }
 .privacymain .main1 ul li {
     list-style: none;
-    font-size: 16px;
+    font-size: 14px;
     color: #acabab;
-    font-family: 'Apercu Pro Regular';
     font-weight: normal;
     line-height: 22px;
+    margin-bottom: 20px;
+}
+.terms-table.table td,
+.terms-table.table th{
+    background-color: transparent !important;
+    color: #acabab;
+}
+
+@media (max-width: 992px) {
+    .tnc-box {
+        margin-top: 3rem;
+        padding: 15px;
+    }
+    .privacymain .main1 ul li {
+        font-size: 12px;
+        line-height: 18px;
+        margin-bottom: 10px;
+    }
 }
