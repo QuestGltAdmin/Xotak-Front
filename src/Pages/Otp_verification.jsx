@@ -119,7 +119,16 @@ export default function Otp_verification() {
                       autoFocus
                       numInputs={6}
                       otpType="number"
-                      renderInput={(props) => <input {...props} />}
+                      renderInput={(props) => (
+                        <input
+                          {...props}
+                          onKeyPress={(e) => {
+                            if (!/[0-9]/.test(e.key)) {
+                              e.preventDefault();
+                            }
+                          }}
+                        />
+                      )}
                     />
                   </div>
                 </Form.Group>
