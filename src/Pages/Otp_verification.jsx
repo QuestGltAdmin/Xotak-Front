@@ -122,8 +122,24 @@ export default function Otp_verification() {
                       renderInput={(props) => (
                         <input
                           {...props}
+                          inputMode="numeric"
+                          pattern="[0-9]*"
                           onKeyPress={(e) => {
                             if (!/[0-9]/.test(e.key)) {
+                              e.preventDefault();
+                            }
+                          }}
+                          onInput={(e) => {
+                            e.target.value = e.target.value.replace(
+                              /[^0-9]/g,
+                              ""
+                            );
+                          }}
+                          onPaste={(e) => {
+                            const paste = (
+                              e.clipboardData || window.clipboardData
+                            ).getData("text");
+                            if (!/^\d+$/.test(paste)) {
                               e.preventDefault();
                             }
                           }}
