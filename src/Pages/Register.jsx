@@ -180,11 +180,11 @@ export default function Register() {
                 </Row>
                 <Row>
                   <Col lg={12}>
-                    <Form.Group className="mb-3">
+                    <Form.Group className="mb-3 position-relative">
                       <PhoneInput
                         country={"in"}
                         name="phone"
-                        placeholder="please enter phone number"
+                        placeholder=""
                         value={phone}
                         // disableCountryCode={true}
                         onChange={HandelPhoneNo}
