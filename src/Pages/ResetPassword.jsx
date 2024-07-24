@@ -102,7 +102,7 @@ export default function ResetPassword() {
           setDisable(false);
           toast.success("Password Reset successfully.");
           setTimeout(() => {
-            navigate("/");
+            navigate("/login");
           }, 3000);
         }
       } catch (error) {
