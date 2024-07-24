@@ -108,7 +108,9 @@ export default function Register() {
     } else if (!inputValue.phone) {
       setFormError("Please enter phone number");
     } else if (!passregex.test(inputValue.password)) {
-      setFormError("Password must contain 1 Uppercase character. Length must be greater or equal to 8 digit & 1 special character");
+      setFormError(
+        "Password must contain 1 Uppercase character. Length must be greater or equal to 8 digit & 1 special character"
+      );
     } else if (inputValue.password !== inputValue.confirmpassword) {
       setFormError("password and confirm password doesn't match");
     } else {
@@ -184,9 +186,15 @@ export default function Register() {
                         name="phone"
                         placeholder="please enter phone number"
                         value={phone}
-                        disableCountryCode={true}
+                        // disableCountryCode={true}
                         onChange={HandelPhoneNo}
                       />
+
+                      {!inputValue?.phone && (
+                        <span className="custom-placeholder">
+                          Enter phone number
+                        </span>
+                      )}
                     </Form.Group>
                   </Col>
                 </Row>

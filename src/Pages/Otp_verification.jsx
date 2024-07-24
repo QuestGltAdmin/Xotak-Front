@@ -55,7 +55,7 @@ export default function Otp_verification() {
           toast.success("OTP verified successfully.");
 
           setTimeout(() => {
-            flag === "forget" ? navigate("/ResetPassword") : navigate("/");
+            flag === "forget" ? navigate("/ResetPassword") : navigate("/login");
           }, 2000);
         }
       } catch (error) {

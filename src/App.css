@@ -1,0 +1,17 @@
+.phone-input-container {
+    position: relative;
+  }
+  
+  .custom-phone-input input {
+    padding-left: 50px; 
+  }
+  
+  .custom-placeholder {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #aaa;
+    pointer-events: none;
+    transition: opacity 0.3s;
+  }

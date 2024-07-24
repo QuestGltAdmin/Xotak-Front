@@ -155,7 +155,13 @@ export default function Sign_in() {
                 </div>
 
                 <div className="outer-forgot-pass-link">
-                  <a href="/Forgot_password" className="forgot-link">
+                  <a
+                    onClick={() => {
+                      navigate("/Forgot_password");
+                    }}
+                    className="forgot-link"
+                    style={{ cursor: "pointer" }}
+                  >
                     Forgot Password?
                   </a>
                   <p className="dont-have-acc">
