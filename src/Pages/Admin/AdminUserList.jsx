@@ -95,12 +95,12 @@ const AdminUserList = () => {
                                       : "Sort"}
                                   </Dropdown.Toggle>
                                   <Dropdown.Menu>
-                                    <Dropdown.Item eventKey="a-z">
+                                    {/* <Dropdown.Item eventKey="a-z">
                                       A to Z
                                     </Dropdown.Item>
                                     <Dropdown.Item eventKey="z-a">
                                       Z to A
-                                    </Dropdown.Item>
+                                    </Dropdown.Item> */}
                                     <Dropdown.Item eventKey="latest">
                                       Latest
                                     </Dropdown.Item>
