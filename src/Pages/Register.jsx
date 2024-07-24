@@ -141,6 +141,17 @@ export default function Register() {
     }
   };
   //========================= end of code =========================//
+  const handleKeyDown = (e) => {
+    const input = e.target;
+    const cursorPosition = input.selectionStart;
+    const countryCodeLength = input.value.match(/^\+?\d*/)[0].length;
+
+    // Check if the backspace key is pressed and the cursor is within the country code
+    if ((e.key === 'Backspace' && cursorPosition <= countryCodeLength) ||
+        (e.key === 'Delete' && cursorPosition < countryCodeLength)) {
+      e.preventDefault();
+    }
+  };
 
   return (
     <>
@@ -188,11 +199,14 @@ export default function Register() {
                         value={phone}
                         // disableCountryCode={true}
                         onChange={HandelPhoneNo}
+                        inputProps={{
+                          onKeyDown: handleKeyDown
+                        }}
                       />
 
                       {!inputValue?.phone && (
                         <span className="custom-placeholder">
-                          Enter phone number
+                          Enter Phone No.
                         </span>
                       )}
                     </Form.Group>
