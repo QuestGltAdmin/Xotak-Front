@@ -59,8 +59,12 @@ export default function Sign_in() {
   };
 
   const HandleLogin = async () => {
+    let regex = new RegExp("[a-z0-9]+@[a-z]+.[a-z]{2,3}");
+
     if (!inputValue.email) {
-      setFormError("Please enter valid Email");
+      setFormError("Please enter your Email");
+    } else if (!regex.test(inputValue.email)) {
+      setFormError("Please enter valid email");
     } else if (!inputValue.password) {
       setFormError("Please enter your password!");
     } else {
