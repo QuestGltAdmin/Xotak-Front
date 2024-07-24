@@ -206,7 +206,7 @@ export default function Register() {
 
                       {!inputValue?.phone && (
                         <span className="custom-placeholder">
-                          Enter Phone No.
+                           Phone No.
                         </span>
                       )}
                     </Form.Group>

@@ -9,8 +9,10 @@ import {
   NavDropdown,
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import useAuth from "../hooks/useAuth";
 
 export const HeaderHome = () => {
+  const { isUserAuthenticated ,user} = useAuth();
   const controlNavbar = () => {
     if (window.scrollY) {
       document.getElementById("headerId").classList.add("darker-header");
@@ -26,6 +28,8 @@ export const HeaderHome = () => {
       window.removeEventListener("scroll", controlNavbar);
     };
   }, []);
+
+
   return (
     <>
       <header className="home-header" id="headerId">
@@ -47,12 +51,32 @@ export const HeaderHome = () => {
               </Nav>
             </Navbar.Collapse>
             <div>
-              <Link className="black-btn-home header-btn me-3" to="/login">
-                Login Now
-              </Link>
-              <Link className="white-btn-home header-btn" to="/Register">
-                Register
-              </Link>
+              {isUserAuthenticated ? (
+                user?.user_role === "admin" ? (
+                  <Link
+                    className="black-btn-home header-btn me-3"
+                    to="/dashboard-admin"
+                  >
+                    AdminDashboard
+                  </Link>
+                ) : (
+                  <Link
+                    className="black-btn-home header-btn me-3"
+                    to="/Dashboard"
+                  >
+                    Dashboard
+                  </Link>
+                )
+              ) : (
+                <>
+                  <Link className="black-btn-home header-btn me-3" to="/login">
+                    Login Now
+                  </Link>
+                  <Link className="white-btn-home header-btn" to="/Register">
+                    Register
+                  </Link>
+                </>
+              )}
             </div>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
           </Container>
