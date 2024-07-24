@@ -182,7 +182,7 @@ export default function Register() {
                       <PhoneInput
                         country={"in"}
                         name="phone"
-                        placeholder="please enter Phone Number"
+                        placeholder="please enter phone number"
                         value={phone}
                         disableCountryCode={true}
                         onChange={HandelPhoneNo}
