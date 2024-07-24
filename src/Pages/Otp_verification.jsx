@@ -21,7 +21,6 @@ export default function Otp_verification() {
   const { state } = useLocation("");
   const { email, flag } = state || "";
   const navigate = useNavigate();
-
   //==================================End of code================================//
 
   //=============== Local vaiable ====================//
@@ -55,7 +54,9 @@ export default function Otp_verification() {
           toast.success("OTP verified successfully.");
 
           setTimeout(() => {
-            flag === "forget" ? navigate("/ResetPassword") : navigate("/login");
+            flag === "forget"
+              ? navigate("/ResetPassword", { state: { mail: email } })
+              : navigate("/login");
           }, 2000);
         }
       } catch (error) {

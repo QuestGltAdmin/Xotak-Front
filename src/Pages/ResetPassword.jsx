@@ -9,7 +9,7 @@ import {
   FormControl,
 } from "react-bootstrap";
 import Layout from "../Component/Loginheader";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import axiosMain from "../http/axios/axios_main";
 import { encryptData } from "../Encrypt-Decrypt/encryption-decryption";
@@ -19,13 +19,14 @@ export default function ResetPassword() {
   //=============== Globle vaiable ====================//
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const { state } = useLocation("");
+  const { mail } = state || "";
   //===============End of code====================//
-
+  
   //=============== Local vaiable ====================//
   const [formError, setFormError] = useState("");
   const [disable, setDisable] = useState(false);
   const [inputValue, setInputValue] = useState({
-    email: "",
     password: "",
     confirmpassword: "",
   });
@@ -77,18 +78,16 @@ export default function ResetPassword() {
   };
 
   const HandleReset = async () => {
-    if (!inputValue?.email) {
-      setFormError("Please enter your Email");
-    } else if (!inputValue?.password) {
-      setFormError("Please enter your Email");
+    if (!inputValue?.password) {
+      setFormError("Please enter your password");
     } else if (!inputValue?.confirmpassword) {
-      setFormError("Please enter your Email");
+      setFormError("Please enter your confirmpassword");
     } else if (inputValue?.password !== inputValue?.confirmpassword) {
       setFormError("password and confirm password doesn't match");
     } else {
       setDisable(true);
       setFormError("");
-      const RowEmail = await encryptData(inputValue?.email);
+      const RowEmail = await encryptData(mail);
       const RowPassword = await encryptData(inputValue?.password);
 
       try {
@@ -123,7 +122,7 @@ export default function ResetPassword() {
               <div className="outer-bg-signup">
                 <h3> Reset Your password </h3>
                 <h5>Enter your email address and Password.</h5>
-                <Form.Group className="mb-3">
+                {/* <Form.Group className="mb-3">
                   <Form.Control
                     type="email"
                     placeholder="Enter your email"
@@ -132,7 +131,7 @@ export default function ResetPassword() {
                     value={inputValue.email}
                     className="mb-0"
                   />
-                </Form.Group>
+                </Form.Group> */}
                 <Form.Group className="mb-3">
                   <InputGroup className="mb-3">
                     <Form.Control
@@ -183,7 +182,7 @@ export default function ResetPassword() {
                     </InputGroup.Text>
                   </InputGroup>
                 </Form.Group>
-                <p style={{color:"red"}}>{formError}</p>
+                <p style={{ color: "red" }}>{formError}</p>
                 <div>
                   <button
                     className="common-btn w-100 m-0"

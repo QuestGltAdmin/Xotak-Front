@@ -71,7 +71,7 @@ export default function Forgot_password() {
           <Row>
             <Col lg={5} className="m-auto">
               <div className="outer-bg-signup">
-                <h3> Generate Your Password </h3>
+                <h3>Forget Password </h3>
                 <h5>
                   Enter your email address below. If we have it on file, we will
                   send you a reset email.
