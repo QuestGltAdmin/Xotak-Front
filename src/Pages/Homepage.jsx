@@ -363,8 +363,7 @@ export const Homepage = () => {
                           <span>04</span> Where can I buy XOTAK?
                         </Accordion.Header>
                         <Accordion.Body>
-                          XOTAK WILL BE SOON AVAILABLE ON OUR WEBSITE AND
-                          PANCAKESWAP EXCHANGE.
+                          XOTAK Will be soon available on our website and pancakeswap exchange.
                         </Accordion.Body>
                       </Accordion.Item>
                       <Accordion.Item eventKey="4">

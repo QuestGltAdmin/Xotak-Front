@@ -37,8 +37,7 @@ export const FooterHome = () => {
                     <div className="extra-link">
                       <a href="/#tokenomics">Tokenomics</a>
                       <a href="/#team">Team section</a>
-
-                      <a href="/">Techonlogy</a>
+                      <a href="/#usp">Techonlogy</a>
                     </div>
                   </Col>
                   <Col lg={3} md={3}>
@@ -56,7 +55,7 @@ export const FooterHome = () => {
                       <a href="/whitepaper.pdf" target="_blank">
                         Whitepaper
                       </a>
-                      <a href="/">About Us</a>
+                      <a href="/#roadmap">Roadmap</a>
                     </div>
                   </Col>
                   <Col lg={3} md={3}>

@@ -141,7 +141,7 @@ const TermsandCondition = () => {
                     Policy and Cookies Policy, which are incorporated into these
                     terms and conditions by this reference. To view the Privacy
                     Policy and Cookies Policy, please click on the following:
-                    taboo.io/privacy and taboo.io/cookies.
+                    XOTAK/privacy and XOTAK/cookies.
                   </li>
                   <li>
                     <span>Availability of the Website and Disclaimers</span>
@@ -243,7 +243,7 @@ const TermsandCondition = () => {
                     Islands with registered number 2049064 whose registered
                     address is Intershore Chambers, P.O. Box 4342, Road Town,
                     Tortola., Virgin Islands, VG1110 and it operates the Website
-                    taboo.io.
+                    XOTAK.
                     <br />
                     <br />
                    
