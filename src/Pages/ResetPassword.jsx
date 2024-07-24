@@ -22,7 +22,7 @@ export default function ResetPassword() {
   const { state } = useLocation("");
   const { mail } = state || "";
   //===============End of code====================//
-  
+
   //=============== Local vaiable ====================//
   const [formError, setFormError] = useState("");
   const [disable, setDisable] = useState(false);
@@ -121,7 +121,7 @@ export default function ResetPassword() {
             <Col lg={5} className="m-auto">
               <div className="outer-bg-signup">
                 <h3> Reset Your password </h3>
-                <h5>Enter your email address and Password.</h5>
+                <h5>Enter your Password.</h5>
                 {/* <Form.Group className="mb-3">
                   <Form.Control
                     type="email"
