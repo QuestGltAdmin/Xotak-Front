@@ -21,6 +21,7 @@ import { toast } from "react-toastify";
 import { encryptData } from "../../Encrypt-Decrypt/encryption-decryption";
 import axiosMain from "../../http/axios/axios_main";
 import { useNavigate } from "react-router-dom";
+import { contractRateBNB } from "../../helpers/contratRateFetch";
 
 
 export const Buycoin = () => {
@@ -100,9 +101,12 @@ export const Buycoin = () => {
 
   const getAmountOut = async () => {
     try {
-      const getData = await getDollarPrice("BNB");
-
-      let finalPrice = getData * (amountFrom / 0.012);
+      let data = {
+        chainId : 97
+      }
+      const getData = await contractRateBNB(data)
+      console.log("getData", getData);
+      let finalPrice = getData * amountFrom ;
       setRate(finalPrice);
     } catch (err) {
       setRate(0);

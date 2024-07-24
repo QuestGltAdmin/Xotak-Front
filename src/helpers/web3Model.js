@@ -19,10 +19,10 @@ const projectId = "d08eb2217fb6617806808dc3fa08f8b4";
 
 // 2. Create wagmiConfig
 const metadata = {
-  name: "Project Name",
-  description: "Frontend Testing Project",
-  url: "https://walletconnect.com/",
-  icons: ["https://bafybeigesge5mcfs5ipekq7wvjrqnrl6o7nlgknrjqhp6t52x7j75sym2a.ipfs.nftstorage.link/"],
+  name: "Xotak",
+  description: "Xotak Coin",
+  url: "https://xotakcoin.com/",
+  icons: ["https://xotakcoin.com/assets/img/favicon.png"],
 };
 
 // Define chains
