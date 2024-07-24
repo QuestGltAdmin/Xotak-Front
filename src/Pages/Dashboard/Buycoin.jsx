@@ -127,8 +127,8 @@ export const Buycoin = () => {
         try {
           const RowCurrency = await encryptData("BNB");
           const RowWallet = await encryptData(Wallet.selectedAccount);
-          const RowAmountIN = await encryptData(amountFrom);
-          const RowAmountOut = await encryptData(Rate);
+          const RowAmountIN = await encryptData(Number(amountFrom)?.toFixed(4));
+          const RowAmountOut = await encryptData(Rate?.toFixed(4));
           const RowStatusIn = await encryptData("Success");
           const RowIncomingHash = await encryptData(buyRes?.transactionHash);
           const RowNetworkFrom = await encryptData(tokenInNew.chainId);
