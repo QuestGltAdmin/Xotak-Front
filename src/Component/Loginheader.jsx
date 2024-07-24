@@ -23,16 +23,17 @@ export default function Header() {
             <Navbar.Brand href="/">
               <img src="assets/img/home/home-logo.png" />
             </Navbar.Brand>
-            {pathname === "auth-admin-login" || pathname === "auth-admin-otp" ? (
+            {pathname === "auth-admin-login" ||
+            pathname === "auth-admin-otp" ? (
               <></>
             ) : (
               <div className="d-flex">
-                <a className="border-btn me-3" href="/login">
+                <Link className="border-btn me-3" to="/login">
                   Login
-                </a>
-                <a className="common-btn" href="/Register">
+                </Link>
+                <Link className="common-btn" to="/Register">
                   Register
-                </a>
+                </Link>
               </div>
             )}
           </Container>

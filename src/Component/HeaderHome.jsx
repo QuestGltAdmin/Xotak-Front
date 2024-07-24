@@ -1,5 +1,13 @@
 import React, { useEffect } from "react";
-import { Navbar, Container, Nav, Button, Col, Row, NavDropdown } from "react-bootstrap";
+import {
+  Navbar,
+  Container,
+  Nav,
+  Button,
+  Col,
+  Row,
+  NavDropdown,
+} from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 export const HeaderHome = () => {
@@ -20,32 +28,36 @@ export const HeaderHome = () => {
   }, []);
   return (
     <>
-         <header className="home-header" id="headerId">
-              <Navbar  className="" expand="lg">
-                <Container>
-                    <Navbar.Brand href="/">
-                        <img src="assets/img/home/home-logo.png" />
-                    </Navbar.Brand>
-                    <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="m-auto">
-                      <Nav.Link href="/#" className="active">Home</Nav.Link>
-                      <Nav.Link href="/#usp">Services</Nav.Link>
-                      <Nav.Link href="/#tokenomics">Tokenomics</Nav.Link>
-                      <Nav.Link href="/#roadmap">Roadmap</Nav.Link>
-                      <Nav.Link href="/#team">Team</Nav.Link>
-                      <Nav.Link href="/#faq">FAQ</Nav.Link>
-                      
-                    </Nav>
-                  </Navbar.Collapse>
-                    <div>
-                    <a className="black-btn-home header-btn me-3" href="/login">Login Now</a>
-                        <a className="white-btn-home header-btn" href="/Register">Register</a>
-                    </div>
-                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                   
-                </Container>
-                </Navbar>
-            </header>
+      <header className="home-header" id="headerId">
+        <Navbar className="" expand="lg">
+          <Container>
+            <Navbar.Brand href="/">
+              <img src="assets/img/home/home-logo.png" />
+            </Navbar.Brand>
+            <Navbar.Collapse id="basic-navbar-nav">
+              <Nav className="m-auto">
+                <Nav.Link href="/#" className="active">
+                  Home
+                </Nav.Link>
+                <Nav.Link href="/#usp">Services</Nav.Link>
+                <Nav.Link href="/#tokenomics">Tokenomics</Nav.Link>
+                <Nav.Link href="/#roadmap">Roadmap</Nav.Link>
+                <Nav.Link href="/#team">Team</Nav.Link>
+                <Nav.Link href="/#faq">FAQ</Nav.Link>
+              </Nav>
+            </Navbar.Collapse>
+            <div>
+              <Link className="black-btn-home header-btn me-3" to="/login">
+                Login Now
+              </Link>
+              <Link className="white-btn-home header-btn" to="/Register">
+                Register
+              </Link>
+            </div>
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          </Container>
+        </Navbar>
+      </header>
     </>
-  )
-}
+  );
+};
