@@ -36,7 +36,7 @@ export const Buycoin = () => {
   const [tokenInNew, setTokenInNew] = useState({
     address: "0x0000000000000000000000000000000000000000",
     symbol: "BNB",
-    chainId: "97",
+    chainId: "56",
     logos: "https://assets.taboo.io/icons/bnb.png",
   });
 
@@ -102,7 +102,7 @@ export const Buycoin = () => {
   const getAmountOut = async () => {
     try {
       let data = {
-        chainId : 97
+        chainId : 56
       }
       const getData = await contractRateBNB(data)
       console.log("getData", getData);

@@ -1,8 +1,8 @@
 {
     "Contracts": [
       {
-        "xotakToken": "0xeF89b6541F281F2b10F5D66E36034C9544B792D1",
-        "BNBPresaleContract": "0x0fa6Fd59CEAe09e89dbb6356A7912feD7d65bc43"
+        "xotakToken": "0x3d38EFfF7BE34c41FaEED32b00A2c34a5aa6629E",
+        "BNBPresaleContract": "0xb7cCd4df65D89d6B367374D7195E9992f3BFb953"
       }
     ]
   }

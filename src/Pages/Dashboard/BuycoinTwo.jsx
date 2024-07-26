@@ -22,6 +22,7 @@ import toast, { Toaster } from "react-hot-toast";
 import CopyToClipboard from "react-copy-to-clipboard";
 import CheckWallet from "../../helpers/checkWalletHelper";
 import { useNavigate } from "react-router-dom";
+import { contractRateBNB } from "../../helpers/contratRateFetch";
 
 
 export const BuycoinTwo = () => {
@@ -87,7 +88,16 @@ export const BuycoinTwo = () => {
         setCurrentPrice(maticprices);
       } else if (chain == "USDT") {
         setCurrentPrice(1);
-      } else {
+      }else if (chain == "BNB") {
+        let data = {
+          chainId : 56
+        }
+        const getData = await contractRateBNB(data)
+        console.log("getData", getData);
+        const temp = getData * 0.012
+        setCurrentPrice(temp);
+      }
+       else {
         const Getprice = await getDollarPrice(chain);
         setCurrentPrice(Getprice);
       }
@@ -105,8 +115,12 @@ export const BuycoinTwo = () => {
       const maticprices = await getDollarPriceMatic();
       setMaticPrice(maticprices / 0.012);
 
-      const bnbprice = await getDollarPrice("BNB");
-      setBNBPrice(bnbprice / 0.012);
+      let data = {
+        chainId : 56
+      }
+      const getData = await contractRateBNB(data)
+      console.log("getData", getData);
+      setBNBPrice(getData);
 
       const ethprice = await getDollarPrice("ETH");
       setETHPrice(ethprice / 0.012);
@@ -142,7 +156,7 @@ export const BuycoinTwo = () => {
       const RowHash = await encryptData(inputdata?.hash);
       const RowXotakAmount = await encryptData(xotakAmt);
       const RowAdminaddress = await encryptData(
-        "0x25E8dCdF4ceF1536C38B815D1b06D6cF0E52E7F7"
+        "0x39ED08040FA59e21c4Fd82e83D0Fc0827A436F78"
       );
       const RowPaymentAmount = await encryptData(paymentAMt);
       const RowNetwork = await encryptData(chain);
@@ -389,7 +403,7 @@ export const BuycoinTwo = () => {
             <div className="scan-qr-row">
               <img
                 className="qr-img"
-                src="https://cycoin.com/assets/images/QRcode/ETH.png"
+                src="./assets/img/QRcode/BNB.png"
                 alt=""
               />
               <div>
@@ -416,11 +430,11 @@ export const BuycoinTwo = () => {
                   </InputGroup.Text>
                   <Form.Control
                     type="text"
-                    placeholder="0x25E8dCdF4ceF1536C38B815D1b06D6cF0E52E7F7"
+                    placeholder="0x39ED08040FA59e21c4Fd82e83D0Fc0827A436F78"
                   />
                   <InputGroup.Text>
                     <CopyToClipboard
-                      text={"0x25E8dCdF4ceF1536C38B815D1b06D6cF0E52E7F7"}
+                      text={"0x39ED08040FA59e21c4Fd82e83D0Fc0827A436F78"}
                       onCopy={(text, result) => {
                         setCopied(true);
                       }}

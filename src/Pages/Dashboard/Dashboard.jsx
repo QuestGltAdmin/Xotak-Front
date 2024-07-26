@@ -84,7 +84,7 @@ const Dashboard = () => {
   const getXotakBalance = async () => {
     try {
       const payload = {
-        chainId: 97,
+        chainId: 56,
         walletAddress: Wallet?.selectedAccount,
         tokenAddress: xotakAddress,
       };
